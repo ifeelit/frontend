@@ -33,10 +33,13 @@
     <label>
       Adresse
     </label>
+    <br>
     <input type="text" placeholder="Straße" [value]="contactData.street">
     <input type="text" placeholder="Hausnummer" [value]="contactData.houseNumber">
+    <br>
     <input type="text" placeholder="PLZ" [value]="contactData.postalCode">
     <input type="text" placeholder="Stadt" [value]="contactData.city">
+    <br>
     <input type="text" placeholder="Land" [value]="contactData.country">
   </div>
 </form>
@@ -46,15 +49,25 @@
 <button (click)="addPersonnel()">Personal hinzufügen</button>
 <button (click)="addDevice()">Gerät hinzufügen</button>
 <button (click)="addConsumable()">Verbrauchsmaterial hinzufügen</button>
+<button class="button" (click)="onSubmit()">Angebot erstellen!</button>
 
-<div *ngFor="let g of goods">
+<div *ngFor="let g of goods; let gIndex = index">
   <div *ngIf="g.type === 'personnel'">
     <h4>Mensch</h4>
     <div>
       <label>
         Qualification
       </label>
-      <input type="text" [value]="g.qualification">
+      <select name="offering" [value]="g.qualification">
+        <option value="ta">TA</option>
+        <option value="labAssistant">Laborant</option>
+        <option value="postdoc">Postdoc</option>
+        <option value="phd">PhD-Student</option>
+        <option value="msc">MSc-Student</option>
+        <option value="bsc">BSc-Student</option>
+        <option value="other">anderes</option>
+      </select>
+
     </div>
     <div>
       <label>
@@ -85,6 +98,11 @@
         Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme vorhanden)
       </label>
       <input type="text" [value]="g.notes">
+    </div>
+    <div>
+      <input type="checkbox"> 
+      <label>
+        Meine Eherenamtiliche Tätigkeit findet außerhalb meiner Arbeitszeiten statt und ist mit meinem Vorgesetzten / meiner Vorgesetzten abgeklärt.</label>
     </div>
   </div>
 
@@ -156,8 +174,9 @@
     </div>
   </div>
 
+  <button (click)="deleteItem(gIndex)">Gut entfernen</button>
+
   <hr />
 </div>
 
 
-<button class="button" (click)="onSubmit()">Angebot erstellen!</button>

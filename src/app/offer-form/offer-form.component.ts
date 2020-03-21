@@ -36,6 +36,11 @@ export class OfferFormComponent implements OnInit {
     console.log(this.contactData, this.goods);
   }
 
+  deleteItem(delGood) {
+    if (this.goods.length !== 0) {
+      this.goods.splice(delGood,1);
+    }
+  }
 
   addPersonnel() {
     this.goods.push({
@@ -70,4 +75,5 @@ export class OfferFormComponent implements OnInit {
       number: undefined,
     });
   }
+
 }
