@@ -61,7 +61,7 @@
 
 <div *ngFor="let g of goods; let gIndex = index">
   <div *ngIf="g.type === 'personnel'" class="form-block">
-    <div class="form-block__label"><button (click)="deleteItem(gIndex)">🗑️</button> Mensch</div>
+    <div class="form-block__label"><button (click)="deleteItem(gIndex)">🗑️</button> Helfer</div>
     <div class="form-block__select">
       <label>
         Qualifikation
@@ -73,7 +73,7 @@
         <option value="phd">PhD-Student</option>
         <option value="msc">MSc-Student</option>
         <option value="bsc">BSc-Student</option>
-        <option value="other">anderes</option>
+        <option value="other">Sonstiges (Bitte in den Anmerkungen näher spezifizieren)</option>
       </select>
     </div>
     <div class="form-block__input-field">
@@ -88,11 +88,23 @@
       </label>
       <input type="text" [(ngModel)]="g.researchGroup">
     </div>
-    <div class="form-block__input-field">
+    <div class="form-block__select">
       <label>
         Bereich
       </label>
-      <input type="text" [(ngModel)]="g.area">
+      <select [(ngModel)]="g.area">
+        <option value="chemistry">Chemie</option>
+        <option value="biochemistry">Biochemie</option>
+        <option value="genetics">Genetik</option>
+        <option value="cellbiology">Zellbiologie</option>
+        <option value="biology">Biologie</option>
+        <option value="virology">Virologie</option>
+        <option value="microbiology">Mikrobiologie</option>
+        <option value="molecularbiology">Molekularbiologie</option>
+        <option value="pharmacology">Pharmakologie</option>
+        <option value="medicine">Medizin</option>
+        <option value="others">Sonstiges (Bitte in den Anmerkungen näher spezifizieren)</option>
+      </select>
     </div>
     <div class="form-block__boxes">
       <div>Haben Sie Erfahrung in der Durchführung von PCR und RT PCR?</div>
@@ -115,7 +127,7 @@
     <div>
       <input type="checkbox"> 
       <label>
-        Meine Eherenamtiliche Tätigkeit findet außerhalb meiner Arbeitszeiten statt und ist mit meinem Vorgesetzten / meiner Vorgesetzten abgeklärt.</label>
+        Meine ehrenamtiliche Tätigkeit findet außerhalb meiner Arbeitszeiten statt und ist mit meinem Vorgesetzten / meiner Vorgesetzten abgeklärt.</label>
     </div>
   </div>
 
@@ -127,23 +139,39 @@
         Kategorie
       </label>
       <select [(ngModel)]="g.category">
+        <option value="prc-cycler">PRC Cycler</option>
+        <option value="rt-prc-cycler">RT PRC Cycler</option>
         <option value="zentrifuge">Zentrifuge</option>
-        <option value="prc-cycler">PRC-Cycler</option>
-        <option value="handschuhe">Handschuhe</option>
-        <option value="desinfection">Desinfektionsmittel</option>
+        <option value="vortexer">Vortexer</option>
+        <option value="pipette">Pipette</option>
+        <option value="others">Sonstiges</option>
       </select>
     </div>
 
     <div class="form-block__input-field">
       <label>
-        Exakte Materialbezeichnung mit Name, Hersteller, Bestellnummer
+        Exakte Materialbezeichnung
       </label>
       <input type="text" [(ngModel)]="g.deviceName">
     </div>
 
     <div class="form-block__input-field">
       <label>
-        Standort mit Postleitzahl
+        Hersteller
+      </label>
+      <input type="text" [(ngModel)]="g.manufacturer">
+    </div>
+
+    <div class="form-block__input-field">
+      <label>
+        Bestellnummer
+      </label>
+      <input type="text" [(ngModel)]="g.ordernumber">
+    </div>
+
+    <div class="form-block__input-field">
+      <label>
+        Standort - Postleitzahl
       </label>
       <input type="text" [(ngModel)]="g.locationPostalCode">
     </div>
@@ -152,7 +180,30 @@
       <label>
         Vorhandene Menge
       </label>
-      <input type="number" [(ngModel)]="g.number">
+      <div>
+        <input type="number" [(ngModel)]="g.number">
+        <div>
+          <select [(ngModel)]="g.unit">
+            <option value="">Einheit auswählen</option>
+            <option value="item">Stück</option>
+            <option value="pack">Packung</option>
+            <option value="other">Sonstiges</option>
+          </select>
+          <input
+            *ngIf="g.unit === 'other'"
+            [(ngModel)]="g.unitSelfDefined"
+            type="text"
+            placeholder="Bitte die Einheit spezifizieren."
+            style="width: 200px; margin-left: 20px;"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="form-block__input-field">
+      <label>
+        Anmerkungen
+      </label>
+      <textarea [(ngModel)]="g.notes"></textarea>
     </div>
   </div>
 
@@ -176,9 +227,23 @@
 
     <div class="form-block__input-field">
       <label>
-        Exakte Materialbezeichnung mit Name, Hersteller, Bestellnummer
+        Exakte Materialbezeichnung
       </label>
       <input type="text" [(ngModel)]="g.deviceName">
+    </div>
+
+    <div class="form-block__input-field">
+      <label>
+        Hersteller
+      </label>
+      <input type="text" [(ngModel)]="g.manufacturer">
+    </div>
+
+    <div class="form-block__input-field">
+      <label>
+        Bestellnummer
+      </label>
+      <input type="text" [(ngModel)]="g.ordernumber">
     </div>
 
     <div class="form-block__input-field">
@@ -192,7 +257,30 @@
       <label>
         Vorhandene Menge
       </label>
-      <input type="number" [(ngModel)]="g.number">
+      <div>
+        <input type="number" [(ngModel)]="g.number">
+        <div>
+          <select [(ngModel)]="g.unit">
+            <option value="">Einheit auswählen</option>
+            <option value="item">Stück</option>
+            <option value="pack">Packung</option>
+            <option value="other">Sonstiges</option>
+          </select>
+          <input
+            *ngIf="g.unit === 'other'"
+            [(ngModel)]="g.unitSelfDefined"
+            type="text"
+            placeholder="Bitte die Einheit spezifizieren."
+            style="width: 300px; margin-left: 20px;"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="form-block__input-field">
+      <label>
+        Anmerkungen
+      </label>
+      <textarea [(ngModel)]="g.notes"></textarea>
     </div>
   </div>
 </div>
