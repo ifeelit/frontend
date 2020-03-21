@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-offer-form',
@@ -7,33 +8,66 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./offer-form.component.scss']
 })
 export class OfferFormComponent implements OnInit {
-  offerForm;
 
-  constructor(
-    private formBuilder: FormBuilder,
-  ) {
-      this.offerForm = this.formBuilder.group({
-        offering: '',
-        serialnumber: '',
-        organisation: '',
-        person: '',
-        mail: '',
-        phone: '',
-        street: '',
-        houseNumber: '',
-        postalCode: '',
-        city: '',
-        country: ''
-      });
-   }
+  contactData = {
+    organisation: '',
+    person: '',
+    mail: '',
+    phone: '',
+    street: '',
+    houseNumber: '',
+    postalCode: '',
+    city: '',
+    country: ''
+  };
+
+  goods = [];
+
+
+  constructor() {
+  }
+
 
   ngOnInit(): void {
   }
 
-  onSubmit(customData) {
-    //Process new offer here
-    this.offerForm.reset();
-    console.warn('New offer was generated', customData);
+
+  onSubmit() {
+    console.log(this.contactData, this.goods);
   }
 
+
+  addPersonnel() {
+    this.goods.push({
+      type: 'personnel',
+      qualification: '',
+      institution: '',
+      researchGroup: '',
+      area: '',
+      experienceWithPCR: '',
+      notes: '',
+    });
+  }
+
+
+  addDevice() {
+    this.goods.push({
+      type: 'device',
+      category: '',
+      deviceName: '',
+      locationPostalCode: '',
+      number: undefined,
+    });
+  }
+
+
+  addConsumable() {
+    this.goods.push({
+      type: 'consumable',
+      category: '',
+      deviceName: '',
+      locationPostalCode: '',
+      number: undefined,
+    });
+  }
 }

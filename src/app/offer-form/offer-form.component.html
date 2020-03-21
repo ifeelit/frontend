@@ -1,67 +1,163 @@
+<h3>Kontaktdaten</h3>
 
-<form [formGroup]="offerForm" (ngSubmit)="onSubmit(offerForm.value)">
+<form>
+  <div>
+    <label>
+      Organisation
+    </label>
+    <input type="text" [value]="contactData.organisation">
+  </div>
 
+  <div>
+    <label>
+      Verantworliche Person
+    </label>
+    <input type="text" [value]="contactData.person">
+  </div>
+
+  <div>
+    <label>
+      E-Mail Adresse
+    </label>
+    <input type="text" [value]="contactData.mail">
+  </div>
+
+  <div>
+    <label>
+      Telefonnummer
+    </label>
+    <input type="text" [value]="contactData.phone">
+  </div>
+
+  <div>
+    <label>
+      Adresse
+    </label>
+    <input type="text" placeholder="Straße" [value]="contactData.street">
+    <input type="text" placeholder="Hausnummer" [value]="contactData.houseNumber">
+    <input type="text" placeholder="PLZ" [value]="contactData.postalCode">
+    <input type="text" placeholder="Stadt" [value]="contactData.city">
+    <input type="text" placeholder="Land" [value]="contactData.country">
+  </div>
+</form>
+
+<h3>Güter</h3>
+
+<button (click)="addPersonnel()">Personal hinzufügen</button>
+<button (click)="addDevice()">Gerät hinzufügen</button>
+<button (click)="addConsumable()">Verbrauchsmaterial hinzufügen</button>
+
+<div *ngFor="let g of goods">
+  <div *ngIf="g.type === 'personnel'">
+    <h4>Mensch</h4>
     <div>
-      <label for="offering">
-        Angebotene Hilfsmittel
+      <label>
+        Qualification
       </label>
-      <select id="offering" name="offering" ormControlName="offering">
+      <input type="text" [value]="g.qualification">
+    </div>
+    <div>
+      <label>
+        Institution
+      </label>
+      <input type="text" [value]="g.institution">
+    </div>
+    <div>
+      <label>
+        Forschungsgruppe
+      </label>
+      <input type="text" [value]="g.researchGroup">
+    </div>
+    <div>
+      <label>
+        Bereich
+      </label>
+      <input type="text" [value]="g.area">
+    </div>
+    <div>
+      <label>
+        Haben Sie Erfahrung in der Durchführung von PCR und RT PCR?
+      </label>
+      <input type="text" [value]="g.qualification">
+    </div>
+    <div>
+      <label>
+        Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme vorhanden)
+      </label>
+      <input type="text" [value]="g.notes">
+    </div>
+  </div>
+
+
+  <div *ngIf="g.type === 'device'">
+    <h4>Gerät</h4>
+    <div>
+      <label>
+        Typ
+      </label>
+      <select name="offering" [value]="g.category">
         <option value="zentrifuge">Zentrifuge</option>
         <option value="prc-cycler">PRC-Cycler</option>
         <option value="handschuhe">Handschuhe</option>
         <option value="desinfection">Desinfektionsmittel</option>
       </select>
     </div>
-  
+
     <div>
-      <label for="serialnumber">
-        Seriennummer
+      <label>
+        Exakte Materialbezeichnung mit Name, Hersteller, Bestellnummer
       </label>
-      <input id="serialnumber" type="text" formControlName="serialnumber">
+      <input type="text" [value]="g.deviceName">
     </div>
 
     <div>
-        <label for="organisation">
-            Organisation
-        </label>
-        <input id="organisation" type="text" formControlName="organisation">
+      <label>
+        Standort mit Postleitzahl
+      </label>
+      <input type="text" [value]="g.locationPostalCode">
     </div>
 
     <div>
-        <label for="person">
-            Verantworliche Person
-        </label>
-        <input id="person" type="text" formControlName="person">
+      <label>
+        Vorhandene Menge
+      </label>
+      <input type="number" [value]="g.number">
     </div>
+  </div>
 
-
+  <div *ngIf="g.type === 'consumable'">
+    <h4>Verbrauchsmaterial</h4>
     <div>
-        <label for="mail">
-            E-Mail Adresse
-        </label>
-        <input id="mail" type="text" formControlName="mail">
-    </div>
-
-    <div>
-        <label for="phone">
-            Telefonnummer
-        </label>
-        <input id="phone" type="text" formControlName="phone">
+      <label>
+        Kategorie (Maske, Schutzkleidung, Schutzbrille, Desinfektionsmittel, Handschuhe, Reaktionsgefäße, Readoutplates, Sonstiges)
+      </label>
+      <input type="text" [value]="g.category">
     </div>
 
     <div>
-        <label for="address">
-            Adresse
-        </label>
-        <input id="street" type="text" formControlName="street" placeholder="Straße">
-        <input id="houseNumber" type="text" formControlName="houseNumber" placeholder="Hausnummer">
-        <input id="postalCode" type="text" formControlName="postalCode" placeholder="PLZ">
-        <input id="city" type="text" formControlName="city" placeholder="Stadt">
-        <input id="country" type="text" formControlName="country" placeholder="Land" value="Deutschland">
-
+      <label>
+        Exakte Materialbezeichnung mit Name, Hersteller, Bestellnummer
+      </label>
+      <input type="text" [value]="g.deviceName">
     </div>
 
-    <button class="button" type="submit">Angebot erstellen!</button>
-  
-  </form>
+    <div>
+      <label>
+        Standort mit Postleitzahl
+      </label>
+      <input type="text" [value]="g.locationPostalCode">
+    </div>
 
+    <div>
+      <label>
+        Vorhandene Menge
+      </label>
+      <input type="number" [value]="g.number">
+    </div>
+  </div>
+
+  <hr />
+</div>
+
+
+<button class="button" (click)="onSubmit()">Angebot erstellen!</button>
