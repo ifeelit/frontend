@@ -33,10 +33,13 @@
     <label>
       Adresse
     </label>
+    <br>
     <input type="text" placeholder="Straße" [value]="contactData.street">
     <input type="text" placeholder="Hausnummer" [value]="contactData.houseNumber">
+    <br>
     <input type="text" placeholder="PLZ" [value]="contactData.postalCode">
     <input type="text" placeholder="Stadt" [value]="contactData.city">
+    <br>
     <input type="text" placeholder="Land" [value]="contactData.country">
   </div>
 </form>
@@ -55,7 +58,16 @@
       <label>
         Qualification
       </label>
-      <input type="text" [value]="g.qualification">
+      <select name="offering" [value]="g.qualification">
+        <option value="ta">TA</option>
+        <option value="labAssistant">Laborant</option>
+        <option value="postdoc">Postdoc</option>
+        <option value="phd">PhD-Student</option>
+        <option value="msc">MSc-Student</option>
+        <option value="bsc">BSc-Student</option>
+        <option value="other">anderes</option>
+      </select>
+
     </div>
     <div>
       <label>
