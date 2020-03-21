@@ -97,7 +97,7 @@ export class OfferFormComponent implements OnInit {
       material: {}
     }
 
-    this.fetchService.sendOffer(data);
+    //this.fetchService.sendOffer(data);
 
   }
 }
