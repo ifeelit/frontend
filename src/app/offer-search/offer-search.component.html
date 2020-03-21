@@ -7,148 +7,172 @@
 <main class="main-content"><div class="fullwidth-block"><div class="container">
 
 
-<div>
-  <button (click)="setType('personnel')">Suche nach Personal</button>
-  <button (click)="setType('device')">Suche nach Gerät</button>
-  <button (click)="setType('consumable')">Suche nach Verbrauchsmaterial</button>
+<div class="button-bar">
+  <button
+    (click)="setType('personnel')"
+    class="button {{ searchType === 'personnel' ? 'active' : '' }}"
+  >Suche nach Personal</button>
+  <button
+    (click)="setType('device')"
+    class="button {{ searchType === 'device' ? 'active' : '' }}"
+  >Suche nach Gerät</button>
+  <button
+    (click)="setType('consumable')"
+    class="button {{ searchType === 'consumable' ? 'active' : '' }}"
+  >Suche nach Verbrauchsmaterial</button>
 </div>
 
-<div *ngIf="searchType === 'personnel'">
-  <div>
-    <label>Qualifikation:</label>
-    <label>
-      TA
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.ta" />
-    </label>
-    <label>
-      Laborant
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.labAssistant"  />
-    </label>
-    <label>
-      Postdoc
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.postDoc" />
-    </label>
-    <label>
-      PhD-Student
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.phdStudent" />
-    </label>
-    <label>
-      MSc-Student
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.mscStudent" />
-    </label>
-    <label>
-      BSc-Student
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.bscStudent" />
-    </label>
-    <label>
-      Anderes
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.others" />
-    </label>
-  </div>
-  <div>
-    <label>Bereich:</label>
-    <label>
-      Chemie
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.chemistry" />
-    </label>
-    <label>
-      Biochemie
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.biochemistry" />
-    </label>
-    <label>
-      Genetik
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.genetics" />
-    </label>
-    <label>
-      Zellbiologie
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.cellbiology" />
-    </label>
-    <label>
-      Biologie
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.biology" />
-    </label>
-    <label>
-      Virologie
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.virology" />
-    </label>
-    <label>
-      Mikrobiologie
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.microbiology" />
-    </label>
-    <label>
-      Molekularbiologie
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.molecularbiology" />
-    </label>
-    <label>
-      Pharmakologie
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.pharmacology" />
-    </label>
-    <label>
-      Medizin
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.medicine" />
-    </label>
-    <label>
-      Anderes
-      <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.others" />
-    </label>
-  </div>
-  <div>
-    <label>Wird Erfahrung in der Durchführung von PCR und RT PCR vorausgesetzt?</label>
-    <fieldset>
-      <label>
-        Ja
-        <input name="requiresExperienceWithPCR" type="radio" (click)="setRequiresExperienceWithPCR(true)" />
-      </label>
-      <label>
-        Nein
-        <input name="requiresExperienceWithPCR" type="radio" (click)="setRequiresExperienceWithPCR(false)" />
-      </label>
-    </fieldset>
-  </div>
-</div>
+<div *ngIf="searchType">
+  <div *ngIf="searchType === 'personnel'">
+    <div class="form-block">
+      <div class="form-block__label">Qualifikation</div>
+      <div class="form-block__boxes">
+        <label>
+          TA
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.ta" />
+        </label>
+        <label>
+          Laborant
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.labAssistant"  />
+        </label>
+        <label>
+          Postdoc
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.postDoc" />
+        </label>
+        <label>
+          PhD-Student
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.phdStudent" />
+        </label>
+        <label>
+          MSc-Student
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.mscStudent" />
+        </label>
+        <label>
+          BSc-Student
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.bscStudent" />
+        </label>
+        <label>
+          Anderes
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.others" />
+        </label>
+      </div>
+    </div>
 
-<div *ngIf="searchType === 'device'">
-  <div>
-    <label>
+    <div class="form-block">
+      <div class="form-block__label">Bereich</div>
+      <div class="form-block__boxes">
+        <label>
+          Chemie
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.chemistry" />
+        </label>
+        <label>
+          Biochemie
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.biochemistry" />
+        </label>
+        <label>
+          Genetik
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.genetics" />
+        </label>
+        <label>
+          Zellbiologie
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.cellbiology" />
+        </label>
+        <label>
+          Biologie
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.biology" />
+        </label>
+        <label>
+          Virologie
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.virology" />
+        </label>
+        <label>
+          Mikrobiologie
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.microbiology" />
+        </label>
+        <label>
+          Molekularbiologie
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.molecularbiology" />
+        </label>
+        <label>
+          Pharmakologie
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.pharmacology" />
+        </label>
+        <label>
+          Medizin
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.medicine" />
+        </label>
+        <label>
+          Anderes
+          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.others" />
+        </label>
+      </div>
+    </div>
+    <div class="form-block">
+      <div class="form-block__label">
+        Wird Erfahrung in der Durchführung von PCR und RT PCR vorausgesetzt?
+      </div>
+      <div class="form-block__boxes">
+        <label>
+          Ja
+          <input name="requiresExperienceWithPCR" type="radio" (click)="setRequiresExperienceWithPCR(true)" />
+        </label>
+        <label>
+          Nein
+          <input name="requiresExperienceWithPCR" type="radio" (click)="setRequiresExperienceWithPCR(false)" />
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="searchType === 'device'">
+    <div class="form-block">
+      <div class="form-block__label">
+        Typ
+      </div>
+      <div class="form-block__select">
+        <select name="offering" [(ngModel)]="searchQuery.category">
+          <option value="prc-cycler">PRC-Cycler</option>
+          <option value="rt-prc-cycler">RT PCR Cycler</option>
+          <option value="zentrifuge">Zentrifuge</option>
+          <option value="vortexer">Vortexer</option>
+          <option value="pipette">Pipette</option>
+          <option value="others">Sonstiges</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="searchType === 'consumable'">
+    <div class="form-block">
+    <div class="form-block__label">
       Typ
-    </label>
-    <select name="offering" [(ngModel)]="searchQuery.category">
-      <option value="prc-cycler">PRC-Cycler</option>
-      <option value="rt-prc-cycler">RT PCR Cycler</option>
-      <option value="zentrifuge">Zentrifuge</option>
-      <option value="vortexer">Vortexer</option>
-      <option value="pipette">Pipette</option>
-      <option value="others">Sonstiges</option>
-    </select>
+    </div>
+    <div class="form-block__select">
+      <select name="offering" [(ngModel)]="searchQuery.category">
+        <option value="maske">Maske</option>
+        <option value="schutzkleidung">Schutzkleidung</option>
+        <option value="handschuhe">Schutzbrille</option>
+        <option value="desinfektionsmittel">Desinfektionsmittel</option>
+        <option value="handschuhe">Handschuhe</option>
+        <option value="reaktionsgefaeße">Reaktionsgefäße</option>
+        <option value="readoutplates">Readoutplates</option>
+        <option value="others">Sonstiges</option>
+      </select>
+    </div>
+    </div>
   </div>
-</div>
 
-<div *ngIf="searchType === 'consumable'">
-  <div>
-    <label>
-      Typ
-    </label>
-    <select name="offering" [(ngModel)]="searchQuery.category">
-      <option value="maske">Maske</option>
-      <option value="schutzkleidung">Schutzkleidung</option>
-      <option value="handschuhe">Schutzbrille</option>
-      <option value="desinfektionsmittel">Desinfektionsmittel</option>
-      <option value="handschuhe">Handschuhe</option>
-      <option value="reaktionsgefaeße">Reaktionsgefäße</option>
-      <option value="readoutplates">Readoutplates</option>
-      <option value="others">Sonstiges</option>
-    </select>
+  <div class="form-block">
+    <div class="form-block__label">
+      Standort - Postleitzahl
+    </div>
+    <div class="form-block__input-field">
+      <input type="text" [value]="postalCode" />
+    </div>
   </div>
-</div>
 
-<div>
-  <label>
-    Standort (Postleitzahl)
-  </label>
-  <input type="text" [value]="postalCode" />
+  <button (click)="onSubmit()" class="button">Suche starten</button>
 </div>
-
-<button (click)="onSubmit()">Suche starten</button>
 
 
 </div></div></main>

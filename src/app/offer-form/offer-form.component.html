@@ -6,67 +6,67 @@
 
 <main class="main-content"><div class="fullwidth-block"><div class="container">
 
-<h3>Kontaktdaten</h3>
-
-<form>
-  <div>
+<div class="form-block">
+  <div class="form-block__label">
+    Kontaktdaten
+  </div>
+  <div class="form-block__input-field">
     <label>
       Organisation
     </label>
-    <input type="text" [value]="contactData.organisation">
+    <input type="text" [(ngModel)]="contactData.organisation">
   </div>
 
-  <div>
+  <div class="form-block__input-field">
     <label>
       Verantworliche Person
     </label>
-    <input type="text" [value]="contactData.person">
+    <input type="text" [(ngModel)]="contactData.person">
   </div>
 
-  <div>
+  <div class="form-block__input-field">
     <label>
       E-Mail Adresse
     </label>
-    <input type="text" [value]="contactData.mail">
+    <input type="text" [(ngModel)]="contactData.mail">
   </div>
 
-  <div>
+  <div class="form-block__input-field">
     <label>
       Telefonnummer
     </label>
-    <input type="text" [value]="contactData.phone">
+    <input type="text" [(ngModel)]="contactData.phone">
   </div>
 
-  <div>
+  <div class="form-block__input-field">
     <label>
       Adresse
     </label>
     <br>
-    <input type="text" placeholder="Straße" [value]="contactData.street">
-    <input type="text" placeholder="Hausnummer" [value]="contactData.houseNumber">
-    <br>
-    <input type="text" placeholder="PLZ" [value]="contactData.postalCode">
-    <input type="text" placeholder="Stadt" [value]="contactData.city">
-    <br>
-    <input type="text" placeholder="Land" [value]="contactData.country">
+    <input type="text" placeholder="Straße" [(ngModel)]="contactData.street">
+    <input type="text" placeholder="Hausnummer" [(ngModel)]="contactData.houseNumber">
+    <input type="text" placeholder="PLZ" [(ngModel)]="contactData.postalCode">
+    <input type="text" placeholder="Stadt" [(ngModel)]="contactData.city">
+    <input type="text" placeholder="Land" [(ngModel)]="contactData.country">
   </div>
-</form>
+</div>
 
-<h3>Güter</h3>
+<h2>Güter</h2>
 
-<button (click)="addPersonnel()">Personal hinzufügen</button>
-<button (click)="addDevice()">Gerät hinzufügen</button>
-<button (click)="addConsumable()">Verbrauchsmaterial hinzufügen</button>
-<button class="button" (click)="onSubmit()">Angebot erstellen!</button>
+<div class="button-bar">
+  <button (click)="addPersonnel()">Personal hinzufügen</button>
+  <button (click)="addDevice()">Gerät hinzufügen</button>
+  <button (click)="addConsumable()">Verbrauchsmaterial hinzufügen</button>
+</div>
 
 <div *ngFor="let g of goods; let gIndex = index">
-  <div *ngIf="g.type === 'personnel'">
-    <h4>Mensch</h4>
-    <div>
+  <div *ngIf="g.type === 'personnel'" class="form-block">
+    <div class="form-block__label"><button (click)="deleteItem(gIndex)">🗑️</button> Mensch</div>
+    <div class="form-block__select">
       <label>
-        Qualification
+        Qualifikation
       </label>
-      <select name="offering" [value]="g.qualification">
+      <select [(ngModel)]="g.qualification">
         <option value="ta">TA</option>
         <option value="labAssistant">Laborant</option>
         <option value="postdoc">Postdoc</option>
@@ -75,37 +75,42 @@
         <option value="bsc">BSc-Student</option>
         <option value="other">anderes</option>
       </select>
-
     </div>
-    <div>
+    <div class="form-block__input-field">
       <label>
         Institution
       </label>
-      <input type="text" [value]="g.institution">
+      <input type="text" [(ngModel)]="g.institution">
     </div>
-    <div>
+    <div class="form-block__input-field">
       <label>
         Forschungsgruppe
       </label>
-      <input type="text" [value]="g.researchGroup">
+      <input type="text" [(ngModel)]="g.researchGroup">
     </div>
-    <div>
+    <div class="form-block__input-field">
       <label>
         Bereich
       </label>
-      <input type="text" [value]="g.area">
+      <input type="text" [(ngModel)]="g.area">
     </div>
-    <div>
+    <div class="form-block__boxes">
+      <div>Haben Sie Erfahrung in der Durchführung von PCR und RT PCR?</div>
       <label>
-        Haben Sie Erfahrung in der Durchführung von PCR und RT PCR?
+        Ja
+        <input name="experienceWithPCR{{gIndex}}" type="radio" (click)="g.experienceWithPCR = true;" />
       </label>
-      <input type="text" [value]="g.qualification">
+      <label>
+        Nein
+        <!-- The last "true" ist required because otherwise, the selection will be blocked.... -->
+        <input name="experienceWithPCR{{gIndex}}" type="radio" (click)="g.experienceWithPCR = false; true" />
+      </label>
     </div>
-    <div>
+    <div class="form-block__input-field">
       <label>
         Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme vorhanden)
       </label>
-      <input type="text" [value]="g.notes">
+      <textarea [(ngModel)]="g.notes"></textarea>
     </div>
     <div>
       <input type="checkbox"> 
@@ -115,13 +120,13 @@
   </div>
 
 
-  <div *ngIf="g.type === 'device'">
-    <h4>Gerät</h4>
-    <div>
+  <div *ngIf="g.type === 'device'" class="form-block">
+    <div class="form-block__label"><button (click)="deleteItem(gIndex)">🗑️</button> Gerät</div>
+    <div class="form-block__select">
       <label>
-        Typ
+        Kategorie
       </label>
-      <select name="offering" [value]="g.category">
+      <select [(ngModel)]="g.category">
         <option value="zentrifuge">Zentrifuge</option>
         <option value="prc-cycler">PRC-Cycler</option>
         <option value="handschuhe">Handschuhe</option>
@@ -129,62 +134,70 @@
       </select>
     </div>
 
-    <div>
+    <div class="form-block__input-field">
       <label>
         Exakte Materialbezeichnung mit Name, Hersteller, Bestellnummer
       </label>
-      <input type="text" [value]="g.deviceName">
+      <input type="text" [(ngModel)]="g.deviceName">
     </div>
 
-    <div>
+    <div class="form-block__input-field">
       <label>
         Standort mit Postleitzahl
       </label>
-      <input type="text" [value]="g.locationPostalCode">
+      <input type="text" [(ngModel)]="g.locationPostalCode">
     </div>
 
-    <div>
+    <div class="form-block__input-field">
       <label>
         Vorhandene Menge
       </label>
-      <input type="number" [value]="g.number">
+      <input type="number" [(ngModel)]="g.number">
     </div>
   </div>
 
-  <div *ngIf="g.type === 'consumable'">
-    <h4>Verbrauchsmaterial</h4>
-    <div>
+  <div *ngIf="g.type === 'consumable'" class="form-block">
+    <div class="form-block__label"><button (click)="deleteItem(gIndex)">🗑️</button> Verbrauchsmaterial</div>
+    <div class="form-block__select">
       <label>
-        Kategorie (Maske, Schutzkleidung, Schutzbrille, Desinfektionsmittel, Handschuhe, Reaktionsgefäße, Readoutplates, Sonstiges)
+        Kategorie
       </label>
-      <input type="text" [value]="g.category">
+      <select [(ngModel)]="g.category">
+        <option value="maske">Maske</option>
+        <option value="schutzkleidung">Schutzkleidung</option>
+        <option value="schutzbrille">Schutzbrille</option>
+        <option value="desinfektionsmittel">Desinfektionsmittel</option>
+        <option value="handschuhe">Handschuhe</option>
+        <option value="reaktionsgefaeße">Reaktionsgefäße</option>
+        <option value="readoutplates">Readoutplates</option>
+        <option value="sonstiges">Sonstiges</option>
+      </select>
     </div>
 
-    <div>
+    <div class="form-block__input-field">
       <label>
         Exakte Materialbezeichnung mit Name, Hersteller, Bestellnummer
       </label>
-      <input type="text" [value]="g.deviceName">
+      <input type="text" [(ngModel)]="g.deviceName">
     </div>
 
-    <div>
+    <div class="form-block__input-field">
       <label>
-        Standort mit Postleitzahl
+        Standort - Postleitzahl
       </label>
-      <input type="text" [value]="g.locationPostalCode">
+      <input type="text" [(ngModel)]="g.locationPostalCode">
     </div>
 
-    <div>
+    <div class="form-block__input-field">
       <label>
         Vorhandene Menge
       </label>
-      <input type="number" [value]="g.number">
+      <input type="number" [(ngModel)]="g.number">
     </div>
   </div>
-
-  <button (click)="deleteItem(gIndex)">Gut entfernen</button>
-
-  <hr />
 </div>
+
+
+<button class="button" (click)="onSubmit()">Angebot erstellen!</button>
 
 </div></div></main>
