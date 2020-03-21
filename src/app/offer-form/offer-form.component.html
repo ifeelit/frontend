@@ -1,0 +1,66 @@
+<form [formGroup]="offerForm" (ngSubmit)="onSubmit(offerForm.value)">
+
+    <div>
+      <label for="offering">
+        Angebotene Hilfsmittel
+      </label>
+      <select id="offering" name="offering" ormControlName="offering">
+        <option value="zentrifuge">Zentrifuge</option>
+        <option value="prc-cycler">PRC-Cycler</option>
+        <option value="handschuhe">Handschuhe</option>
+        <option value="desinfection">Desinfektionsmittel</option>
+      </select>
+    </div>
+  
+    <div>
+      <label for="serialnumber">
+        Seriennummer
+      </label>
+      <input id="serialnumber" type="text" formControlName="serialnumber">
+    </div>
+
+    <div>
+        <label for="organisation">
+            Organisation
+        </label>
+        <input id="organisation" type="text" formControlName="organisation">
+    </div>
+
+    <div>
+        <label for="person">
+            Verantworliche Person
+        </label>
+        <input id="person" type="text" formControlName="person">
+    </div>
+
+
+    <div>
+        <label for="mail">
+            E-Mail Adresse
+        </label>
+        <input id="mail" type="text" formControlName="mail">
+    </div>
+
+    <div>
+        <label for="phone">
+            Telefonnummer
+        </label>
+        <input id="phone" type="text" formControlName="phone">
+    </div>
+
+    <div>
+        <label for="address">
+            Adresse
+        </label>
+        <input id="street" type="text" formControlName="street" placeholder="Straße">
+        <input id="houseNumber" type="text" formControlName="houseNumber" placeholder="Hausnummer">
+        <input id="postalCode" type="text" formControlName="postalCode" placeholder="PLZ">
+        <input id="city" type="text" formControlName="city" placeholder="Stadt">
+        <input id="country" type="text" formControlName="country" placeholder="Land" value="Deutschland">
+
+    </div>
+
+    <button class="button" type="submit">Angebot erstellen!</button>
+  
+  </form>
+
