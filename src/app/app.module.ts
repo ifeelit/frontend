@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ImpressumComponent } from './impressum/impressum.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { FooterComponent } from './footer/footer.component';
     OfferSearchComponent,
     OfferFormComponent,
     FaqPageComponent,
+    ImpressumComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

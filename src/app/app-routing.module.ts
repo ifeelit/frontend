@@ -4,6 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { OfferSearchComponent } from "./offer-search/offer-search.component";
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { OfferFormComponent } from "./offer-form/offer-form.component";
+import { AboutComponent } from './about/about.component';
+import { DatenschutzComponent } from './datenschutz/datenschutz.component';
+import { ImpressumComponent } from './impressum/impressum.component';
 
 
 const routes: Routes = [
@@ -11,6 +14,9 @@ const routes: Routes = [
   { path: 'angebote/neu', component: OfferFormComponent },
   { path: 'suchanfrage', component: OfferSearchComponent },
   { path: 'faq', component: FaqPageComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'datenschutz', component: DatenschutzComponent },
+  { path: 'impressum', component: ImpressumComponent }
 ];
 
 @NgModule({
