@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ManpowerFormComponent } from './manpower-form/manpower-form.component';
 import { DeviceFormComponent } from './device-form/device-form.component';
 import { MaterialFormComponent } from './material-form/material-form.component';
+import { FaqPageComponent } from './faq-page/faq-page.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MaterialFormComponent } from './material-form/material-form.component';
     ManpowerFormComponent,
     DeviceFormComponent,
     MaterialFormComponent,
+    FaqPageComponent,
   ],
   imports: [
     BrowserModule,
