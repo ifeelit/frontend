@@ -12,4 +12,8 @@ export class FaqPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  scrollTo(id) {
+    document.getElementById(id).scrollIntoView();
+  }
 }
