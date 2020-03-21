@@ -8,9 +8,6 @@ import { OfferSearchComponent } from './offer-search/offer-search.component';
 import { OfferFormComponent } from './offer-form/offer-form.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ManpowerFormComponent } from './manpower-form/manpower-form.component';
-import { DeviceFormComponent } from './device-form/device-form.component';
-import { MaterialFormComponent } from './material-form/material-form.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 
 @NgModule({
@@ -20,9 +17,6 @@ import { FaqPageComponent } from './faq-page/faq-page.component';
     OfferCreateComponent,
     OfferSearchComponent,
     OfferFormComponent,
-    ManpowerFormComponent,
-    DeviceFormComponent,
-    MaterialFormComponent,
     FaqPageComponent,
   ],
   imports: [
