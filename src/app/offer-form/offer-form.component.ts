@@ -18,7 +18,7 @@ export class OfferFormComponent implements OnInit {
     houseNumber: '',
     postalCode: '',
     city: '',
-    country: ''
+    country: 'Deutschland'
   };
 
   goods = [];
@@ -49,7 +49,7 @@ export class OfferFormComponent implements OnInit {
       institution: '',
       researchGroup: '',
       area: '',
-      experienceWithPCR: '',
+      experienceWithPCR: undefined,
       notes: '',
     });
   }
