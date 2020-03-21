@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CheckboxControlValueAccessor } from '@angular/forms';
+import { environment } from "../environments/environment";
 
-const url = "localhost:5000/resources"
+
+const url = environment.apiHost;
 
 
 @Injectable({

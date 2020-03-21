@@ -64,6 +64,8 @@ export class OfferFormComponent implements OnInit {
       type: 'device',
       category: '',
       deviceName: '',
+      manufacturer: '',
+      ordernumber: '',
       locationPostalCode: '',
       number: undefined,
     });
@@ -75,6 +77,8 @@ export class OfferFormComponent implements OnInit {
       type: 'consumable',
       category: '',
       deviceName: '',
+      manufacturer: '',
+      ordernumber: '',
       locationPostalCode: '',
       number: undefined,
     });
@@ -117,8 +121,8 @@ export class OfferFormComponent implements OnInit {
           {
             category: elem.category,
             name: elem.deviceName,
-            manufacturer: "string",
-            ordernumber: "string",
+            manufacturer: elem.manufacturer,
+            ordernumber: elem.ordernumber,
             postalcode: elem.locationPostalCode,
             amount: elem.number
           }
@@ -129,8 +133,8 @@ export class OfferFormComponent implements OnInit {
           {
             category: elem.category,
             name: elem.deviceName,
-            manufacturer: "string",
-            ordernumber: "string",
+            manufacturer: elem.manufacturer,
+            ordernumber: elem.ordernumber,
             postalcode: elem.locationPostalCode,
             amount: elem.number
           }
