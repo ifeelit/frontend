@@ -7,7 +7,6 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./offer-form.component.scss']
 })
 export class OfferFormComponent implements OnInit {
-
   offerForm;
 
   constructor(
