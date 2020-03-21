@@ -9,11 +9,15 @@ import { OfferFormComponent } from './offer-form/offer-form.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FaqPageComponent } from './faq-page/faq-page.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    HeaderComponent,
+    FooterComponent,
     OfferCreateComponent,
     OfferSearchComponent,
     OfferFormComponent,
