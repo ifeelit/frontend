@@ -46,8 +46,9 @@
 <button (click)="addPersonnel()">Personal hinzufügen</button>
 <button (click)="addDevice()">Gerät hinzufügen</button>
 <button (click)="addConsumable()">Verbrauchsmaterial hinzufügen</button>
+<button class="button" (click)="onSubmit()">Angebot erstellen!</button>
 
-<div *ngFor="let g of goods">
+<div *ngFor="let g of goods; let gIndex = index">
   <div *ngIf="g.type === 'personnel'">
     <h4>Mensch</h4>
     <div>
@@ -156,8 +157,9 @@
     </div>
   </div>
 
+  <button (click)="deleteItem(gIndex)">Gut entfernen</button>
+
   <hr />
 </div>
 
 
-<button class="button" (click)="onSubmit()">Angebot erstellen!</button>
