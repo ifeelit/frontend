@@ -136,7 +136,7 @@
 	.slides{
 		list-style: none;
 		@include clearfix;
-		
+
 		li{
 			width: 100%;
 			margin-right: -100%;
@@ -170,7 +170,7 @@
 		z-index: 8;
 		text-align: center;
 
-		
+
 		li{
 			display: inline-block;
 			margin: 30px 5px;
@@ -207,7 +207,7 @@
 			}
 		}
 
-		
+
 	}
 }
 
@@ -216,11 +216,13 @@
 	padding: 50px 0;
 	text-align: center;
 	color: white;
+    background-image: url("/assets/images/page-head-2@2x.jpg");
 
 	.page-title{
 		@include em(60);
 		font-weight: 300;
 		margin: 0 0 10px;
 	}
-	small{@include em(18)}
+    small{@include em(18)};
+
 }
