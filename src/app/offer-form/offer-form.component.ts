@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { FetchServiceService } from '../fetch-service.service';
 
 
 @Component({
@@ -24,7 +25,9 @@ export class OfferFormComponent implements OnInit {
   goods = [];
 
 
-  constructor() {
+  constructor(
+    private fetchService: FetchServiceService
+  ) {
   }
 
 
@@ -76,4 +79,25 @@ export class OfferFormComponent implements OnInit {
     });
   }
 
+  sendRequest(formInput) {
+    let data = {
+      organisation: 'organisation',
+      person: 'person',
+      mail: 'mail',
+      phone: 'phone',
+      address: {
+        street: 'street',
+        houseNumber: 'houseNumber',
+        zipCode: 'zipCode',
+        city: 'city',
+        country: 'country'
+      },
+      manpower: {},
+      device: {},
+      material: {}
+    }
+
+    this.fetchService.sendOffer(data);
+
+  }
 }
