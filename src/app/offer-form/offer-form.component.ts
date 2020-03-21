@@ -36,6 +36,7 @@ export class OfferFormComponent implements OnInit {
 
 
   onSubmit() {
+    this.sendRequest();
     console.log(this.contactData, this.goods);
   }
 
@@ -79,25 +80,65 @@ export class OfferFormComponent implements OnInit {
     });
   }
 
-  sendRequest(formInput) {
+  sendRequest() {
+
     let data = {
-      organisation: 'organisation',
-      person: 'person',
-      mail: 'mail',
-      phone: 'phone',
-      address: {
-        street: 'street',
-        houseNumber: 'houseNumber',
-        zipCode: 'zipCode',
-        city: 'city',
-        country: 'country'
+      provider: {
+        name: this.contactData.person,
+        organisation: this.contactData.organisation,
+        street: this.contactData.street,
+        streetnumber: this.contactData.street,
+        postalcode: this.contactData.postalCode,
+        city: this.contactData.city,
+        country: this.contactData.country,
+        mail: this.contactData.mail,
+        phone: this.contactData.phone
       },
-      manpower: {},
-      device: {},
-      material: {}
+      manpowers: [],
+      consumables: [],
+      devices: []
     }
 
-    //this.fetchService.sendOffer(data);
+    this.goods.forEach(function (elem) {
+      if (elem.type === 'personnel'){
+        data.manpowers.push(
+          {
+            qualification: elem.qualification,
+            institution: elem.institution,
+            area: elem.area,
+            researchgroup: elem.researchGroup,
+            experience_rt_pcr: elem.experienceWithPCR,
+            annotation: elem.notes
+          }
+        );
+      }
+      else if (elem.type === 'device') {
+        data.devices.push(
+          {
+            category: elem.category,
+            name: elem.deviceName,
+            manufacturer: "string",
+            ordernumber: "string",
+            postalcode: elem.locationPostalCode,
+            amount: elem.number
+          }
+        );
+      }
+      else if (elem.type === 'consumable') {
+        data.consumables.push(
+          {
+            category: elem.category,
+            name: elem.deviceName,
+            manufacturer: "string",
+            ordernumber: "string",
+            postalcode: elem.locationPostalCode,
+            amount: elem.number
+          }
+        );
+      }
+    });
+
+    this.fetchService.sendOffer(data);
 
   }
 }
