@@ -38,9 +38,7 @@ export class OfferFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.contactData, this.goods);
-    alert('Das Angebot wurde erfolgreich eingestellt. Vielen Dank.');
-    this.router.navigate(['/']);
-    // this.sendRequest();
+    this.sendRequest();
   }
 
   deleteItem(delGood) {
@@ -97,6 +95,13 @@ export class OfferFormComponent implements OnInit {
 
     let data = {
       provider: {
+        address: {
+          street: this.contactData.street,
+          streetnumber: this.contactData.street,
+          postalcode: this.contactData.postalCode,
+          city: this.contactData.city,
+          country: this.contactData.country,
+        },
         name: this.contactData.person,
         organisation: this.contactData.organisation,
         address: {
@@ -109,14 +114,14 @@ export class OfferFormComponent implements OnInit {
         mail: this.contactData.mail,
         phone: this.contactData.phone
       },
-      manpowers: [],
+      personals: [],
       consumables: [],
       devices: []
-    }
+    };
 
     this.goods.forEach(function (elem) {
       if (elem.type === 'personnel'){
-        data.manpowers.push(
+        data.personals.push(
           {
             qualification: elem.qualification,
             institution: elem.institution,
