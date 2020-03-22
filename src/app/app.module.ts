@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { AboutComponent } from './about/about.component';
+import { OfferSearchResultListComponent } from './offer-search-result-list/offer-search-result-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AboutComponent } from './about/about.component';
     OfferFormComponent,
     FaqPageComponent,
     ImpressumComponent,
-    AboutComponent
+    AboutComponent,
+    OfferSearchResultListComponent
   ],
   imports: [
     BrowserModule,

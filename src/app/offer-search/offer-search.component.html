@@ -22,7 +22,7 @@
   >Suche nach Verbrauchsmaterial</button>
 </div>
 
-<div *ngIf="searchType">
+<div *ngIf="searchType" class="search-form-container">
   <div *ngIf="searchType === 'personnel'">
     <div class="form-block">
       <div class="form-block__label">Qualifikation</div>
@@ -174,5 +174,11 @@
   <button (click)="onSubmit()" class="button">Suche starten</button>
 </div>
 
+
+<app-offer-search-result-list
+  *ngIf="results"
+  [type]="searchType"
+  [searchResults]="results"
+></app-offer-search-result-list>
 
 </div></div></main>
