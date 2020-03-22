@@ -26,6 +26,8 @@ export class FetchServiceService {
     fetch(request)
     .then(function() {
           // Handle response you get from the server incl. exceptions
+          // Redirect to offer change page
+          // Load page with content
     });
 
   }
@@ -47,5 +49,12 @@ export class FetchServiceService {
       // Display Response in output or handle exception
     })
   }
+
+  reviewOffer() {
+
+    //pull data via link with get request from server
+  }
+
+  
 
 }

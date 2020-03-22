@@ -7,6 +7,7 @@ import { OfferFormComponent } from "./offer-form/offer-form.component";
 import { AboutComponent } from './about/about.component';
 import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 import { ImpressumComponent } from './impressum/impressum.component';
+import { OfferChangeComponent } from './offer-change/offer-change.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'faq', component: FaqPageComponent },
   { path: 'about', component: AboutComponent },
   { path: 'datenschutz', component: DatenschutzComponent },
-  { path: 'impressum', component: ImpressumComponent }
+  { path: 'impressum', component: ImpressumComponent },
+  { path: 'change/:key', component: OfferChangeComponent }
 ];
 
 @NgModule({
