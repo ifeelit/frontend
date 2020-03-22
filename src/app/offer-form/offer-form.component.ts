@@ -33,14 +33,13 @@ export class OfferFormComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.router.navigate(['/']);
   }
 
 
   onSubmit() {
     console.log(this.contactData, this.goods);
     alert('Das Angebot wurde erfolgreich eingestellt. Vielen Dank.');
-
+    this.router.navigate(['/']);
     // this.sendRequest();
   }
 
