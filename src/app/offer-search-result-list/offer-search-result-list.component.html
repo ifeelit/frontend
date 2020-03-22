@@ -1,0 +1,134 @@
+<div class="result-list">
+
+  <div class="result-entry" *ngFor="let _ of searchResults; let i = index">
+    <!-- Personnel -->
+    <div *ngIf="type === 'personnel'">
+      <div class="result-entry__name" (click)="toggleShowDetails(i)">PhD-Student</div>
+      <div class="result-entry__info">
+        <div class="result-entry__info__label">Institution:</div>
+        <div class="result-entry__info__content">TUM</div>
+      </div>
+      <div class="result-entry__info">
+        <div class="result-entry__info__label">Forschungsgruppe:</div>
+        <div class="result-entry__info__content">Lehrstuhl für Analytische Chemie</div>
+      </div>
+      <div class="result-entry__info">
+        <div class="result-entry__info__label">Bereich:</div>
+        <div class="result-entry__info__content">Chemie</div>
+      </div>
+      <div class="result-entry__info">
+        <div class="result-entry__info__label">Erfahrung mit PCR und RT PCR:</div>
+        <div class="result-entry__info__content">Ja</div>
+      </div>
+      <button
+        class="result-entry__details-btn"
+        *ngIf="!showDetails[i]"
+        (click)="toggleShowDetails(i)"
+      >Details anzeigen</button>
+
+      <div class="result-entry__details" *ngIf="showDetails[i]">
+        <div class="result-entry__details__info">
+          <div class="result-entry__details__info__label">Anmerkungen:</div>
+          <div class="result-entry__details__info__content"></div>
+        </div>
+        <div class="result-entry__details__info">
+          <div class="result-entry__details__info__label">Kontakt:</div>
+          <div class="result-entry__details__info__content">{{ dummyAddress }}</div>
+        </div>
+
+        <button
+          class="result-entry__details-btn"
+          *ngIf="showDetails[i]"
+          (click)="toggleShowDetails(i)"
+        >Details ausblenden</button>
+      </div>
+    </div>
+
+    <!-- Device -->
+    <div *ngIf="type === 'device'">
+      <div class="result-entry__name" (click)="toggleShowDetails(i)">peqSTAR XS 32 Well-Thermocycler</div>
+      <div class="result-entry__info">
+        <div class="result-entry__info__label">Hersteller:</div>
+        <div class="result-entry__info__content">peqSTAR</div>
+      </div>
+      <div>
+        <div class="result-entry__info__label">Bestellnummer:</div>
+        <div class="result-entry__info__content">123-456-789</div>
+      </div>
+      <div>
+        <div class="result-entry__info__label">Standort:</div>
+        <div class="result-entry__info__content">85748</div>
+      </div>
+      <div>
+        <div class="result-entry__info__label">Menge:</div>
+        <div class="result-entry__info__content">2 Stück</div>
+      </div>
+      <button
+        class="result-entry__details-btn"
+        *ngIf="!showDetails[i]"
+        (click)="toggleShowDetails(i)"
+      >Details anzeigen</button>
+
+      <div class="result-entry__details" *ngIf="showDetails[i]">
+        <div class="result-entry__details__info">
+          <div class="result-entry__details__info__label">Anmerkungen:</div>
+          <div class="result-entry__details__info__content"></div>
+        </div>
+        <div class="result-entry__details__info">
+          <div class="result-entry__details__info__label">Kontakt:</div>
+          <div class="result-entry__details__info__content">{{ dummyAddress }}</div>
+        </div>
+
+        <button
+          class="result-entry__details-btn"
+          *ngIf="showDetails[i]"
+          (click)="toggleShowDetails(i)"
+        >Details ausblenden</button>
+      </div>
+    </div>
+
+    <!-- Consumable -->
+    <div *ngIf="type === 'consumable'">
+      <div class="result-entry__name" (click)="toggleShowDetails(i)">Maske ABC</div>
+      <div class="result-entry__info">
+        <div class="result-entry__info__label">Hersteller:</div>
+        <div class="result-entry__info__content">Good Masks Inc.</div>
+      </div>
+      <div>
+        <div class="result-entry__info__label">Bestellnummer:</div>
+        <div class="result-entry__info__content">123-456-789</div>
+      </div>
+      <div>
+        <div class="result-entry__info__label">Standort:</div>
+        <div class="result-entry__info__content">85748</div>
+      </div>
+      <div>
+        <div class="result-entry__info__label">Menge:</div>
+        <div class="result-entry__info__content">2 Packungen</div>
+      </div>
+      <button
+        class="result-entry__details-btn"
+        *ngIf="!showDetails[i]"
+        (click)="toggleShowDetails(i)"
+      >Details anzeigen</button>
+
+      <div class="result-entry__details" *ngIf="showDetails[i]">
+        <div class="result-entry__details__info">
+          <div class="result-entry__details__info__label">Anmerkungen:</div>
+          <div class="result-entry__details__info__content"></div>
+        </div>
+        <div class="result-entry__details__info">
+          <div class="result-entry__details__info__label">Kontakt:</div>
+          <div class="result-entry__details__info__content">{{ dummyAddress }}</div>
+        </div>
+
+        <button
+          class="result-entry__details-btn"
+          *ngIf="showDetails[i]"
+          (click)="toggleShowDetails(i)"
+        >Details ausblenden</button>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -11,11 +11,16 @@ export class OfferSearchComponent implements OnInit {
   searchType: string;
   searchQuery;
   postalCode = '';
+  results;
+
+  dummyResults = [{}, {}, {}];
 
 
   constructor(
     private fetchService: FetchServiceService
-  ) { }
+  ) {
+    this.setType('personnel')
+  }
 
   ngOnInit(): void {
   }
@@ -24,6 +29,7 @@ export class OfferSearchComponent implements OnInit {
   setType(type) {
     if (this.searchType !== type) {
       this.searchType = type;
+      this.results = undefined;
 
       if (type === 'personnel') {
         this.searchQuery = {
@@ -113,5 +119,6 @@ export class OfferSearchComponent implements OnInit {
 
     this.fetchService.getOffer(targetType,data)
     console.log(this.searchType, this.searchQuery, this.postalCode);
+    this.results = this.dummyResults;
   }
 }
