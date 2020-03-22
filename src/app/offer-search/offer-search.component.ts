@@ -76,6 +76,7 @@ export class OfferSearchComponent implements OnInit {
 
 
   onSubmit() {
+    this.results = this.dummyResults;
 
     let data;
     var targetType;
@@ -119,6 +120,5 @@ export class OfferSearchComponent implements OnInit {
 
     this.fetchService.getOffer(targetType,data)
     console.log(this.searchType, this.searchQuery, this.postalCode);
-    this.results = this.dummyResults;
   }
 }
