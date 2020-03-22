@@ -99,11 +99,13 @@ export class OfferFormComponent implements OnInit {
       provider: {
         name: this.contactData.person,
         organisation: this.contactData.organisation,
-        street: this.contactData.street,
-        streetnumber: this.contactData.street,
-        postalcode: this.contactData.postalCode,
-        city: this.contactData.city,
-        country: this.contactData.country,
+        address: {
+          street: this.contactData.street,
+          streetnumber: this.contactData.street,
+          postalcode: this.contactData.postalCode,
+          city: this.contactData.city,
+          country: this.contactData.country
+        },
         mail: this.contactData.mail,
         phone: this.contactData.phone
       },
@@ -132,7 +134,9 @@ export class OfferFormComponent implements OnInit {
             name: elem.deviceName,
             manufacturer: elem.manufacturer,
             ordernumber: elem.ordernumber,
-            postalcode: elem.locationPostalCode,
+            address: {
+              postalcode: elem.locationPostalCode
+            },
             amount: elem.number
           }
         );
@@ -144,7 +148,9 @@ export class OfferFormComponent implements OnInit {
             name: elem.deviceName,
             manufacturer: elem.manufacturer,
             ordernumber: elem.ordernumber,
-            postalcode: elem.locationPostalCode,
+            address: {
+              postalcode: elem.locationPostalCode
+            },
             amount: elem.number
           }
         );
