@@ -11,9 +11,15 @@
 
                 <nav class="main-navigation">
                     <ul class="menu">
-                        <li class="home menu-item current-menu-item"><a routerLink="/"><img src="/assets/images/home-icon.png" alt="Home"></a></li>
-                        <li class="menu-item"><a routerLink="/about">Über uns</a></li>
-                        <li class="menu-item"><a routerLink="/faq">FAQ</a></li>
+                        <li class="home menu-item {{ url === '/' ? 'current-menu-item' : '' }}">
+                            <a routerLink="/"><img src="/assets/images/home-icon.png" alt="Home"></a>
+                        </li>
+                        <li class="menu-item {{ url === '/about' ? 'current-menu-item' : '' }}">
+                            <a routerLink="/about">Über uns</a>
+                        </li>
+                        <li class="menu-item {{ url === '/faq' ? 'current-menu-item' : '' }}">
+                            <a routerLink="/faq">FAQ</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
