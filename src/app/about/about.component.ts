@@ -50,6 +50,12 @@ export class AboutComponent implements OnInit {
       name: 'Markus Schneider',
       short: '34 Jahre alt, Postdoc',
       long: 'Ich bin absolut kein Hacker. Aber als Wissenschaftler weiß ich, welche Geräte und Materialien im Labor gebraucht werden und was nötig ist, um einen Test durchzuführen und auszuwerten. Ich versuche daher PIRAT auf diesem Weg mit meinem Know-how zu unterstützen.'
+    },
+    {
+      image: 'klemens.jpg',
+      name: 'Klemens Thaler',
+      short: 'Prüfingenieur bei TÜV SÜD Product Service, aktive Medizinprodukte',
+      long: 'In dieser außergewöhnlichen Situation ist jede Hilfe notwendig. Ich möchte eine helfende Hand anbieten, wo auch immer eine gebraucht wird. Hackathon ist eine gute Gelegenheit dafür.',
     }
   ];
 
