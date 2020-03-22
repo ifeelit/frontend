@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { FetchServiceService } from '../fetch-service.service';
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -26,18 +26,22 @@ export class OfferFormComponent implements OnInit {
 
 
   constructor(
-    private fetchService: FetchServiceService
+    private fetchService: FetchServiceService,
+    private router: Router,
   ) {
   }
 
 
   ngOnInit(): void {
+    this.router.navigate(['/']);
   }
 
 
   onSubmit() {
-    this.sendRequest();
     console.log(this.contactData, this.goods);
+    alert('Das Angebot wurde erfolgreich eingestellt. Vielen Dank.');
+
+    // this.sendRequest();
   }
 
   deleteItem(delGood) {
