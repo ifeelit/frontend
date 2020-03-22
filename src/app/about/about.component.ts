@@ -56,6 +56,12 @@ export class AboutComponent implements OnInit {
       name: 'Klemens Thaler',
       short: 'Prüfingenieur bei TÜV SÜD Product Service, aktive Medizinprodukte',
       long: 'In dieser außergewöhnlichen Situation ist jede Hilfe notwendig. Ich möchte eine helfende Hand anbieten, wo auch immer eine gebraucht wird. Hackathon ist eine gute Gelegenheit dafür.',
+    },
+    {
+      image: 'flo.jpg',
+      name: 'Florian Pawlik',
+      short: '25 Jahre alt, Software Consultant aus München',
+      long: 'Ich bin hier während des Hackatons in das Team mit reingerutscht als Ratgeber, Fehlerfinder und Wissensquelle bei verschiedenen Fragestellungen. Und was gäbe es aktuell Besseres als seine Zeit für den Kampf gegen COVID einzusetzen?',
     }
   ];
 
