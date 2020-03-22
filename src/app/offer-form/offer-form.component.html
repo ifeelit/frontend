@@ -19,7 +19,7 @@
 
   <div class="form-block__input-field">
     <label>
-      Verantworliche Person
+      Verantwortliche Person
     </label>
     <input type="text" [(ngModel)]="contactData.person">
   </div>
@@ -126,8 +126,7 @@
     </div>
     <div>
       <input type="checkbox"> 
-      <label>
-        Meine ehrenamtiliche Tätigkeit findet außerhalb meiner Arbeitszeiten statt und ist mit meinem Vorgesetzten / meiner Vorgesetzten abgeklärt.</label>
+      <label> Hiermit wird bestätigt, dass der Helfer die Tätigkeit ehrenamtlich außerhalb der Arbeitszeiten ausführt.</label>
     </div>
   </div>
 
@@ -139,8 +138,8 @@
         Kategorie
       </label>
       <select [(ngModel)]="g.category">
-        <option value="prc-cycler">PRC Cycler</option>
-        <option value="rt-prc-cycler">RT PRC Cycler</option>
+        <option value="pcr-cycler">PCR Thermocycler</option>
+        <option value="rt-pcr-cycler">Real-Time PCR Thermocycler</option>
         <option value="zentrifuge">Zentrifuge</option>
         <option value="vortexer">Vortexer</option>
         <option value="pipette">Pipette</option>
