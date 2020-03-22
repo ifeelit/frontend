@@ -68,7 +68,7 @@
 		vertical-align: middle;
 		@include clearfix;
 
-		@media screen and (max-width: 990px){ display: none }
+		//@media screen and (max-width: 990px){ display: none }
 
 		.menu-item{
 			float: left;
