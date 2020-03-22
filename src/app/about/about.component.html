@@ -8,17 +8,26 @@
     <div class="fullwidth-block">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <h3>Was ist PIRAT?</h3>
-                    <p>PIRAT (Pandemic Important Resource Allocation Tool) ist ein Tool für die Erfassung und effiziente Verteilung von notwendigen Ressourcen in Ausnahmesituation wie z.B. einer Pandemie.</p>
-                    <p>Wir wollen die Erfassung und Verteilung von notwendigen medizinischen Hilfsmitteln, aber auch Manpower, verbessern. Viele Labore an Universitäten sind gut ausgestattet, um diagnostische Tests auf SARS-CoV-2 durchzuführen, es fehlt hier allerdings die Berechtigung, diese Tests durchzuführen, sodass keine Patientenproben analysiert werden können. Offizielle Testlabore bräuchten die Ausstattung dieser Labore, da die Nachfrage an SARS-CoV-2-Tests ihre Kapazitäten übersteigt, aber diesen Austausch gibt es bisher nicht. </p>
-                    <p>Ziel dieser Seite ist es deshalb, Testlabore mit Einrichtungen wie Universitäten zu vernetzen, die Geräte, Verbrauchsmaterialien und auch qualifiziertes Personal zur Unterstützung bei der Durchführung von SARS-CoV-2-Tests zur Verfügung stellen könnten. Dabei können Universitäten ihre freien Ressourcen in unsere Datenbank eintragen und werden benachrichtigt, sobald eines der umliegenden Testlabore diese Ressourcen benötigt. Hierdurch können die Testkapazitäten erweitert werden, sodass Verdachtsfälle schneller getestet werden können.</p>
-                    <p>Weiter könnte man auch schon bei den Patientenabstrichen und dem Transport der Proben zu den Testlaboren ansetzen und hier mit zusätzlicher Manpower, die von den Universitäten akquiriert wird, dafür sorgen, dass Verdachtsfälle rasch getestet werden können. Hier ist eine enge Zusammenarbeit mit den Gesundheitsämtern vorgesehen.</p>
-                    <p>Das Tool ist selbstverständlich auch erweiterbar auf sonstige Verbrauchsmaterialien, die an Krankenhäusern und im Rettungsdienst oder der Krankenpflege momentan Mangelware sind (z.B. Handschuhe, Masken, Schutzbrillen, Desinfektionsmittel. Erste Versuche von Spenden von Universitäten an Krankenhäuser laufen hier derzeit sehr unkoordiniert ab) und weitere Manpower im Sinne von Krankenhaus- oder Rettungsdienstpersonal.</p>
-                    <p>Zusammenfassend herrscht aktuell das Problem vor, dass Ressourcen in Form von Personal, Geräten und Verbrauchsmaterial vorhanden sind, die an anderer Stelle gebraucht werden, aber kein Austausch zwischen den entsprechenden Stellen stattfindet. Diese Situation wird durch unser Tool erheblich verbessert.</p>
+                <h3>Was ist PIRAT?</h3>
+                <p>PIRAT (Pandemic Important Resource Allocation Tool) ist ein Tool für die Erfassung und effiziente Verteilung von notwendigen Ressourcen in Ausnahmesituation wie z.B. einer Pandemie.</p>
+                <p>Wir wollen die Erfassung und Verteilung von notwendigen medizinischen Hilfsmitteln, aber auch Manpower, verbessern. Viele Labore an Universitäten sind gut ausgestattet, um diagnostische Tests auf SARS-CoV-2 durchzuführen, es fehlt hier allerdings die Berechtigung, diese Tests durchzuführen, sodass keine Patientenproben analysiert werden können. Offizielle Testlabore bräuchten die Ausstattung dieser Labore, da die Nachfrage an SARS-CoV-2-Tests ihre Kapazitäten übersteigt, aber diesen Austausch gibt es bisher nicht. </p>
+                <p>Ziel dieser Seite ist es deshalb, Testlabore mit Einrichtungen wie Universitäten zu vernetzen, die Geräte, Verbrauchsmaterialien und auch qualifiziertes Personal zur Unterstützung bei der Durchführung von SARS-CoV-2-Tests zur Verfügung stellen könnten. Dabei können Universitäten ihre freien Ressourcen in unsere Datenbank eintragen und werden benachrichtigt, sobald eines der umliegenden Testlabore diese Ressourcen benötigt. Hierdurch können die Testkapazitäten erweitert werden, sodass Verdachtsfälle schneller getestet werden können.</p>
+                <p>Weiter könnte man auch schon bei den Patientenabstrichen und dem Transport der Proben zu den Testlaboren ansetzen und hier mit zusätzlicher Manpower, die von den Universitäten akquiriert wird, dafür sorgen, dass Verdachtsfälle rasch getestet werden können. Hier ist eine enge Zusammenarbeit mit den Gesundheitsämtern vorgesehen.</p>
+                <p>Das Tool ist selbstverständlich auch erweiterbar auf sonstige Verbrauchsmaterialien, die an Krankenhäusern und im Rettungsdienst oder der Krankenpflege momentan Mangelware sind (z.B. Handschuhe, Masken, Schutzbrillen, Desinfektionsmittel. Erste Versuche von Spenden von Universitäten an Krankenhäuser laufen hier derzeit sehr unkoordiniert ab) und weitere Manpower im Sinne von Krankenhaus- oder Rettungsdienstpersonal.</p>
+                <p>Zusammenfassend herrscht aktuell das Problem vor, dass Ressourcen in Form von Personal, Geräten und Verbrauchsmaterial vorhanden sind, die an anderer Stelle gebraucht werden, aber kein Austausch zwischen den entsprechenden Stellen stattfindet. Diese Situation wird durch unser Tool erheblich verbessert.</p>
+            </div>
 
-                    <h3>Wer steht hinter PIRAT?</h3>
-                    <p>Wir sind ein interdisziplinäres Team aus Informatikern, Chemikern und Biochemikern, die sich im Rahmen des Wir vs Virus-Hackathons der Bundesregierung zusammengefunden haben, um etwas im Kampf gegen Corona beizutragen.</p>
+            <div class="row">
+                <h3>Wer steht hinter PIRAT?</h3>
+                <div class="profile-list">
+                    <div class="profile" *ngFor="let p of profiles">
+                        <div class="profile__image">
+                            <img src="/assets/images/profile_photos/{{ p.image }}" alt="Profilfoto von {{ p.name }}" />
+                        </div>
+                        <div class="profile__name">{{ p.name }}</div>
+                        <div class="profile__short">{{ p.short }}</div>
+                        <div class="profile__long">{{ p.long }}</div>
+                    </div>
                 </div>
             </div>
         </div>

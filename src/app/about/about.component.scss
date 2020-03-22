@@ -1,0 +1,38 @@
+.profile-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.profile {
+  width: 310px;
+  margin-right: 50px;
+  margin-bottom: 80px;
+}
+
+
+.profile__image {
+  margin-bottom: 30px;
+
+  img {
+    border-radius: 100%;
+  }
+}
+
+
+.profile__name {
+  font-weight: bold;
+  color: #69acc7;
+  margin-bottom: 20px;
+}
+
+
+.profile__short {
+  font-size: small;
+  margin-bottom: 20px;
+}
+
+
+.profile__long {
+
+}
