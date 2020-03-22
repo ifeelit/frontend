@@ -152,6 +152,6 @@ export class OfferFormComponent implements OnInit {
     });
 
     this.fetchService.sendOffer(data);
-
+      
   }
 }
