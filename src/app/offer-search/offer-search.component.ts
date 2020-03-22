@@ -77,32 +77,36 @@ export class OfferSearchComponent implements OnInit {
       if (this.searchType === 'personnel') {
         targetType = 'manpower';
         data = {
-          qualification: {
-            ta: this.searchQuery.qualification.ta,
-            labassistant: this.searchQuery.qualification.labAssistant,
-            postdoc: this.searchQuery.qualification.postDoc,
-            phdstudent: this.searchQuery.qualification.phdStudent,
-            mscstudent: this.searchQuery.qualification.mscStudent,
-            bscstudent: this.searchQuery.qualification.bscStudent,
-            others: this.searchQuery.qualification.others
-          },
-          area: this.searchQuery.area,
+          qualification: [],
+          area: [],
           experience_rt_pcr: this.searchQuery.requiresExperienceWithPCR,
-          postal_code: this.postalCode
+          postalcode: this.postalCode
+        }
+        
+        for (let key in this.searchQuery.qualification){
+          if (this.searchQuery.qualification[key]===true){
+            data.qualification.push(key.toString().toLowerCase());
+          }
+        }
+
+        for (let key in this.searchQuery.area){
+          if (this.searchQuery.area[key]===true){
+            data.area.push(key.toString().toLowerCase());
+          }
         }
 
       } else if (this.searchType === 'device') {
         targetType = 'devices'
         data = {
           category: this.searchQuery.category,
-          postal_code: this.postalCode
+          postalcode: this.postalCode
         }
 
       } else if (this.searchType === 'consumable') {
         targetType = 'consumables'
         data = {
           category: this.searchQuery.category,
-          postal_code: this.postalCode
+          postalcode: this.postalCode
         }
       }
     
