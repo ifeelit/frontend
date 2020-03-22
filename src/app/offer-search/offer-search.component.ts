@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FetchServiceService } from '../fetch-service.service';
 
 @Component({
   selector: 'app-offer-search',
@@ -12,7 +13,9 @@ export class OfferSearchComponent implements OnInit {
   postalCode = '';
 
 
-  constructor() { }
+  constructor(
+    private fetchService: FetchServiceService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -67,6 +70,44 @@ export class OfferSearchComponent implements OnInit {
 
 
   onSubmit() {
+
+    let data;
+    var targetType;
+
+      if (this.searchType === 'personnel') {
+        targetType = 'manpower';
+        data = {
+          qualification: {
+            ta: this.searchQuery.qualification.ta,
+            labassistant: this.searchQuery.qualification.labAssistant,
+            postdoc: this.searchQuery.qualification.postDoc,
+            phdstudent: this.searchQuery.qualification.phdStudent,
+            mscstudent: this.searchQuery.qualification.mscStudent,
+            bscstudent: this.searchQuery.qualification.bscStudent,
+            others: this.searchQuery.qualification.others
+          },
+          area: this.searchQuery.area,
+          experience_rt_pcr: this.searchQuery.requiresExperienceWithPCR,
+          postal_code: this.postalCode
+        }
+
+      } else if (this.searchType === 'device') {
+        targetType = 'devices'
+        data = {
+          category: this.searchQuery.category,
+          postal_code: this.postalCode
+        }
+
+      } else if (this.searchType === 'consumable') {
+        targetType = 'consumables'
+        data = {
+          category: this.searchQuery.category,
+          postal_code: this.postalCode
+        }
+      }
+    
+
+    this.fetchService.getOffer(targetType,data)
     console.log(this.searchType, this.searchQuery, this.postalCode);
   }
 }
