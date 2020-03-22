@@ -22,6 +22,12 @@ export class AboutComponent implements OnInit {
       long: 'Zusammen mit einer befreundeten TA, die gerade für die Messung von Corona-Proben geschult wird, hatte ich schon überlegt, ob und wie Uni-Ressourcen dem Labor bei der Ausweitung ihrer Corona-Testkapazitäten helfen könnten.  Daher wollte ich gerne zum WirvsVirus-Hackathon beitragen.',
     },
     {
+      image: 'annette.jpg',
+      name: 'Annette Bieniusa',
+      short: 'Akademische Rätin (Informatik) aus Kaiserslautern',
+      long: 'Ich finde Hackathons faszinierend - WirVsVirus bringt außerdem noch Aktualität und Impact. Die Idee von PIRAT fand ich super: Wir bringen Forschung und Praxis auf neue Art zusammen um Ressourcen im Kampf gegen Corona zu schaffen!'
+    },
+    {
       image: 'lukas.jpg',
       name: 'Lukas Vordemann',
       short: '23 Jahre alt, Student (Informatik) aus München',
@@ -44,12 +50,6 @@ export class AboutComponent implements OnInit {
       name: 'Markus Schneider',
       short: '34 Jahre alt, Postdoc',
       long: 'Ich bin absolut kein Hacker. Aber als Wissenschaftler weiß ich, welche Geräte und Materialien im Labor gebraucht werden und was nötig ist, um einen Test durchzuführen und auszuwerten. Ich versuche daher PIRAT auf diesem Weg mit meinem Know-how zu unterstützen.'
-    },
-    {
-      image: 'annette.jpg',
-      name: 'Annette Bieniusa',
-      short: 'Akademische Rätin (Informatik) aus Kaiserslautern',
-      long: 'Ich finde Hackathons faszinierend - WirVsVirus bringt außerdem noch Aktualität und Impact. Die Idee von PIRAT fand ich super: Wir bringen Forschung und Praxis auf neue Art zusammen um Ressourcen im Kampf gegen Corona zu schaffen!'
     }
   ];
 
