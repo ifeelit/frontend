@@ -104,13 +104,6 @@ export class OfferFormComponent implements OnInit {
         },
         name: this.contactData.person,
         organisation: this.contactData.organisation,
-        address: {
-          street: this.contactData.street,
-          streetnumber: this.contactData.street,
-          postalcode: this.contactData.postalCode,
-          city: this.contactData.city,
-          country: this.contactData.country
-        },
         mail: this.contactData.mail,
         phone: this.contactData.phone
       },
