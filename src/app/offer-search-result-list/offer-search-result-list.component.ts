@@ -13,12 +13,6 @@ export class OfferSearchResultListComponent implements OnInit, OnChanges {
 
   showDetails: Array<boolean>;
 
-  dummyAddress = "Anne Bonny\n" +
-    "Meeresinstitut Irland\n" +
-    "Kapitänslounge 2\n" +
-    "1700 Wasser\n" +
-    "mail@john-rackham.uk";
-
 
   constructor() {
   }

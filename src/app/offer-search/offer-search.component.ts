@@ -13,7 +13,233 @@ export class OfferSearchComponent implements OnInit {
   postalCode = '';
   results;
 
-  dummyResults = [{}, {}, {}];
+  dummyResults = {
+    'personnel': [
+      {
+        provider: {
+          name: 'Anna Meier',
+          organisation: 'TU München, Lehrstuhl für Biochemie',
+          address: 'Lichtenbergstr. 4\n85748 Garching',
+          mail: 'anna.meier@tum.de',
+          phone: '089 28913006'
+        },
+        resource: {
+          qualification: 'PhD-Student',
+          institution: 'TUM',
+          researchGroup: 'Mikrobiologie Gruppe',
+          area: 'Mikrobiologie',
+          experienceWithPCR: 'Ja',
+          notes: 'S2-Unterweisung vorhanden'
+        },
+      },
+      {
+        provider: {
+          name: 'Joseph Anders',
+          organisation: 'TU München, Lehrstuhl für Mikrobiologie',
+          address: 'Lichtenbergstr. 4\n85748 Garching',
+          mail: 'joseph.anders@tum.de',
+          phone: '089 28913005'
+        },
+        resource: {
+          qualification: 'MSc-Student',
+          institution: 'LMU',
+          researchGroup: 'Mikrobiologie Gruppe',
+          area: 'Mikrobiologie',
+          experienceWithPCR: 'Ja',
+        },
+      },
+      {
+        provider: {
+          name: 'Anna Meier',
+          organisation: 'TU München, Lehrstuhl für Biochemie',
+          address: 'Lichtenbergstr. 4\n85748 Garching',
+          mail: 'anna.meier@tum.de',
+          phone: '089 28913006'
+        },
+        resource: {
+          qualification: 'Laborant',
+          institution: 'TUM',
+          researchGroup: 'Pharma Gruppe',
+          area: 'Pharmakologie',
+          experienceWithPCR: 'Ja',
+        },
+      },
+      {
+        provider: {
+          name: 'Anna Meier',
+          organisation: 'TU München, Lehrstuhl für Biochemie',
+          address: 'Lichtenbergstr. 4\n85748 Garching',
+          mail: 'anna.meier@tum.de',
+          phone: '089 28913006'
+        },
+        resource: {
+          qualification: 'TA',
+          institution: 'TUM',
+          researchGroup: 'Virologie Gruppe',
+          area: 'Virologie',
+          experienceWithPCR: 'Ja',
+          notes: 'Ist PCR-Spezialist'
+        },
+      },
+      {
+        provider: {
+          name: 'Anna Meier',
+          organisation: 'TU München, Lehrstuhl für Biochemie',
+          address: 'Lichtenbergstr. 4\n85748 Garching',
+          mail: 'anna.meier@tum.de',
+          phone: '089 28913006'
+        },
+        resource: {
+          qualification: 'Postdoc',
+          institution: 'TUM',
+          researchGroup: 'Biochemie Gruppe',
+          area: 'Biochemie',
+          experienceWithPCR: 'Ja',
+          notes: 'Arbeitet mit RNA'
+        },
+      }
+    ],
+    'device': [
+      {
+        provider: {
+          name: 'Anna Meier',
+          organisation: 'TU München, Lehrstuhl für Biochemie',
+          address: 'Lichtenbergstr. 4\n85748 Garching',
+          mail: 'anna.meier@tum.de',
+          phone: '089 28913006'
+        },
+        resource: {
+          category: 'Real-Time PCR Thermocycler',
+          name: 'Light Cycler 480 II',
+          manufacturer: 'Roche',
+          ordernumber: '05015278001',
+          postalcode: '85748',
+          amount: '2 Stück',
+        }
+      },
+      {
+        provider: {
+          name: 'Anna Meier',
+          organisation: 'TU München, Lehrstuhl für Biochemie',
+          address: 'Lichtenbergstr. 4\n85748 Garching',
+          mail: 'anna.meier@tum.de',
+          phone: '089 28913006'
+        },
+        resource: {
+          category: 'Real-Time PCR Thermocycler',
+          name: 'QuantStudio 6',
+          manufacturer: 'ThermoFischer',
+          ordernumber: '046453297',
+          postalcode: '85748',
+          amount: '1 Stück',
+        }
+      },
+      {
+        provider: {
+          name: 'Joseph Anders',
+          organisation: 'TU München, Lehrstuhl für Mikrobiologie',
+          address: 'Lichtenbergstr. 4\n85748 Garching',
+          mail: 'joseph.anders@tum.de',
+          phone: '089 28913005'
+        },
+        resource: {
+          category: 'Real-Time PCR Thermocycler',
+          name: 'QuantStudio 7',
+          manufacturer: 'ThermoFischer',
+          ordernumber: '076345628',
+          postalcode: '85748',
+          amount: '1 Stück',
+        }
+      },
+      {
+        provider: {
+          name: 'Hans Bauer',
+          organisation: 'Universität Weilheim, Arbeitsgruppe für Zellbiologie',
+          address: 'Murnauer Str. 12\n82362  Weilheim',
+          mail: 'hans.bauer@uwm.de',
+          phone: '088 14178176'
+        },
+        resource: {
+          category: 'Real-Time PCR Thermocycler',
+          name: 'CFX96 Touch',
+          manufacturer: 'BioRad',
+          ordernumber: '00077897',
+          postalcode: '85748',
+          amount: '1 Stück',
+        }
+      }
+    ],
+    'consumable': [
+      {
+        provider: {
+          name: 'Anna Meier',
+          organisation: 'TU München, Lehrstuhl für Biochemie',
+          address: 'Lichtenbergstr. 4\n85748 Garching',
+          mail: 'anna.meier@tum.de',
+          phone: '089 28913006'
+        },
+        resource: {
+          category: 'Readoutplates',
+          name: 'Light Cycler 480 Multiwell Plate 96, white',
+          manufacturer: 'Roche',
+          ordernumber: '04729692001',
+          postalcode: '85748',
+          amount: '30 Stück',
+        }
+      },
+      {
+        provider: {
+          name: 'Anna Meier',
+          organisation: 'TU München, Lehrstuhl für Biochemie',
+          address: 'Lichtenbergstr. 4\n85748 Garching',
+          mail: 'anna.meier@tum.de',
+          phone: '089 28913006'
+        },
+        resource: {
+          category: 'Readoutplates',
+          name: 'CFX Plates',
+          manufacturer: 'BioRad',
+          ordernumber: '1845098',
+          postalcode: '85748',
+          amount: '10 Stück',
+        }
+      },
+      {
+        provider: {
+          name: 'Joseph Anders',
+          organisation: 'TU München, Lehrstuhl für Mikrobiologie',
+          address: 'Lichtenbergstr. 4\n85748 Garching',
+          mail: 'joseph.anders@tum.de',
+          phone: '089 28913005'
+        },
+        resource: {
+          category: 'Readoutplates',
+          name: 'Armadillo 96-Well PCR-Platte',
+          manufacturer: 'Thermo Scientific',
+          ordernumber: '12640965',
+          postalcode: '85748',
+          amount: '25 Stück',
+        }
+      },
+      {
+        provider: {
+          name: 'Hans Bauer',
+          organisation: 'Universität Weilheim, Arbeitsgruppe für Zellbiologie',
+          address: 'Murnauer Str. 12\n82362  Weilheim',
+          mail: 'hans.bauer@uwm.de',
+          phone: '088 14178176'
+        },
+        resource: {
+          category: 'Readoutplates',
+          name: 'MicroAmp Optische 96-Well-Reaktionsmikrotiterplatte',
+          manufacturer: 'Applied Biosystems',
+          ordernumber: '10411785',
+          postalcode: '85748',
+          amount: '5 Stück',
+        }
+      }
+    ],
+  };
 
 
   constructor(
@@ -76,7 +302,7 @@ export class OfferSearchComponent implements OnInit {
 
 
   onSubmit() {
-    this.results = this.dummyResults;
+    this.results = this.dummyResults[this.searchType];
 
     let data;
     var targetType;
