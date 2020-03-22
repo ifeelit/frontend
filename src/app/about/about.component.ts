@@ -35,7 +35,7 @@ export class AboutComponent implements OnInit {
     },
     {
       image: 'chaoran.jpg',
-      name: 'Chaoran',
+      name: 'Chaoran Chen',
       short: '25 Jahre alt, Student (Informatik) aus Garching b. München',
       long: '... Nachdem das Coronavirus jedoch unsere gebuchte Reise verhinderte, kam der Hackathon uns sehr gelegen, um die freigewordene Zeit sinnvoll und kreativ zu nutzen. ...',
     },
