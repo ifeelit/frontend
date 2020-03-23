@@ -58,7 +58,7 @@ export class OfferChangeComponent implements OnInit {
             type: 'personnel',
             qualification: element.qualification,
             institution: element.institution,
-            researchGroup: element.area,
+            researchGroup: element.researchgroup,
             area: element.area,
             experienceWithPCR: element.experience_rt_pcr,
             notes: element.annotation,
