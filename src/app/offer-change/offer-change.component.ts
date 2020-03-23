@@ -19,55 +19,6 @@ export class OfferChangeComponent implements OnInit {
 
   data: any;
 
-  dummyData = {
-    contactData: {
-      organisation: 'TU München, Lehrstuhl für Biochemie',
-      person: 'Anna Meier',
-      mail: 'anna.meier@tum.de',
-      phone: '089 28913006',
-      street: 'Lichtenbergstr.',
-      houseNumber: '4',
-      postalCode: '85748',
-      city: 'Garching',
-      country: 'Deutschland',
-    },
-    resources: [
-      {
-        type: 'device',
-        category: '',
-        deviceName: '',
-        manufacturer: '',
-        ordernumber: '',
-        locationPostalCode: '',
-        number: undefined,
-        unit: '',
-        unitSelfDefined: '',
-        notes: '',
-      },
-      {
-        type: 'consumable',
-        category: 'readoutplates',
-        deviceName: 'Test',
-        manufacturer: 'Test',
-        ordernumber: '123',
-        locationPostalCode: '12345',
-        number: 23,
-        unit: 'item',
-        unitSelfDefined: '',
-        notes: '',
-      },
-      {
-        type: 'personnel',
-        qualification: '',
-        institution: '',
-        researchGroup: '',
-        area: '',
-        experienceWithPCR: undefined,
-        notes: '',
-      }
-    ]
-  };
-
 
   constructor(
     private route: ActivatedRoute,
@@ -152,21 +103,23 @@ export class OfferChangeComponent implements OnInit {
       });
 
       //Seite wird geladen
-      
+
     });
   }
 
+
   //Delete Content on submit
-   onSubmit(): void {
+  onSubmit(): void {
     this.fetchService.deleteOffer(this.key);
     //Redirect to home page
     this.router.navigateByUrl('');
   }
 
+
   //Here for ater use of deleting single entries
   deleteItem(delGood: number): void {
     if (this.data.resources.length !== 0) {
-      this.data.resources.splice(delGood,1);
+      this.data.resources.splice(delGood, 1);
     }
   }
 }
