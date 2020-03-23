@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchServiceService } from '../fetch-service.service';
 
+
 @Component({
   selector: 'app-offer-search',
   templateUrl: './offer-search.component.html',
@@ -248,6 +249,7 @@ export class OfferSearchComponent implements OnInit {
     this.setType('personnel')
   }
 
+
   ngOnInit(): void {
   }
 
@@ -305,44 +307,44 @@ export class OfferSearchComponent implements OnInit {
     let data;
     var targetType;
 
-      if (this.searchType === 'personnel') {
-        targetType = 'manpower';
-        data = {
-          qualification: [],
-          area: [],
-          experience_rt_pcr: this.searchQuery.requiresExperienceWithPCR,
-          postalcode: this.postalCode
-        }
-        
-        for (let key in this.searchQuery.qualification){
-          if (this.searchQuery.qualification[key]===true){
-            data.qualification.push(key.toString().toLowerCase());
-          }
-        }
+    if (this.searchType === 'personnel') {
+      targetType = 'manpower';
+      data = {
+        qualification: [],
+        area: [],
+        experience_rt_pcr: this.searchQuery.requiresExperienceWithPCR,
+        postalcode: this.postalCode
+      };
 
-        for (let key in this.searchQuery.area){
-          if (this.searchQuery.area[key]===true){
-            data.area.push(key.toString().toLowerCase());
-          }
-        }
-
-      } else if (this.searchType === 'device') {
-        targetType = 'devices'
-        data = {
-          category: this.searchQuery.category,
-          postalcode: this.postalCode
-        }
-
-      } else if (this.searchType === 'consumable') {
-        targetType = 'consumables'
-        data = {
-          category: this.searchQuery.category,
-          postalcode: this.postalCode
+      for (let key in this.searchQuery.qualification) {
+        if (this.searchQuery.qualification[key] === true) {
+          data.qualification.push(key.toString().toLowerCase());
         }
       }
-    
 
-    let response = await this.fetchService.getOffers(targetType,data)
+      for (let key in this.searchQuery.area) {
+        if (this.searchQuery.area[key] === true) {
+          data.area.push(key.toString().toLowerCase());
+        }
+      }
+
+    } else if (this.searchType === 'device') {
+      targetType = 'devices';
+      data = {
+        category: this.searchQuery.category,
+        postalcode: this.postalCode
+      }
+
+    } else if (this.searchType === 'consumable') {
+      targetType = 'consumables';
+      data = {
+        category: this.searchQuery.category,
+        postalcode: this.postalCode
+      }
+    }
+
+
+    const response = await this.fetchService.getOffer(targetType, data);
     //infuse data into page
     this.results = this.dummyResults[this.searchType];
     console.log(this.searchType, this.searchQuery, this.postalCode);
