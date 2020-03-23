@@ -186,21 +186,6 @@
       </label>
       <div>
         <input type="number" [(ngModel)]="g.number">
-        <div>
-          <select [(ngModel)]="g.unit">
-            <option value="">Einheit auswählen</option>
-            <option value="item">Stück</option>
-            <option value="pack">Packung</option>
-            <option value="other">Sonstiges</option>
-          </select>
-          <input
-            *ngIf="g.unit === 'other'"
-            [(ngModel)]="g.unitSelfDefined"
-            type="text"
-            placeholder="Bitte die Einheit spezifizieren."
-            style="width: 200px; margin-left: 20px;"
-          />
-        </div>
       </div>
     </div>
     <div class="form-block__input-field">

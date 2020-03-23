@@ -71,8 +71,6 @@ export class OfferFormComponent implements OnInit {
       ordernumber: '',
       locationPostalCode: '',
       number: undefined,
-      unit: '',
-      unitSelfDefined: '',
       notes: '',
     });
   }
