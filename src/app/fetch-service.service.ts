@@ -1,7 +1,5 @@
-import { Injectable, SystemJsNgModuleLoader } from '@angular/core';
-import { CheckboxControlValueAccessor } from '@angular/forms';
+import { Injectable } from '@angular/core';
 import { environment } from "../environments/environment";
-import { Router } from '@angular/router';
 
 
 const url = environment.apiHost;
@@ -76,23 +74,36 @@ export class FetchServiceService {
 
 
   // API call to fill search page with data, add async and data infustion on page
-  async getOffers(type,data) {
+  async getOffers(type, data) {
+    const suffix = '/resources/'.concat(type);
 
-    var suffix = '/resources/'.concat(type);
+    const searchParams = new URLSearchParams();
+    for (let key in data) {
+      if (!data.hasOwnProperty(key)) {
+        continue;
+      }
+      const value = data[key];
+      if (Array.isArray(value)) {
+        for (let v of value) {
+          searchParams.append(key, v);
+        }
+      } else {
+        searchParams.append(key, value);
+      }
+    }
 
-    var request = new Request(url.concat(suffix), {
+    const currentUrl = url + suffix + '?' + searchParams.toString();
+    const request = new Request(currentUrl, {
       method: 'GET',
-      body: JSON.stringify(data),
       headers: new Headers(
-        { 'Content-Type': 'application/json' }
+        {'Content-Type': 'application/json'}
       )
     });
 
     const response = await fetch(request);
     if (response.status === 200) {
       //Offers received
-      const reply = await response.json();
-      return reply;
+      return await response.json();
     }
     else {
       //hancle error code

@@ -1,24 +1,28 @@
 <div class="result-list">
 
+  <div *ngIf="searchResults.length === 0">
+    Keine Ergebnisse gefunden
+  </div>
+
   <div class="result-entry" *ngFor="let r of searchResults; let i = index">
     <!-- Personnel -->
     <div *ngIf="type === 'personnel'">
-      <div class="result-entry__name" (click)="toggleShowDetails(i)">{{ r.resource.qualification }}</div>
+      <div class="result-entry__name" (click)="toggleShowDetails(i)">{{ r.item.qualification }}</div>
       <div class="result-entry__info">
         <div class="result-entry__info__label">Institution:</div>
-        <div class="result-entry__info__content">{{ r.resource.institution }}</div>
+        <div class="result-entry__info__content">{{ r.item.institution }}</div>
       </div>
       <div class="result-entry__info">
         <div class="result-entry__info__label">Forschungsgruppe:</div>
-        <div class="result-entry__info__content">{{ r.resource.researchGroup }}</div>
+        <div class="result-entry__info__content">{{ r.item.researchgroup }}</div>
       </div>
       <div class="result-entry__info">
         <div class="result-entry__info__label">Bereich:</div>
-        <div class="result-entry__info__content">{{ r.resource.area }}</div>
+        <div class="result-entry__info__content">{{ r.item.area }}</div>
       </div>
       <div class="result-entry__info">
         <div class="result-entry__info__label">Erfahrung mit PCR und Real-Time PCR:</div>
-        <div class="result-entry__info__content">{{ r.resource.experienceWithPCR }}</div>
+        <div class="result-entry__info__content">{{ r.item.experience_rt_pcr }}</div>
       </div>
       <button
         class="result-entry__details-btn"
@@ -29,14 +33,14 @@
       <div class="result-entry__details" *ngIf="showDetails[i]">
         <div class="result-entry__details__info">
           <div class="result-entry__details__info__label">Anmerkungen:</div>
-          <div class="result-entry__details__info__content">{{ r.resource.notes }}</div>
+          <div class="result-entry__details__info__content">{{ r.item.annotation }}</div>
         </div>
         <div class="result-entry__details__info">
           <div class="result-entry__details__info__label">Kontakt:</div>
           <div
             class="result-entry__details__info__content"
           >{{
-            r.provider.name + '\n' + r.provider.organisation + '\n' + r.provider.address + '\n'
+            r.provider.name + '\n' + r.provider.organisation + '\n' + formatAddress(r.provider.address) + '\n'
             + r.provider.phone + '\n' + r.provider.mail
             }}</div>
         </div>
@@ -51,22 +55,22 @@
 
     <!-- Device -->
     <div *ngIf="type === 'device'">
-      <div class="result-entry__name" (click)="toggleShowDetails(i)">{{ r.resource.name }}</div>
+      <div class="result-entry__name" (click)="toggleShowDetails(i)">{{ r.item.name }}</div>
       <div class="result-entry__info">
         <div class="result-entry__info__label">Hersteller:</div>
-        <div class="result-entry__info__content">{{ r.resource.manufacturer }}</div>
+        <div class="result-entry__info__content">{{ r.item.manufacturer }}</div>
       </div>
       <div>
         <div class="result-entry__info__label">Bestell- oder Seriennummer:</div>
-        <div class="result-entry__info__content">{{ r.resource.ordernumber }}</div>
+        <div class="result-entry__info__content">{{ r.item.ordernumber }}</div>
       </div>
       <div>
         <div class="result-entry__info__label">Standort:</div>
-        <div class="result-entry__info__content">{{ r.resource.postalcode }}</div>
+        <div class="result-entry__info__content">{{ formatAddress(r.item.address) }}</div>
       </div>
       <div>
         <div class="result-entry__info__label">Menge:</div>
-        <div class="result-entry__info__content">{{ r.resource.amount }}</div>
+        <div class="result-entry__info__content">{{ r.item.amount }}</div>
       </div>
       <button
         class="result-entry__details-btn"
@@ -84,7 +88,7 @@
           <div
             class="result-entry__details__info__content"
           >{{
-            r.provider.name + '\n' + r.provider.organisation + '\n' + r.provider.address + '\n'
+            r.provider.name + '\n' + r.provider.organisation + '\n' + formatAddress(r.provider.address) + '\n'
             + r.provider.phone + '\n' + r.provider.mail
             }}</div>
         </div>
@@ -99,22 +103,22 @@
 
     <!-- Consumable -->
     <div *ngIf="type === 'consumable'">
-      <div class="result-entry__name" (click)="toggleShowDetails(i)">{{ r.resource.name }}</div>
+      <div class="result-entry__name" (click)="toggleShowDetails(i)">{{ r.item.name }}</div>
       <div class="result-entry__info">
         <div class="result-entry__info__label">Hersteller:</div>
-        <div class="result-entry__info__content">{{ r.resource.manufacturer }}</div>
+        <div class="result-entry__info__content">{{ r.item.manufacturer }}</div>
       </div>
       <div>
         <div class="result-entry__info__label">Bestell- oder Seriennummer:</div>
-        <div class="result-entry__info__content">{{ r.resource.ordernumber }}</div>
+        <div class="result-entry__info__content">{{ r.item.ordernumber }}</div>
       </div>
       <div>
         <div class="result-entry__info__label">Standort:</div>
-        <div class="result-entry__info__content">{{ r.resource.postalcode }}</div>
+        <div class="result-entry__info__content">{{ formatAddress(r.item.address) }}</div>
       </div>
       <div>
         <div class="result-entry__info__label">Menge:</div>
-        <div class="result-entry__info__content">{{ r.resource.amount }}</div>
+        <div class="result-entry__info__content">{{ r.item.amount }}</div>
       </div>
       <button
         class="result-entry__details-btn"
@@ -132,7 +136,7 @@
           <div
             class="result-entry__details__info__content"
           >{{
-            r.provider.name + '\n' + r.provider.organisation + '\n' + r.provider.address + '\n'
+            r.provider.name + '\n' + r.provider.organisation + '\n' + formatAddress(r.provider.address) + '\n'
             + r.provider.phone + '\n' + r.provider.mail
             }}</div>
         </div>
