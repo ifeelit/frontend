@@ -77,9 +77,7 @@ export class OfferChangeComponent implements OnInit {
             ordernumber: element.ordernumber,
             locationPostalCode: element.address.postalcode,
             number: element.amount,
-            unit: '', // no units from server
-            unitSelfDefined: '',
-            notes: '', // no annotation from server
+            notes: element.annotation,
           }
         );
       });
@@ -95,15 +93,12 @@ export class OfferChangeComponent implements OnInit {
             ordernumber: element.ordernumber,
             locationPostalCode: element.address.postalcode,
             number: element.amount,
-            unit: 'item', // no units from server
-            unitSelfDefined: '',
-            notes: '', // no annotations from server 
+            unit: (element.unit === 'item') || (element.unit === 'pack') ? element.unit : 'other',
+            unitSelfDefined: (element.unit === 'item') || (element.unit === 'pack') ? '' : element.unit,
+            notes: element.annotation,
           }
         );
       });
-
-      //Seite wird geladen
-
     });
   }
 

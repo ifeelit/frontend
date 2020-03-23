@@ -97,7 +97,7 @@ export class OfferFormComponent implements OnInit {
       provider: {
         address: {
           street: this.contactData.street,
-          streetnumber: this.contactData.street,
+          streetnumber: this.contactData.houseNumber,
           postalcode: this.contactData.postalCode,
           city: this.contactData.city,
           country: this.contactData.country,
@@ -147,7 +147,8 @@ export class OfferFormComponent implements OnInit {
             address: {
               postalcode: elem.locationPostalCode
             },
-            amount: elem.number
+            amount: elem.number,
+            unit: elem.unit !== 'other' ? elem.unit : elem.unitSelfDefined,
           }
         );
       }
