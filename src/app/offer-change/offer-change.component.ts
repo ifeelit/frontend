@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FetchServiceService } from '../fetch-service.service';
 import { environment } from "../../environments/environment";
 import { areAllEquivalent } from '@angular/compiler/src/output/output_ast';
@@ -71,6 +71,7 @@ export class OfferChangeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private fetchService: FetchServiceService
   ) {
   };
@@ -155,13 +156,15 @@ export class OfferChangeComponent implements OnInit {
     });
   }
 
-
-  onSubmit(): void {
-    //DEL request an server through fetch
+  //Delete Content on submit
+   onSubmit(): void {
+    this.fetchService.deleteOffer(this.key);
+    //Redirect to home page
+    this.router.navigateByUrl('');
   }
 
-
-  deleteItem(delGood: number) {
+  //Here for ater use of deleting single entries
+  deleteItem(delGood: number): void {
     if (this.data.resources.length !== 0) {
       this.data.resources.splice(delGood,1);
     }

@@ -15,7 +15,7 @@ export class FetchServiceService {
   constructor(
   ) { }
 
-  
+  //Send offer to server and get the token/key to reaccess the offer
   async sendOffer(data) {
     var request = new Request(url.concat('/resources'), {
       method: 'POST', 
@@ -36,7 +36,7 @@ export class FetchServiceService {
   }
 
 
-
+  //Request to review offer from server via a token and return response data
   async reviewOffer(token) {
     let suffix = '/resources/offers/'.concat(token)
     let request = new Request(url.concat(suffix), {
@@ -56,6 +56,26 @@ export class FetchServiceService {
       //hancle error code
     }
   }
+
+  async deleteOffer(token) {
+    let suffix = '/resources/offers/'.concat(token)
+    let request = new Request(url.concat(suffix),  {
+      method: 'DEL',
+      body: token,
+      headers: new Headers(
+        { 'Content-Type': 'application/json' }
+      )
+    });
+
+    const response = await fetch(request);
+    if (response.status === 200) {
+      // Deletion was successful
+    }
+    else {
+      //hancle error code
+    }
+  }
+
 
   // API call to fill search page with data, add async and data infustion on page
   getOffer(type,data) {
