@@ -83,10 +83,10 @@ export class OfferChangeComponent implements OnInit {
       this.key = params.key;
       this.currentUrl = environment.pageHost + '/offer/' + this.key;
       let response = this.fetchService.reviewOffer(this.key);
-      //speicher in goods variable
+      this.data = {
+        //Wait for correct message implementation from Server
+      }
       
-      
-
       //lade seite
       this.data = this.dummyData;
     });
