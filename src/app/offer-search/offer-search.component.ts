@@ -301,9 +301,7 @@ export class OfferSearchComponent implements OnInit {
   }
 
 
-  onSubmit() {
-    this.results = this.dummyResults[this.searchType];
-
+  async onSubmit() {
     let data;
     var targetType;
 
@@ -344,8 +342,9 @@ export class OfferSearchComponent implements OnInit {
       }
     
 
-    this.fetchService.getOffer(targetType,data)
+    let response = await this.fetchService.getOffers(targetType,data)
     //infuse data into page
+    this.results = this.dummyResults[this.searchType];
     console.log(this.searchType, this.searchQuery, this.postalCode);
   }
 }
