@@ -59,7 +59,7 @@ export class FetchServiceService {
   async deleteOffer(token) {
     let suffix = '/resources/offers/'.concat(token)
     let request = new Request(url.concat(suffix),  {
-      method: 'DEL',
+      method: 'DELETE',
       headers: new Headers(
         { 'Content-Type': 'application/json' }
       )
