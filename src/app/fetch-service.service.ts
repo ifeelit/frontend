@@ -41,7 +41,6 @@ export class FetchServiceService {
     let suffix = '/resources/offers/'.concat(token)
     let request = new Request(url.concat(suffix), {
       method: 'GET',
-      body: token,
       headers: new Headers(
         { 'Content-Type': 'application/json' }
       )
@@ -61,7 +60,6 @@ export class FetchServiceService {
     let suffix = '/resources/offers/'.concat(token)
     let request = new Request(url.concat(suffix),  {
       method: 'DEL',
-      body: token,
       headers: new Headers(
         { 'Content-Type': 'application/json' }
       )
@@ -78,7 +76,7 @@ export class FetchServiceService {
 
 
   // API call to fill search page with data, add async and data infustion on page
-  getOffer(type,data) {
+  async getOffers(type,data) {
 
     var suffix = '/resources/'.concat(type);
 
@@ -90,10 +88,16 @@ export class FetchServiceService {
       )
     });
 
-    fetch(request)
-    .then(function() {
-      // Display Response in output or handle exception
-    })
+    const response = await fetch(request);
+    if (response.status === 200) {
+      //Offers received
+      const reply = await response.json();
+      return reply;
+    }
+    else {
+      //hancle error code
+    }
+    
   }
 
 }
