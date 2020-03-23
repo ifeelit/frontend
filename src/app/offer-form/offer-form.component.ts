@@ -10,6 +10,8 @@ import { Router } from "@angular/router";
 })
 export class OfferFormComponent implements OnInit {
 
+  buttonDisabled: boolean = true;
+
   contactData = {
     organisation: '',
     person: '',
@@ -41,6 +43,13 @@ export class OfferFormComponent implements OnInit {
     this.sendRequest();
   }
 
+  recaptcha: any[];
+  resolved(captchaResponse: any[]){
+    this.recaptcha = captchaResponse;
+    console.log(this.recaptcha);
+    this.buttonDisabled = false;
+    console.log(this.buttonDisabled);
+  }
 
   deleteItem(delGood) {
     if (this.goods.length !== 0) {

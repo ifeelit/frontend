@@ -274,7 +274,9 @@
   </div>
 </div>
 
-
-<button class="button" (click)="onSubmit()">Angebot erstellen!</button>
+<div class="re-captcha">
+  <re-captcha (resolved)="resolved($event)" siteKey="6LdjgOMUAAAAACJdt06hAYp0B1Peuq4palp0KQnD"></re-captcha>
+  <button class="button" (click)="onSubmit()" [disabled]="buttonDisabled">Angebot erstellen!</button>
+</div>
 
 </div></div></main>

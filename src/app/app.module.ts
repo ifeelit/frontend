@@ -14,6 +14,8 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { AboutComponent } from './about/about.component';
 import { OfferSearchResultListComponent } from './offer-search-result-list/offer-search-result-list.component';
 import { OfferChangeComponent } from './offer-change/offer-change.component';
+import { RecaptchaModule } from 'ng-recaptcha';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { OfferChangeComponent } from './offer-change/offer-change.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RecaptchaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
