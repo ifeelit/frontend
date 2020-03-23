@@ -41,11 +41,13 @@ export class OfferFormComponent implements OnInit {
     this.sendRequest();
   }
 
+
   deleteItem(delGood) {
     if (this.goods.length !== 0) {
-      this.goods.splice(delGood,1);
+      this.goods.splice(delGood, 1);
     }
   }
+
 
   addPersonnel() {
     this.goods.push({
@@ -91,8 +93,8 @@ export class OfferFormComponent implements OnInit {
     });
   }
 
-  sendRequest() {
 
+  async sendRequest() {
     let data = {
       provider: {
         address: {
@@ -113,7 +115,7 @@ export class OfferFormComponent implements OnInit {
     };
 
     this.goods.forEach(function (elem) {
-      if (elem.type === 'personnel'){
+      if (elem.type === 'personnel') {
         data.personals.push(
           {
             qualification: elem.qualification,
@@ -124,8 +126,7 @@ export class OfferFormComponent implements OnInit {
             annotation: elem.notes
           }
         );
-      }
-      else if (elem.type === 'device') {
+      } else if (elem.type === 'device') {
         data.devices.push(
           {
             category: elem.category,
@@ -138,8 +139,7 @@ export class OfferFormComponent implements OnInit {
             amount: elem.number
           }
         );
-      }
-      else if (elem.type === 'consumable') {
+      } else if (elem.type === 'consumable') {
         data.consumables.push(
           {
             category: elem.category,
@@ -155,7 +155,11 @@ export class OfferFormComponent implements OnInit {
       }
     });
 
-    this.fetchService.sendOffer(data);
-      
+    let key = await this.fetchService.sendOffer(data);
+    // Todo The server should stop returning weird stuff...
+    if (key[0] === '"' && key[key.length - 1] === '"') {
+      key = key.slice(1, key.length - 1)
+    }
+    this.router.navigateByUrl('/change/' + key + '?new-created');
   }
 }
