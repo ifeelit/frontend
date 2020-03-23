@@ -132,7 +132,8 @@ export class OfferFormComponent implements OnInit {
             manufacturer: elem.manufacturer,
             ordernumber: elem.ordernumber,
             address: {
-              postalcode: elem.locationPostalCode
+              postalcode: elem.locationPostalCode,
+              country: 'Deutschland'
             },
             amount: elem.number
           }
@@ -145,7 +146,8 @@ export class OfferFormComponent implements OnInit {
             manufacturer: elem.manufacturer,
             ordernumber: elem.ordernumber,
             address: {
-              postalcode: elem.locationPostalCode
+              postalcode: elem.locationPostalCode,
+              country: 'Deutschland'
             },
             amount: elem.number,
             unit: elem.unit !== 'other' ? elem.unit : elem.unitSelfDefined,
