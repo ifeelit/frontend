@@ -1,28 +1,28 @@
-    <header class="site-header">
-        <div class="container">
-            <div class="header-bar">
-                <a routerLink="/" class="branding">
-                    <img src="/assets/images/logo.png" alt="" height="65" class="logo">
-                    <div class="logo-type">
-                        <h1 class="site-title">PIRAT</h1>
-                        <small class="site-description">Pandemic Important Resource Allocation Tool</small>
-                    </div>
-                </a>
-
-                <nav class="main-navigation">
-                    <ul class="menu">
-                        <li class="home menu-item {{ url === '/' ? 'current-menu-item' : '' }}">
-                            <a routerLink="/"><img src="/assets/images/home-icon.png" alt="Home"></a>
-                        </li>
-                        <li class="menu-item {{ url === '/about' ? 'current-menu-item' : '' }}">
-                            <a routerLink="/about">Über uns</a>
-                        </li>
-                        <li class="menu-item {{ url === '/faq' ? 'current-menu-item' : '' }}">
-                            <a routerLink="/faq">FAQ</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+<header class="site-header">
+  <div class="container">
+    <div class="header-bar">
+      <a routerLink="/" class="branding">
+        <img src="/assets/images/logo.png" alt="" height="65" class="logo">
+        <div class="logo-type">
+          <h1 class="site-title">PIRAT</h1>
+          <small class="site-description">Pandemic Important Resource Allocation Tool</small>
         </div>
-    </header>
+      </a>
+
+      <nav class="main-navigation">
+        <ul class="menu">
+          <li class="home menu-item {{ url === '/' ? 'current-menu-item' : '' }}">
+            <a routerLink="/"><img src="/assets/images/home-icon.png" alt="Home"></a>
+          </li>
+          <li class="menu-item {{ url === '/about' ? 'current-menu-item' : '' }}">
+            <a routerLink="/about">Über uns</a>
+          </li>
+          <li class="menu-item {{ url === '/faq' ? 'current-menu-item' : '' }}">
+            <a routerLink="/faq">FAQ</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
 
