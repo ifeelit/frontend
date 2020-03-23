@@ -151,6 +151,7 @@ export class OfferChangeComponent implements OnInit {
       });
 
       //Seite wird geladen
+      
     });
   }
 

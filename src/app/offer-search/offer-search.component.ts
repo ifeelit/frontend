@@ -345,6 +345,7 @@ export class OfferSearchComponent implements OnInit {
     
 
     this.fetchService.getOffer(targetType,data)
+    //infuse data into page
     console.log(this.searchType, this.searchQuery, this.postalCode);
   }
 }

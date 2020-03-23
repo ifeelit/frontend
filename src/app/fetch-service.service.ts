@@ -35,23 +35,7 @@ export class FetchServiceService {
     
   }
 
-  getOffer(type,data) {
 
-    var suffix = '/resources/'.concat(type);
-
-    var request = new Request(url.concat(suffix), {
-      method: 'GET',
-      body: JSON.stringify(data),
-      headers: new Headers(
-        { 'Content-Type': 'application/json' }
-      )
-    });
-
-    fetch(request)
-    .then(function() {
-      // Display Response in output or handle exception
-    })
-  }
 
   async reviewOffer(token) {
     let suffix = '/resources/offers/'.concat(token)
@@ -73,6 +57,23 @@ export class FetchServiceService {
     }
   }
 
-  
+  // API call to fill search page with data, add async and data infustion on page
+  getOffer(type,data) {
+
+    var suffix = '/resources/'.concat(type);
+
+    var request = new Request(url.concat(suffix), {
+      method: 'GET',
+      body: JSON.stringify(data),
+      headers: new Headers(
+        { 'Content-Type': 'application/json' }
+      )
+    });
+
+    fetch(request)
+    .then(function() {
+      // Display Response in output or handle exception
+    })
+  }
 
 }
