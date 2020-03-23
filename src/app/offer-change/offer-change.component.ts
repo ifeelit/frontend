@@ -86,7 +86,7 @@ export class OfferChangeComponent implements OnInit {
       response.consumables.forEach(element => {
         this.data.resources.push(
           {
-            ttype: 'consumable',
+            type: 'consumable',
             category: element.category,
             deviceName: element.name,
             manufacturer: element.manufacturer,
