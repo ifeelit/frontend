@@ -117,12 +117,11 @@
             <div>Haben Sie Erfahrung in der Durchführung von PCR und Real-Time PCR?</div>
             <label>
               Ja
-              <input name="experienceWithPCR{{gIndex}}" type="radio" (click)="g.experienceWithPCR = true;" disabled/>
+              <input name="experienceWithPCR{{gIndex}}" type="radio" [checked]="g.experienceWithPCR" disabled/>
             </label>
             <label>
               Nein
-              <!-- The last "true" ist required because otherwise, the selection will be blocked.... -->
-              <input name="experienceWithPCR{{gIndex}}" type="radio" (click)="g.experienceWithPCR = false; true" disabled/>
+              <input name="experienceWithPCR{{gIndex}}" type="radio" [checked]="!g.experienceWithPCR" disabled/>
             </label>
           </div>
           <div class="form-block__input-field">
@@ -132,7 +131,7 @@
             <textarea [(ngModel)]="g.notes" disabled></textarea>
           </div>
           <div>
-            <input type="checkbox" disabled>
+            <input type="checkbox" checked disabled>
             <label> Hiermit wird bestätigt, dass der Helfer die Tätigkeit ehrenamtlich außerhalb der Arbeitszeiten ausführt.</label>
           </div>
         </div>
