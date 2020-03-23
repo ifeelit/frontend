@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, SystemJsNgModuleLoader } from '@angular/core';
 import { CheckboxControlValueAccessor } from '@angular/forms';
 import { environment } from "../environments/environment";
+import { Router } from '@angular/router';
 
 
 const url = environment.apiHost;
@@ -11,10 +12,11 @@ const url = environment.apiHost;
 })
 export class FetchServiceService {
 
-  constructor() { }
+  constructor(
+  ) { }
 
   
-  sendOffer(data) {
+  async sendOffer(data) {
     var request = new Request(url.concat('/resources'), {
       method: 'POST', 
       body: JSON.stringify(data), 
@@ -22,14 +24,15 @@ export class FetchServiceService {
         { 'Content-Type': 'application/json' }
       )
     });
-
-    fetch(request)
-    .then(function() {
-          // Handle response you get from the server incl. exceptions
-          // Redirect to offer change page
-          // Load page with content
-    });
-
+    const response = await fetch(request);
+    if (response.status === 200) {
+      const key = await response.text();
+      return key;
+    }
+    else {
+      //hancle error code
+    }
+    
   }
 
   getOffer(type,data) {
@@ -50,9 +53,24 @@ export class FetchServiceService {
     })
   }
 
-  reviewOffer() {
-
-    //pull data via link with get request from server
+  async reviewOffer(token) {
+    let suffix = '/resources/offers/'.concat(token)
+    let request = new Request(url.concat(suffix), {
+      method: 'GET',
+      body: token,
+      headers: new Headers(
+        { 'Content-Type': 'application/json' }
+      )
+    });
+    
+    const response = await fetch(request);
+    if (response.status === 200) {
+      const reply = await response.json();
+      return reply;
+    }
+    else {
+      //hancle error code
+    }
   }
 
   
