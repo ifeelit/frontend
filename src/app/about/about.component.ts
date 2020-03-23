@@ -43,7 +43,7 @@ export class AboutComponent implements OnInit {
       image: 'max.jpg',
       name: 'Maximilian Wiesholler',
       short: 'Student (Informatik) aus München',
-      long: '... Was kann man da besseres tun, als mit viel Kaffee und Fertigpizza das Wochenende für eine tolle Idee durchzucoden.'
+      long: '... Was kann man da besseres tun, als mit viel Motivation und Kaffee das Wochenende für eine tolle Idee durchzucoden.'
     },
     {
       image: 'markus.jpg',
