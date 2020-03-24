@@ -25,7 +25,7 @@ export class OfferSearchResultListComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (this.searchResults) {
       this.showDetails = [];
-      for (let i = 0; i < this.searchResults.length; i++) {
+      for (const _ of this.searchResults) {
         this.showDetails.push(false);
       }
     }

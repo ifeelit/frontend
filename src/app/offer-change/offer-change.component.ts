@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FetchServiceService } from '../fetch-service.service';
-import { environment } from "../../environments/environment";
+import { environment } from '../../environments/environment';
 import { areAllEquivalent } from '@angular/compiler/src/output/output_ast';
 
 
@@ -25,17 +25,17 @@ export class OfferChangeComponent implements OnInit {
     private router: Router,
     private fetchService: FetchServiceService
   ) {
-  };
+  }
 
 
   ngOnInit(): void {
     this.route.params.subscribe(async (params) => {
-      const isNewParam = this.route.snapshot.queryParamMap.get("new-created");
+      const isNewParam = this.route.snapshot.queryParamMap.get('new-created');
       this.isNew = isNewParam !== null && isNewParam !== undefined;
 
       this.key = params.key;
       this.currentUrl = environment.pageHost + '/offer/' + this.key;
-      let response = await this.fetchService.reviewOffer(this.key);
+      const response = await this.fetchService.reviewOffer(this.key);
       this.data = {
         contactData: {
           organisation: response.provider.organisation,
@@ -51,7 +51,7 @@ export class OfferChangeComponent implements OnInit {
         resources: []
       };
 
-      //Add personnel to data
+      // Add personnel to data
       response.personals.forEach(element => {
         this.data.resources.push(
           {
@@ -66,7 +66,7 @@ export class OfferChangeComponent implements OnInit {
         );
       });
 
-      //Add devices to data
+      // Add devices to data
       response.devices.forEach(element => {
         this.data.resources.push(
           {
@@ -82,7 +82,7 @@ export class OfferChangeComponent implements OnInit {
         );
       });
 
-      //Add consumables to data
+      // Add consumables to data
       response.consumables.forEach(element => {
         this.data.resources.push(
           {
@@ -103,15 +103,15 @@ export class OfferChangeComponent implements OnInit {
   }
 
 
-  //Delete Content on submit
+  // Delete Content on submit
   onSubmit(): void {
     this.fetchService.deleteOffer(this.key);
-    //Redirect to home page
+    // Redirect to home page
     this.router.navigateByUrl('');
   }
 
 
-  //Here for ater use of deleting single entries
+  // Here for ater use of deleting single entries
   deleteItem(delGood: number): void {
     if (this.data.resources.length !== 0) {
       this.data.resources.splice(delGood, 1);

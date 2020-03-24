@@ -87,6 +87,18 @@
             }
           }
         },
+        "lint": {
+            "builder": "@angular-devkit/build-angular:tslint",
+            "options": {
+              "tsConfig": [
+                "tsconfig.app.json",
+                "tsconfig.spec.json"
+              ],
+              "exclude": [
+                "**/node_modules/**"
+              ]
+            }
+          },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
