@@ -171,7 +171,9 @@
     </div>
   </div>
 
-  <button (click)="onSubmit()" class="button">Suche starten</button>
+  <div class="submit-button">
+    <button (click)="onSubmit()" class="button" [disabled]="!isValid()">Suche starten</button>
+  </div>
 </div>
 
 

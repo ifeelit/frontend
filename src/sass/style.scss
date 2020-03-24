@@ -83,6 +83,24 @@
 }
 
 
+.form-alert {
+	font-weight: bold;
+	color: red;
+}
+
+
+.submit-button {
+	button[disabled],
+	button[disabled]:hover,
+	button[disabled]:focus,
+	button[disabled]:active{
+		background-color: gray;
+		box-shadow: none;
+		color: #444e55;
+	}
+}
+
+
 .button-bar {
 	button {
 		margin-right: 10px;

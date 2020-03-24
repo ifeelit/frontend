@@ -75,6 +75,18 @@ export class OfferSearchComponent implements OnInit {
   }
 
 
+  isValid() {
+    if (!this.postalCode) {
+      return false;
+    }
+    if (this.searchType === 'personnel') {
+      return true;
+    } else if (this.searchType === 'device' || this.searchType === 'consumable') {
+      return !!this.searchQuery.category;
+    }
+  }
+
+
   async onSubmit() {
     let data;
     var targetType;
