@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChildren } from '@angular/core';
 import { FetchServiceService } from '../fetch-service.service';
 import { Router } from "@angular/router";
 
@@ -21,7 +21,8 @@ export class OfferFormComponent implements OnInit {
     houseNumber: '',
     postalCode: '',
     city: '',
-    country: 'Deutschland'
+    country: 'Deutschland',
+    checkedDatenschutz: false,
   };
 
   goods = [];
@@ -44,7 +45,7 @@ export class OfferFormComponent implements OnInit {
   }
 
   recaptcha: any[];
-  resolved(captchaResponse: any[]){
+  resolved(captchaResponse){
     this.recaptcha = captchaResponse;
     console.log(this.recaptcha);
     this.buttonDisabled = false;
@@ -65,8 +66,9 @@ export class OfferFormComponent implements OnInit {
       institution: '',
       researchGroup: '',
       area: '',
-      experienceWithPCR: undefined,
+      experienceWithPCR: false,
       notes: '',
+      checkedEhrenamt: false,
     });
   }
 
@@ -101,7 +103,28 @@ export class OfferFormComponent implements OnInit {
   }
 
 
+  isValid() {
+    let valid = this.contactData.organisation && this.contactData.person && this.contactData.mail
+      && this.contactData.street && this.contactData.houseNumber && this.contactData.postalCode
+      && this.contactData.city && this.contactData.country && this.contactData.checkedDatenschutz;
+    for (let good of this.goods) {
+      if (good.type === 'personnel') {
+        valid = valid && good.qualification && good.institution && good.area && good.checkedEhrenamt;
+      } else if (good.type === 'device') {
+        valid = valid && good.category && good.deviceName && good.locationPostalCode && good.number;
+      } else if (good.type === 'consumable') {
+        valid = valid && good.category && good.deviceName && good.locationPostalCode && good.number && good.unit;
+      }
+    }
+    return valid;
+  }
+
+
   async sendRequest() {
+    if (!this.isValid()) {
+      return;
+    }
+
     let data = {
       provider: {
         address: {

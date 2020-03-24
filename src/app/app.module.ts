@@ -14,6 +14,7 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { AboutComponent } from './about/about.component';
 import { OfferSearchResultListComponent } from './offer-search-result-list/offer-search-result-list.component';
 import { OfferChangeComponent } from './offer-change/offer-change.component';
+import { OfferFormResourceBlockComponent } from './offer-form-resource-block/offer-form-resource-block.component';
 import { RecaptchaModule } from 'ng-recaptcha';
 
 
@@ -29,7 +30,8 @@ import { RecaptchaModule } from 'ng-recaptcha';
     ImpressumComponent,
     AboutComponent,
     OfferSearchResultListComponent,
-    OfferChangeComponent
+    OfferChangeComponent,
+    OfferFormResourceBlockComponent
   ],
   imports: [
     BrowserModule,

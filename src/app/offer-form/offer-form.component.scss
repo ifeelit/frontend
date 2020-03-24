@@ -9,7 +9,11 @@
 
 
 .re-captcha {
+  margin-bottom: 20px;
+}
 
+
+.submit-button {
   button[disabled],
   button[disabled]:hover,
   button[disabled]:focus,
@@ -18,4 +22,10 @@
     box-shadow: none;
     color: #444e55;
   }
+}
+
+
+.form-alert {
+  font-weight: bold;
+  color: red;
 }
