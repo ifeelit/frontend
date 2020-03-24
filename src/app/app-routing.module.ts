@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { OfferSearchComponent } from "./offer-search/offer-search.component";
+import { OfferSearchComponent } from './offer-search/offer-search.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
-import { OfferFormComponent } from "./offer-form/offer-form.component";
+import { OfferFormComponent } from './offer-form/offer-form.component';
 import { AboutComponent } from './about/about.component';
 import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 import { ImpressumComponent } from './impressum/impressum.component';

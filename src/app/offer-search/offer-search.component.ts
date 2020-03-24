@@ -18,7 +18,7 @@ export class OfferSearchComponent implements OnInit {
   constructor(
     private fetchService: FetchServiceService
   ) {
-    this.setType('personnel')
+    this.setType('personnel');
   }
 
 
@@ -56,15 +56,15 @@ export class OfferSearchComponent implements OnInit {
             others: false,
           },
           requiresExperienceWithPCR: false,
-        }
+        };
       } else if (type === 'device') {
         this.searchQuery = {
           category: '',
-        }
+        };
       } else if (type === 'consumable') {
         this.searchQuery = {
           category: '',
-        }
+        };
       }
     }
   }
@@ -89,7 +89,7 @@ export class OfferSearchComponent implements OnInit {
 
   async onSubmit() {
     let data;
-    var targetType;
+    let targetType;
 
     if (this.searchType === 'personnel') {
       targetType = 'manpower';
@@ -100,13 +100,13 @@ export class OfferSearchComponent implements OnInit {
         postalcode: this.postalCode
       };
 
-      for (let key in this.searchQuery.qualification) {
+      for (const key in this.searchQuery.qualification) {
         if (this.searchQuery.qualification[key] === true) {
           data.qualification.push(key.toString().toLowerCase());
         }
       }
 
-      for (let key in this.searchQuery.area) {
+      for (const key in this.searchQuery.area) {
         if (this.searchQuery.area[key] === true) {
           data.area.push(key.toString().toLowerCase());
         }
@@ -117,14 +117,14 @@ export class OfferSearchComponent implements OnInit {
       data = {
         category: this.searchQuery.category,
         postalcode: this.postalCode
-      }
+      };
 
     } else if (this.searchType === 'consumable') {
       targetType = 'consumables';
       data = {
         category: this.searchQuery.category,
         postalcode: this.postalCode
-      }
+      };
     }
 
     this.results = await this.fetchService.getOffers(targetType, data);

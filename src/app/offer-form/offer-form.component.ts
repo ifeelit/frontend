@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChildren } from '@angular/core';
 import { FetchServiceService } from '../fetch-service.service';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +10,14 @@ import { Router } from "@angular/router";
 })
 export class OfferFormComponent implements OnInit {
 
-  buttonDisabled: boolean = true;
+
+  constructor(
+    private fetchService: FetchServiceService,
+    private router: Router,
+  ) {
+  }
+
+  buttonDisabled = true;
 
   contactData = {
     organisation: '',
@@ -27,12 +34,7 @@ export class OfferFormComponent implements OnInit {
 
   goods = [];
 
-
-  constructor(
-    private fetchService: FetchServiceService,
-    private router: Router,
-  ) {
-  }
+  recaptcha: any[];
 
 
   ngOnInit(): void {
@@ -43,9 +45,7 @@ export class OfferFormComponent implements OnInit {
     console.log(this.contactData, this.goods);
     this.sendRequest();
   }
-
-  recaptcha: any[];
-  resolved(captchaResponse){
+  resolved(captchaResponse) {
     this.recaptcha = captchaResponse;
     console.log(this.recaptcha);
     this.buttonDisabled = false;
@@ -107,7 +107,7 @@ export class OfferFormComponent implements OnInit {
     let valid = this.contactData.organisation && this.contactData.person && this.contactData.mail
       && this.contactData.street && this.contactData.houseNumber && this.contactData.postalCode
       && this.contactData.city && this.contactData.country && this.contactData.checkedDatenschutz;
-    for (let good of this.goods) {
+    for (const good of this.goods) {
       if (good.type === 'personnel') {
         valid = valid && good.qualification && good.institution && good.area && good.checkedEhrenamt;
       } else if (good.type === 'device') {
@@ -125,7 +125,7 @@ export class OfferFormComponent implements OnInit {
       return;
     }
 
-    let data = {
+    const data = {
       provider: {
         address: {
           street: this.contactData.street,
@@ -144,7 +144,7 @@ export class OfferFormComponent implements OnInit {
       devices: []
     };
 
-    this.goods.forEach(function (elem) {
+    this.goods.forEach((elem) => {
       if (elem.type === 'personnel') {
         data.personals.push(
           {
@@ -191,7 +191,7 @@ export class OfferFormComponent implements OnInit {
     let key = await this.fetchService.sendOffer(data);
     // Todo The server should stop returning weird stuff...
     if (key[0] === '"' && key[key.length - 1] === '"') {
-      key = key.slice(1, key.length - 1)
+      key = key.slice(1, key.length - 1);
     }
     this.router.navigateByUrl('/change/' + key + '?new-created');
   }
