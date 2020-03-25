@@ -25,9 +25,12 @@ export class HomeComponent implements OnInit {
 
   recaptcha: string;
 
+  callBackSubmit: boolean;
+
 
 
   ngOnInit(): void {
+    this.callBackSubmit = false;
   }
 
   resolved(captchaResponse) {
@@ -43,6 +46,14 @@ export class HomeComponent implements OnInit {
 
   onSubmit() {
     this.sendRequest();
+    this.callBackSubmit = true;
+    this.requestData = {
+      name: '',
+      phone: '',
+      email: '',
+      topic: '',
+      notes: ''
+    };
   }
 
   async sendRequest() {
@@ -50,7 +61,6 @@ export class HomeComponent implements OnInit {
       return;
     }
     this.fetchService.requestCall(this.requestData, this.recaptcha);
-    // ToDo: Show Thank you for the request box
   }
 
 }
