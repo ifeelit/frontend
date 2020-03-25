@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   isValid() {
 
-    let valid = this.requestData.name && this.requestData.phone && this.requestData.topic;
+    const valid = this.requestData.name && this.requestData.phone && this.requestData.topic;
 
     return valid;
   }
@@ -49,10 +49,8 @@ export class HomeComponent implements OnInit {
     if (!this.isValid()) {
       return;
     }
-
-   this.fetchService.requestCall(this.requestData, this.recaptcha);
-    
-    //ToDo: Show Thank you for the request box
+    this.fetchService.requestCall(this.requestData, this.recaptcha); 
+    // ToDo: Show Thank you for the request box
   }
 
 }
