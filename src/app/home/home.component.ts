@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
     if (!this.isValid()) {
       return;
     }
-    this.fetchService.requestCall(this.requestData, this.recaptcha); 
+    this.fetchService.requestCall(this.requestData, this.recaptcha);
     // ToDo: Show Thank you for the request box
   }
 

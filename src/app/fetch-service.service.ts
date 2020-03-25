@@ -15,7 +15,7 @@ export class FetchServiceService {
 
 
   async requestCall(data, recaptchaResponse) {
-    //TODO change /call to correct route
+    // TODO change /call to correct route
     const request = new Request(url.concat('/call'), {
       method: 'POST',
       body: JSON.stringify(data),
