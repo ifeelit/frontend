@@ -90,11 +90,11 @@
 </div>
 
 <div class="re-captcha">
-  <re-captcha (resolved)="resolved($event)" siteKey="6LdjgOMUAAAAACJdt06hAYp0B1Peuq4palp0KQnD"></re-captcha>
+  <re-captcha (resolved)="resolved($event)" siteKey="6Lc7y-MUAAAAAGDeINlckhxOSo2eKZnys3XFj2qh"></re-captcha>
 </div>
 
 <div class="submit-button">
-  <button class="button" (click)="onSubmit()" [disabled]="buttonDisabled || !isValid()">Angebot erstellen!</button>
+  <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()">Angebot erstellen!</button>
 </div>
 
 </div></div></main>

@@ -10,17 +10,19 @@ const url = environment.apiHost;
 })
 export class FetchServiceService {
 
-  constructor(
-  ) { }
+  constructor() {
+  }
+
 
   // Send offer to server and get the token/key to reaccess the offer
-  async sendOffer(data) {
+  async sendOffer(data, recaptchaResponse) {
     const request = new Request(url.concat('/resources'), {
       method: 'POST',
       body: JSON.stringify(data),
-      headers: new Headers(
-        { 'Content-Type': 'application/json' }
-      )
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        recaptcha: recaptchaResponse
+      })
     });
     const response = await fetch(request);
     if (response.status === 200) {
@@ -39,7 +41,7 @@ export class FetchServiceService {
     const request = new Request(url.concat(suffix), {
       method: 'GET',
       headers: new Headers(
-        { 'Content-Type': 'application/json' }
+        {'Content-Type': 'application/json'}
       )
     });
 
@@ -52,12 +54,13 @@ export class FetchServiceService {
     }
   }
 
+
   async deleteOffer(token) {
     const suffix = '/resources/offers/'.concat(token);
-    const request = new Request(url.concat(suffix),  {
+    const request = new Request(url.concat(suffix), {
       method: 'DELETE',
       headers: new Headers(
-        { 'Content-Type': 'application/json' }
+        {'Content-Type': 'application/json'}
       )
     });
 

@@ -17,7 +17,6 @@ export class OfferFormComponent implements OnInit {
   ) {
   }
 
-  buttonDisabled = true;
 
   contactData = {
     organisation: '',
@@ -34,7 +33,7 @@ export class OfferFormComponent implements OnInit {
 
   goods = [];
 
-  recaptcha: any[];
+  recaptcha: string;
 
 
   ngOnInit(): void {
@@ -42,15 +41,14 @@ export class OfferFormComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.contactData, this.goods);
     this.sendRequest();
   }
+
+
   resolved(captchaResponse) {
     this.recaptcha = captchaResponse;
-    console.log(this.recaptcha);
-    this.buttonDisabled = false;
-    console.log(this.buttonDisabled);
   }
+
 
   deleteItem(delGood) {
     if (this.goods.length !== 0) {
@@ -188,7 +186,7 @@ export class OfferFormComponent implements OnInit {
       }
     });
 
-    let key = await this.fetchService.sendOffer(data);
+    let key = await this.fetchService.sendOffer(data, this.recaptcha);
     // Todo The server should stop returning weird stuff...
     if (key[0] === '"' && key[key.length - 1] === '"') {
       key = key.slice(1, key.length - 1);
