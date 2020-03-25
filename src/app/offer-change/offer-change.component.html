@@ -1,6 +1,6 @@
 <div class="page-head">
   <div class="container">
-    <h2 class="page-title">Angebot bearbeiten</h2>
+    <h2 class="page-title">Angebot Übersicht</h2>
   </div>
 </div>
 
@@ -9,13 +9,15 @@
     <div class="container">
 
       <div *ngIf="isNew" class="info-box">
-        Das Angebot wurde erfasst. Auf dieser Seite können Sie Ihre Daten einsehen und bearbeiten. Eine Bestätigung
+        Das Angebot wurde erfasst. Auf dieser Seite können Sie Ihre Daten einsehen. Eine Bestätigung
         wurde Ihnen auch per Email zugeschickt.
       </div>
 
       <div class="current-url">
         <div>
-          Mit diesem Link kommen Sie auf diese Seite, um Ihr Angebot bearbeiten zu können. Bitte bewahren Sie ihn auf.
+          Mit diesem Link kommen Sie auf diese Seite, um Ihr Angebot einsehen zu können. Bitte bewahren Sie ihn auf.
+          <br>
+          Bitte kontaktieren Sie uns via Email mit Angabe dieses Links um ihr Angebot zu löschen!
         </div>
         <div class="form-block__input-field">
           <input type="text" [value]="currentUrl" disabled/>
@@ -273,9 +275,6 @@
         </div>
       </div>
 
-      <div class="button-bar">
-        <button class="button" (click)="onSubmit()">Angebot löschen!</button>
-      </div>
 
     </div>
   </div>

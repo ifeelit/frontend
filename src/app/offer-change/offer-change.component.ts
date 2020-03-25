@@ -104,6 +104,7 @@ export class OfferChangeComponent implements OnInit {
 
 
   // Delete Content on submit
+  // Currently button is deleted
   onSubmit(): void {
     this.fetchService.deleteOffer(this.key);
     // Redirect to home page
