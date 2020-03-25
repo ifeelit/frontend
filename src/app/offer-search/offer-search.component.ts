@@ -9,6 +9,8 @@ import { FetchServiceService } from '../fetch-service.service';
 })
 export class OfferSearchComponent implements OnInit {
 
+  DISTANCE_KILOMETER = 70;
+
   searchType: string;
   searchQuery;
   postalCode = '';
@@ -94,10 +96,12 @@ export class OfferSearchComponent implements OnInit {
     if (this.searchType === 'personnel') {
       targetType = 'manpower';
       data = {
+        kilometer: this.DISTANCE_KILOMETER,
         qualification: [],
         area: [],
         experience_rt_pcr: this.searchQuery.requiresExperienceWithPCR,
-        postalcode: this.postalCode
+        postalcode: this.postalCode,
+        country: 'Deutschland'
       };
 
       for (const key in this.searchQuery.qualification) {
@@ -115,18 +119,25 @@ export class OfferSearchComponent implements OnInit {
     } else if (this.searchType === 'device') {
       targetType = 'devices';
       data = {
+        kilometer: this.DISTANCE_KILOMETER,
         category: this.searchQuery.category,
-        postalcode: this.postalCode
+        postalcode: this.postalCode,
+        country: 'Deutschland'
       };
 
     } else if (this.searchType === 'consumable') {
       targetType = 'consumables';
       data = {
+        kilometer: this.DISTANCE_KILOMETER,
         category: this.searchQuery.category,
-        postalcode: this.postalCode
+        postalcode: this.postalCode,
+        country: 'Deutschland'
       };
     }
 
     this.results = await this.fetchService.getOffers(targetType, data);
+    this.results.sort((res1, res2) => {
+      return res1.item.kilometer - res2.item.kilometer;
+    });
   }
 }

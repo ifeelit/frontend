@@ -66,7 +66,9 @@
       </div>
       <div>
         <div class="result-entry__info__label">Standort:</div>
-        <div class="result-entry__info__content">{{ formatAddress(r.item.address) }}</div>
+        <div class="result-entry__info__content">
+          {{ formatAddress(r.item.address) }} ({{ r.item.kilometer }} km entfernt)
+        </div>
       </div>
       <div>
         <div class="result-entry__info__label">Menge:</div>
