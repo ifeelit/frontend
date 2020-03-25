@@ -118,6 +118,7 @@ export class OfferFormComponent implements OnInit {
   }
 
 
+
   async sendRequest() {
     if (!this.isValid()) {
       return;
