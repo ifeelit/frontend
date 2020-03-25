@@ -14,6 +14,24 @@ export class FetchServiceService {
   }
 
 
+  async requestCall(data, recaptchaResponse) {
+    // TODO change /call to correct route
+    const request = new Request(url.concat('/call'), {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        recaptcha: recaptchaResponse
+      })
+    });
+    const response = await fetch(request);
+    if (response.status === 200) {
+      // handle correct response*
+    } else {
+      // hancle error code
+    }
+  }
+
   // Send offer to server and get the token/key to reaccess the offer
   async sendOffer(data, recaptchaResponse) {
     const request = new Request(url.concat('/resources'), {
