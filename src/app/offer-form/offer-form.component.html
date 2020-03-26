@@ -63,6 +63,17 @@
     <input type="text" placeholder="Land" [(ngModel)]="provider.address.country">
   </div>
 
+  <div class="form-block__select">
+    <label>
+      Dürfen die Kontaktdaten online veröffentlicht werden? Falls nicht, können Suchende über ein Kontaktformular mit
+      Ihnen Kontakt aufnehmen.
+      <select [(ngModel)]="isPublic">
+        <option [value]="true">Ja</option>
+        <option [value]="false">Nein</option>
+      </select>
+    </label>
+  </div>
+
   <div>
     <input [(ngModel)]="checkedDatenschutz" type="checkbox">
     <label>
@@ -75,7 +86,9 @@
   </div>
 </div>
 
-<h2>Ressourcen</h2>
+  <h2>Ressourcen
+    <span *ngIf="resources.length === 0" class="form-alert">Bite mindestens eine Ressource hinzufügen.</span>
+  </h2>
 
 <div class="button-bar">
   <button (click)="addPersonnel()">Personal hinzufügen</button>

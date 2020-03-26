@@ -36,7 +36,9 @@ export class OfferFormComponent implements OnInit {
     phone: '',
   };
 
-  checkedDatenschutz: false;
+  isPublic = true;
+
+  checkedDatenschutz = false;
 
   resources: Array<{ type: string, resource: Consumable | Device | Personnel, checkedEhrenamt?: boolean }> = [];
 
@@ -134,13 +136,14 @@ export class OfferFormComponent implements OnInit {
           && personnel.address.postalCode && good.checkedEhrenamt;
       } else if (good.type === 'device') {
         const device = good.resource as Device;
-        valid = valid && device.category && device.name && device.address.postalCode && device.amount;
+        valid = !!(valid && device.category && device.name && device.address.postalCode && device.amount);
       } else if (good.type === 'consumable') {
         const consumable = good.resource as Consumable;
-        valid = valid && consumable.category && consumable.name && consumable.address.postalCode
-          && consumable.amount && consumable.unit;
+        valid = !!(valid && consumable.category && consumable.name && consumable.address.postalCode
+          && consumable.amount && consumable.unit);
       }
     }
+    valid = valid && (this.resources.length > 0);
     return valid;
   }
 
@@ -156,6 +159,7 @@ export class OfferFormComponent implements OnInit {
       consumables: [],
       devices: []
     };
+    data.provider.ispublic = this.isPublic;
 
     this.resources.forEach((elem) => {
       if (elem.type === 'personnel') {
