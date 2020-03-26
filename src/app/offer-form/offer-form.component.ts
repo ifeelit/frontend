@@ -1,6 +1,10 @@
-import { AfterViewInit, Component, OnInit, ViewChildren } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FetchServiceService } from '../fetch-service.service';
 import { Router } from '@angular/router';
+import { Provider, providerToApi } from '../_types/Provider';
+import { Consumable } from '../_types/Consumable';
+import { Device, deviceToApi } from '../_types/Device';
+import { Personnel, personnelToApi } from '../_types/Personnel';
 
 
 @Component({
@@ -18,20 +22,23 @@ export class OfferFormComponent implements OnInit {
   }
 
 
-  contactData = {
-    organisation: '',
-    person: '',
+  provider: Provider = {
+    address: {
+      street: '',
+      streetNumber: '',
+      postalCode: '',
+      city: '',
+      country: 'Deutschland',
+    },
+    institution: '',
+    name: '',
     mail: '',
     phone: '',
-    street: '',
-    houseNumber: '',
-    postalCode: '',
-    city: '',
-    country: 'Deutschland',
-    checkedDatenschutz: false,
   };
 
-  goods = [];
+  checkedDatenschutz: false;
+
+  resources: Array<{ type: string, resource: Consumable | Device | Personnel, checkedEhrenamt?: boolean }> = [];
 
   recaptcha: string;
 
@@ -51,72 +58,91 @@ export class OfferFormComponent implements OnInit {
 
 
   deleteItem(delGood) {
-    if (this.goods.length !== 0) {
-      this.goods.splice(delGood, 1);
+    if (this.resources.length !== 0) {
+      this.resources.splice(delGood, 1);
     }
   }
 
 
   addPersonnel() {
-    this.goods.push({
+    this.resources.push({
       type: 'personnel',
-      qualification: '',
-      institution: '',
-      researchGroup: '',
-      area: '',
-      experienceWithPCR: false,
-      notes: '',
+      resource: {
+        qualification: '',
+        institution: '',
+        researchGroup: '',
+        area: '',
+        experienceWithPCR: false,
+        notes: '',
+        address: {
+          postalCode: '',
+          country: 'Deutschland',
+        }
+      },
       checkedEhrenamt: false,
     });
   }
 
 
   addDevice() {
-    this.goods.push({
+    this.resources.push({
       type: 'device',
-      category: '',
-      deviceName: '',
-      manufacturer: '',
-      ordernumber: '',
-      locationPostalCode: '',
-      number: undefined,
-      notes: '',
+      resource: {
+        category: '',
+        name: '',
+        manufacturer: '',
+        orderNumber: '',
+        amount: undefined,
+        notes: '',
+        address: {
+          postalCode: '',
+          country: 'Deutschland',
+        }
+      },
     });
   }
 
 
   addConsumable() {
-    this.goods.push({
+    this.resources.push({
       type: 'consumable',
-      category: '',
-      deviceName: '',
-      manufacturer: '',
-      ordernumber: '',
-      locationPostalCode: '',
-      number: undefined,
-      unit: '',
-      unitSelfDefined: '',
-      notes: '',
+      resource: {
+        category: '',
+        name: '',
+        manufacturer: '',
+        orderNumber: '',
+        amount: undefined,
+        unit: '',
+        notes: '',
+        address: {
+          postalCode: '',
+          country: 'Deutschland',
+        }
+      },
     });
   }
 
 
   isValid() {
-    let valid = this.contactData.organisation && this.contactData.person && this.contactData.mail
-      && this.contactData.street && this.contactData.houseNumber && this.contactData.postalCode
-      && this.contactData.city && this.contactData.country && this.contactData.checkedDatenschutz;
-    for (const good of this.goods) {
+    let valid = this.provider.institution && this.provider.name && this.provider.mail
+      && this.provider.address.street && this.provider.address.streetNumber && this.provider.address.postalCode
+      && this.provider.address.city && this.provider.address.country && this.checkedDatenschutz;
+    for (const good of this.resources) {
       if (good.type === 'personnel') {
-        valid = valid && good.qualification && good.institution && good.area && good.checkedEhrenamt;
+        const personnel = good.resource as Personnel;
+        valid = valid && personnel.qualification && personnel.institution && personnel.area
+          && personnel.address.postalCode && good.checkedEhrenamt;
       } else if (good.type === 'device') {
-        valid = valid && good.category && good.deviceName && good.locationPostalCode && good.number;
+        const device = good.resource as Device;
+        valid = valid && device.category && device.name && device.address.postalCode && device.amount;
       } else if (good.type === 'consumable') {
-        valid = valid && good.category && good.deviceName && good.locationPostalCode && good.number && good.unit;
+        const consumable = good.resource as Consumable;
+        valid = valid && consumable.category && consumable.name && consumable.address.postalCode
+          && consumable.amount && consumable.unit;
       }
     }
     return valid;
   }
-
 
 
   async sendRequest() {
@@ -125,65 +151,19 @@ export class OfferFormComponent implements OnInit {
     }
 
     const data = {
-      provider: {
-        address: {
-          street: this.contactData.street,
-          streetnumber: this.contactData.houseNumber,
-          postalcode: this.contactData.postalCode,
-          city: this.contactData.city,
-          country: this.contactData.country,
-        },
-        name: this.contactData.person,
-        organisation: this.contactData.organisation,
-        mail: this.contactData.mail,
-        phone: this.contactData.phone
-      },
+      provider: providerToApi(this.provider),
       personals: [],
       consumables: [],
       devices: []
     };
 
-    this.goods.forEach((elem) => {
+    this.resources.forEach((elem) => {
       if (elem.type === 'personnel') {
-        data.personals.push(
-          {
-            qualification: elem.qualification,
-            institution: elem.institution,
-            area: elem.area,
-            researchgroup: elem.researchGroup,
-            experience_rt_pcr: elem.experienceWithPCR,
-            annotation: elem.notes
-          }
-        );
+        data.personals.push(personnelToApi(elem.resource as Personnel));
       } else if (elem.type === 'device') {
-        data.devices.push(
-          {
-            category: elem.category,
-            name: elem.deviceName,
-            manufacturer: elem.manufacturer,
-            ordernumber: elem.ordernumber,
-            address: {
-              postalcode: elem.locationPostalCode,
-              country: 'Deutschland'
-            },
-            amount: elem.number
-          }
-        );
+        data.devices.push(deviceToApi(elem.resource as Device));
       } else if (elem.type === 'consumable') {
-        data.consumables.push(
-          {
-            category: elem.category,
-            name: elem.deviceName,
-            manufacturer: elem.manufacturer,
-            ordernumber: elem.ordernumber,
-            address: {
-              postalcode: elem.locationPostalCode,
-              country: 'Deutschland'
-            },
-            amount: elem.number,
-            unit: elem.unit !== 'other' ? elem.unit : elem.unitSelfDefined,
-          }
-        );
+        data.consumables.push(elem.resource as Consumable);
       }
     });
 

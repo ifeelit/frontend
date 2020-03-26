@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FetchServiceService } from '../fetch-service.service';
 import { environment } from '../../environments/environment';
-import { areAllEquivalent } from '@angular/compiler/src/output/output_ast';
+import { Provider, providerFromApi } from '../_types/Provider';
+import { Consumable, consumableFromApi } from '../_types/Consumable';
+import { Device, deviceFromApi } from '../_types/Device';
+import { Personnel, personnelFromApi } from '../_types/Personnel';
 
 
 @Component({
@@ -17,7 +20,10 @@ export class OfferChangeComponent implements OnInit {
   key: string;
   currentUrl: string;
 
-  data: any;
+  data: {
+    provider: Provider,
+    resources: Array<{ type: string, resource: Consumable | Device | Personnel}>
+  };
 
 
   constructor(
@@ -37,17 +43,7 @@ export class OfferChangeComponent implements OnInit {
       this.currentUrl = environment.pageHost + '/offer/' + this.key;
       const response = await this.fetchService.reviewOffer(this.key);
       this.data = {
-        contactData: {
-          organisation: response.provider.organisation,
-          person: response.provider.name,
-          mail: response.provider.mail,
-          phone: response.provider.phone,
-          street: response.provider.address.street,
-          houseNumber: response.provider.address.streetnumber,
-          postalCode: response.provider.address.postalcode,
-          city: response.provider.address.city,
-          country: response.provider.address.country,
-        },
+        provider: providerFromApi(response.provider),
         resources: []
       };
 
@@ -56,12 +52,7 @@ export class OfferChangeComponent implements OnInit {
         this.data.resources.push(
           {
             type: 'personnel',
-            qualification: element.qualification,
-            institution: element.institution,
-            researchGroup: element.researchgroup,
-            area: element.area,
-            experienceWithPCR: element.experience_rt_pcr,
-            notes: element.annotation,
+            resource: personnelFromApi(element),
           }
         );
       });
@@ -71,13 +62,7 @@ export class OfferChangeComponent implements OnInit {
         this.data.resources.push(
           {
             type: 'device',
-            category: element.category,
-            deviceName: element.name,
-            manufacturer: element.manufacturer,
-            ordernumber: element.ordernumber,
-            locationPostalCode: element.address.postalcode,
-            number: element.amount,
-            notes: element.annotation,
+            resource: deviceFromApi(element),
           }
         );
       });
@@ -87,15 +72,7 @@ export class OfferChangeComponent implements OnInit {
         this.data.resources.push(
           {
             type: 'consumable',
-            category: element.category,
-            deviceName: element.name,
-            manufacturer: element.manufacturer,
-            ordernumber: element.ordernumber,
-            locationPostalCode: element.address.postalcode,
-            number: element.amount,
-            unit: (element.unit === 'item') || (element.unit === 'pack') ? element.unit : 'other',
-            unitSelfDefined: (element.unit === 'item') || (element.unit === 'pack') ? '' : element.unit,
-            notes: element.annotation,
+            resource: consumableFromApi(element),
           }
         );
       });
@@ -117,5 +94,19 @@ export class OfferChangeComponent implements OnInit {
     if (this.data.resources.length !== 0) {
       this.data.resources.splice(delGood, 1);
     }
+  }
+
+
+  toP(r: { type: string; resource: Consumable | Device | Personnel }): Personnel {
+    return r.resource as Personnel;
+  }
+
+  toC(r: { type: string; resource: Consumable | Device | Personnel }): Consumable {
+    return r.resource as Consumable;
+  }
+
+
+  toD(r: { type: string; resource: Consumable | Device | Personnel }): Device {
+    return r.resource as Device;
   }
 }
