@@ -68,10 +68,10 @@ export class OfferFormComponent implements OnInit {
     this.resources.push({
       type: 'personnel',
       resource: {
-        qualification: '',
+        qualification: null,
         institution: '',
         researchGroup: '',
-        area: '',
+        area: null,
         experienceWithPCR: false,
         notes: '',
         address: {
@@ -88,7 +88,7 @@ export class OfferFormComponent implements OnInit {
     this.resources.push({
       type: 'device',
       resource: {
-        category: '',
+        category: null,
         name: '',
         manufacturer: '',
         orderNumber: '',
@@ -107,7 +107,7 @@ export class OfferFormComponent implements OnInit {
     this.resources.push({
       type: 'consumable',
       resource: {
-        category: '',
+        category: null,
         name: '',
         manufacturer: '',
         orderNumber: '',

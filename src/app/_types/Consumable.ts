@@ -1,9 +1,10 @@
 import { Address, addressFromApi, addressToApi } from './Address';
+import { ConsumableCategory } from './ConsumableCategory';
 
 
 export interface Consumable {
   id?: number;
-  category: string;
+  category: ConsumableCategory;
   name?: string;
   manufacturer: string;
   orderNumber: string;
