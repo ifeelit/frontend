@@ -32,28 +32,28 @@
           <label>
             Institution
           </label>
-          <input type="text" [(ngModel)]="data.contactData.organisation" disabled>
+          <input type="text" [(ngModel)]="data.provider.institution" disabled>
         </div>
 
         <div class="form-block__input-field">
           <label>
             Verantwortliche Person
           </label>
-          <input type="text" [(ngModel)]="data.contactData.person" disabled>
+          <input type="text" [(ngModel)]="data.provider.name" disabled>
         </div>
 
         <div class="form-block__input-field">
           <label>
             E-Mail Adresse
           </label>
-          <input type="text" [(ngModel)]="data.contactData.mail" disabled>
+          <input type="text" [(ngModel)]="data.provider.mail" disabled>
         </div>
 
         <div class="form-block__input-field">
           <label>
             Telefonnummer
           </label>
-          <input type="text" [(ngModel)]="data.contactData.phone" disabled>
+          <input type="text" [(ngModel)]="data.provider.phone" disabled>
         </div>
 
         <div class="form-block__input-field">
@@ -61,21 +61,21 @@
             Adresse
           </label>
           <br>
-          <input type="text" placeholder="Straße" [(ngModel)]="data.contactData.street" disabled>
-          <input type="text" placeholder="Hausnummer" [(ngModel)]="data.contactData.houseNumber" disabled>
-          <input type="text" placeholder="PLZ" [(ngModel)]="data.contactData.postalCode" disabled>
-          <input type="text" placeholder="Stadt" [(ngModel)]="data.contactData.city" disabled>
-          <input type="text" placeholder="Land" [(ngModel)]="data.contactData.country" disabled>
+          <input type="text" placeholder="Straße" [(ngModel)]="data.provider.address.street" disabled>
+          <input type="text" placeholder="Hausnummer" [(ngModel)]="data.provider.address.streetNumber" disabled>
+          <input type="text" placeholder="PLZ" [(ngModel)]="data.provider.address.postalCode" disabled>
+          <input type="text" placeholder="Stadt" [(ngModel)]="data.provider.address.city" disabled>
+          <input type="text" placeholder="Land" [(ngModel)]="data.provider.address.country" disabled>
         </div>
       </div>
 
-      <div *ngFor="let g of data.resources; let gIndex = index">
-        <div *ngIf="g.type === 'personnel'" class="form-block">
+      <div *ngFor="let r of data.resources; let gIndex = index">
+        <div *ngIf="r.type === 'personnel'" class="form-block">
           <div class="form-block__select">
             <label>
               Qualifikation
             </label>
-            <select [(ngModel)]="g.qualification" disabled>
+            <select [(ngModel)]="toP(r).qualification" disabled>
               <option value="ta">TA</option>
               <option value="labAssistant">Laborant</option>
               <option value="postdoc">Postdoc</option>
@@ -89,19 +89,19 @@
             <label>
               Institution
             </label>
-            <input type="text" [(ngModel)]="g.institution" disabled>
+            <input type="text" [(ngModel)]="toP(r).institution" disabled>
           </div>
           <div class="form-block__input-field">
             <label>
               Forschungsgruppe
             </label>
-            <input type="text" [(ngModel)]="g.researchGroup" disabled>
+            <input type="text" [(ngModel)]="toP(r).researchGroup" disabled>
           </div>
           <div class="form-block__select">
             <label>
               Bereich
             </label>
-            <select [(ngModel)]="g.area" disabled>
+            <select [(ngModel)]="toP(r).area" disabled>
               <option value="chemistry">Chemie</option>
               <option value="biochemistry">Biochemie</option>
               <option value="genetics">Genetik</option>
@@ -119,18 +119,18 @@
             <div>Haben Sie Erfahrung in der Durchführung von PCR und Real-Time PCR?</div>
             <label>
               Ja
-              <input name="experienceWithPCR{{gIndex}}" type="radio" [checked]="g.experienceWithPCR" disabled/>
+              <input name="experienceWithPCR{{gIndex}}" type="radio" [checked]="toP(r).experienceWithPCR" disabled/>
             </label>
             <label>
               Nein
-              <input name="experienceWithPCR{{gIndex}}" type="radio" [checked]="!g.experienceWithPCR" disabled/>
+              <input name="experienceWithPCR{{gIndex}}" type="radio" [checked]="!toP(r).experienceWithPCR" disabled/>
             </label>
           </div>
           <div class="form-block__input-field">
             <label>
               Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme vorhanden)
             </label>
-            <textarea [(ngModel)]="g.notes" disabled></textarea>
+            <textarea [(ngModel)]="toP(r).notes" disabled></textarea>
           </div>
           <div>
             <input type="checkbox" checked disabled>
@@ -138,12 +138,12 @@
           </div>
         </div>
 
-        <div *ngIf="g.type === 'device'" class="form-block">
+        <div *ngIf="r.type === 'device'" class="form-block">
           <div class="form-block__select">
             <label>
               Kategorie
             </label>
-            <select [(ngModel)]="g.category" disabled>
+            <select [(ngModel)]="toD(r).category" disabled>
               <option value="pcr-cycler">PCR Thermocycler</option>
               <option value="rt-pcr-cycler">Real-Time PCR Thermocycler</option>
               <option value="zentrifuge">Zentrifuge</option>
@@ -157,28 +157,28 @@
             <label>
               Exakte Materialbezeichnung
             </label>
-            <input type="text" [(ngModel)]="g.deviceName" disabled>
+            <input type="text" [(ngModel)]="toD(r).name" disabled>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Hersteller
             </label>
-            <input type="text" [(ngModel)]="g.manufacturer" disabled>
+            <input type="text" [(ngModel)]="toD(r).manufacturer" disabled>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Bestell- oder Seriennummer
             </label>
-            <input type="text" [(ngModel)]="g.ordernumber" disabled>
+            <input type="text" [(ngModel)]="toD(r).orderNumber" disabled>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Postleitzahl des Standortes
             </label>
-            <input type="text" [(ngModel)]="g.locationPostalCode" disabled>
+            <input type="text" [(ngModel)]="toD(r).address.postalCode" disabled>
           </div>
 
           <div class="form-block__input-field">
@@ -186,23 +186,23 @@
               Vorhandene Menge
             </label>
             <div>
-              <input type="number" [(ngModel)]="g.number" disabled>
+              <input type="number" [(ngModel)]="toD(r).amount" disabled>
             </div>
           </div>
           <div class="form-block__input-field">
             <label>
               Anmerkungen
             </label>
-            <textarea [(ngModel)]="g.notes" disabled></textarea>
+            <textarea [(ngModel)]="toD(r).notes" disabled></textarea>
           </div>
         </div>
 
-        <div *ngIf="g.type === 'consumable'" class="form-block">
+        <div *ngIf="r.type === 'consumable'" class="form-block">
           <div class="form-block__select">
             <label>
               Kategorie
             </label>
-            <select [(ngModel)]="g.category" disabled>
+            <select [(ngModel)]="toC(r).category" disabled>
               <option value="maske">Maske</option>
               <option value="schutzkleidung">Schutzkleidung</option>
               <option value="schutzbrille">Schutzbrille</option>
@@ -218,28 +218,28 @@
             <label>
               Exakte Materialbezeichnung
             </label>
-            <input type="text" [(ngModel)]="g.deviceName" disabled>
+            <input type="text" [(ngModel)]="toC(r).name" disabled>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Hersteller
             </label>
-            <input type="text" [(ngModel)]="g.manufacturer" disabled>
+            <input type="text" [(ngModel)]="toC(r).manufacturer" disabled>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Bestell- oder Seriennummer
             </label>
-            <input type="text" [(ngModel)]="g.ordernumber" disabled>
+            <input type="text" [(ngModel)]="toC(r).orderNumber" disabled>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Postleitzahl des Standortes
             </label>
-            <input type="text" [(ngModel)]="g.locationPostalCode" disabled>
+            <input type="text" [(ngModel)]="toC(r).address.postalCode" disabled>
           </div>
 
           <div class="form-block__input-field">
@@ -247,19 +247,11 @@
               Vorhandene Menge
             </label>
             <div>
-              <input type="number" [(ngModel)]="g.number" disabled>
+              <input type="number" [(ngModel)]="toC(r).amount" disabled>
               <div>
-                <select [(ngModel)]="g.unit" disabled>
-                  <option value="">Einheit auswählen</option>
-                  <option value="item">Stück</option>
-                  <option value="pack">Packung</option>
-                  <option value="other">Sonstiges</option>
-                </select>
                 <input
-                  *ngIf="g.unit === 'other'"
-                  [(ngModel)]="g.unitSelfDefined"
+                  [(ngModel)]="toC(r).unit"
                   type="text"
-                  placeholder="Bitte die Einheit spezifizieren."
                   style="width: 300px; margin-left: 20px;"
                   disabled
                 />
@@ -270,7 +262,7 @@
             <label>
               Anmerkungen
             </label>
-            <textarea [(ngModel)]="g.notes" disabled></textarea>
+            <textarea [(ngModel)]="toC(r).notes" disabled></textarea>
           </div>
         </div>
       </div>
