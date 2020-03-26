@@ -13,61 +13,62 @@
   <div class="form-block__input-field">
     <label>
       Institution
-      <span *ngIf="!contactData.organisation" class="form-alert">
+      <span *ngIf="!provider.institution" class="form-alert">
         Bitte ausfüllen!
       </span>
     </label>
-    <input type="text" [(ngModel)]="contactData.organisation">
+    <input type="text" [(ngModel)]="provider.institution">
   </div>
 
   <div class="form-block__input-field">
     <label>
       Verantwortliche Person
-      <span *ngIf="!contactData.person" class="form-alert">
+      <span *ngIf="!provider.name" class="form-alert">
         Bitte ausfüllen!
       </span>
     </label>
-    <input type="text" [(ngModel)]="contactData.person">
+    <input type="text" [(ngModel)]="provider.name">
   </div>
 
   <div class="form-block__input-field">
     <label>
       E-Mail Adresse
-      <span *ngIf="!contactData.mail" class="form-alert">
+      <span *ngIf="!provider.mail" class="form-alert">
         Bitte ausfüllen!
       </span>
     </label>
-    <input type="email" [(ngModel)]="contactData.mail">
+    <input type="email" [(ngModel)]="provider.mail">
   </div>
 
   <div class="form-block__input-field">
     <label>
       Telefonnummer
     </label>
-    <input type="text" [(ngModel)]="contactData.phone">
+    <input type="text" [(ngModel)]="provider.phone">
   </div>
 
   <div class="form-block__input-field">
     <label>
       Adresse
-      <span *ngIf="!(contactData.street && contactData.houseNumber && contactData.postalCode && contactData.city && contactData.country)" class="form-alert">
+      <span *ngIf="!(provider.address.street && provider.address.streetNumber && provider.address.postalCode
+        && provider.address.city && provider.address.country)" class="form-alert">
         Bitte ausfüllen!
       </span>
     </label>
     <br>
-    <input type="text" placeholder="Straße" [(ngModel)]="contactData.street">
-    <input type="text" placeholder="Hausnummer" [(ngModel)]="contactData.houseNumber">
-    <input type="text" placeholder="PLZ" [(ngModel)]="contactData.postalCode">
-    <input type="text" placeholder="Stadt" [(ngModel)]="contactData.city">
-    <input type="text" placeholder="Land" [(ngModel)]="contactData.country">
+    <input type="text" placeholder="Straße" [(ngModel)]="provider.address.street">
+    <input type="text" placeholder="Hausnummer" [(ngModel)]="provider.address.streetNumber">
+    <input type="text" placeholder="PLZ" [(ngModel)]="provider.address.postalCode">
+    <input type="text" placeholder="Stadt" [(ngModel)]="provider.address.city">
+    <input type="text" placeholder="Land" [(ngModel)]="provider.address.country">
   </div>
 
   <div>
-    <input [(ngModel)]="contactData.checkedDatenschutz" type="checkbox">
+    <input [(ngModel)]="checkedDatenschutz" type="checkbox">
     <label>
       Hiermit versichere ich die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>
       gelesen zu haben und stimme dieser zu.
-      <span *ngIf="!contactData.checkedDatenschutz" class="form-alert">
+      <span *ngIf="!checkedDatenschutz" class="form-alert">
         Bitte bestätigen!
       </span>
     </label>
@@ -82,9 +83,9 @@
   <button (click)="addConsumable()">Verbrauchsmaterial hinzufügen</button>
 </div>
 
-<div *ngFor="let g of goods; let gIndex = index">
+<div *ngFor="let r of resources; let gIndex = index">
   <app-offer-form-resource-block
-    [good]="g"
+    [resource]="r"
     (delete)="deleteItem(gIndex)"
   ></app-offer-form-resource-block>
 </div>

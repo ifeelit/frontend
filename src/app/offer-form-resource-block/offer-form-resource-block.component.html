@@ -1,13 +1,13 @@
-<div *ngIf="g.type === 'personnel'" class="form-block">
+<div *ngIf="r.type === 'personnel'" class="form-block">
   <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> Helfer</div>
   <div class="form-block__select">
     <label>
       Qualifikation
-      <span *ngIf="!g.qualification" class="form-alert">
+      <span *ngIf="!toP(r).qualification" class="form-alert">
         Bitte ausfüllen!
       </span>
     </label>
-    <select [(ngModel)]="g.qualification">
+    <select [(ngModel)]="toP(r).qualification">
       <option value="ta">TA</option>
       <option value="labAssistant">Laborant</option>
       <option value="postdoc">Postdoc</option>
@@ -20,26 +20,26 @@
   <div class="form-block__input-field">
     <label>
       Institution
-      <span *ngIf="!g.institution" class="form-alert">
+      <span *ngIf="!toP(r).institution" class="form-alert">
         Bitte ausfüllen!
       </span>
     </label>
-    <input type="text" [(ngModel)]="g.institution">
+    <input type="text" [(ngModel)]="toP(r).institution">
   </div>
   <div class="form-block__input-field">
     <label>
       Forschungsgruppe
     </label>
-    <input type="text" [(ngModel)]="g.researchGroup">
+    <input type="text" [(ngModel)]="toP(r).researchGroup">
   </div>
   <div class="form-block__select">
     <label>
       Bereich
-      <span *ngIf="!g.area" class="form-alert">
+      <span *ngIf="!toP(r).area" class="form-alert">
         Bitte auswählen!
       </span>
     </label>
-    <select [(ngModel)]="g.area">
+    <select [(ngModel)]="toP(r).area">
       <option value="chemistry">Chemie</option>
       <option value="biochemistry">Biochemie</option>
       <option value="genetics">Genetik</option>
@@ -57,24 +57,33 @@
     <div>Haben Sie Erfahrung in der Durchführung von PCR und Real-Time PCR?</div>
     <label>
       Ja
-      <input name="experienceWithPCR" type="radio" (click)="g.experienceWithPCR = true;" />
+      <input name="experienceWithPCR" type="radio" (click)="toP(r).experienceWithPCR = true;" />
     </label>
     <label>
       Nein
       <!-- The last "true" ist required because otherwise, the selection will be blocked.... -->
-      <input name="experienceWithPCR" type="radio" checked (click)="g.experienceWithPCR = false; true" />
+      <input name="experienceWithPCR" type="radio" checked (click)="toP(r).experienceWithPCR = false; true" />
     </label>
+  </div>
+  <div class="form-block__input-field">
+    <label>
+      Postleitzahl des Standortes
+      <span *ngIf="!toP(r).address.postalCode" class="form-alert">
+        Bitte ausfüllen!
+      </span>
+    </label>
+    <input type="text" [(ngModel)]="toP(r).address.postalCode">
   </div>
   <div class="form-block__input-field">
     <label>
       Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme vorhanden)
     </label>
-    <textarea [(ngModel)]="g.notes"></textarea>
+    <textarea [(ngModel)]="toP(r).notes"></textarea>
   </div>
   <div>
-    <input [(ngModel)]="g.checkedEhrenamt" type="checkbox">
+    <input [(ngModel)]="r.checkedEhrenamt" type="checkbox">
     <label> Hiermit wird bestätigt, dass der Helfer die Tätigkeit ehrenamtlich außerhalb der Arbeitszeiten ausführt.
-      <span *ngIf="!g.checkedEhrenamt" class="form-alert">
+      <span *ngIf="!r.checkedEhrenamt" class="form-alert">
         Bitte bestätigen!
       </span>
     </label>
@@ -82,16 +91,16 @@
 </div>
 
 
-<div *ngIf="g.type === 'device'" class="form-block">
+<div *ngIf="r.type === 'device'" class="form-block">
   <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> Gerät</div>
   <div class="form-block__select">
     <label>
       Kategorie
-      <span *ngIf="!g.category" class="form-alert">
+      <span *ngIf="!toD(r).category" class="form-alert">
         Bitte auswählen!
       </span>
     </label>
-    <select [(ngModel)]="g.category">
+    <select [(ngModel)]="toD(r).category">
       <option value="pcr-cycler">PCR Thermocycler</option>
       <option value="rt-pcr-cycler">Real-Time PCR Thermocycler</option>
       <option value="zentrifuge">Zentrifuge</option>
@@ -104,67 +113,67 @@
   <div class="form-block__input-field">
     <label>
       Exakte Materialbezeichnung
-      <span *ngIf="!g.deviceName" class="form-alert">
+      <span *ngIf="!toD(r).name" class="form-alert">
         Bitte ausfüllen!
       </span>
     </label>
-    <input type="text" [(ngModel)]="g.deviceName">
+    <input type="text" [(ngModel)]="toD(r).name">
   </div>
 
   <div class="form-block__input-field">
     <label>
       Hersteller
     </label>
-    <input type="text" [(ngModel)]="g.manufacturer">
+    <input type="text" [(ngModel)]="toD(r).manufacturer">
   </div>
 
   <div class="form-block__input-field">
     <label>
       Bestell- oder Seriennummer
     </label>
-    <input type="text" [(ngModel)]="g.ordernumber">
+    <input type="text" [(ngModel)]="toD(r).orderNumber">
   </div>
 
   <div class="form-block__input-field">
     <label>
       Postleitzahl des Standortes
-      <span *ngIf="!g.locationPostalCode" class="form-alert">
+      <span *ngIf="!toD(r).address.postalCode" class="form-alert">
         Bitte ausfüllen!
       </span>
     </label>
-    <input type="text" [(ngModel)]="g.locationPostalCode">
+    <input type="text" [(ngModel)]="toD(r).address.postalCode">
   </div>
 
   <div class="form-block__input-field">
     <label>
       Vorhandene Menge
-      <span *ngIf="!g.number" class="form-alert">
+      <span *ngIf="!toD(r).amount" class="form-alert">
         Bitte ausfüllen!
       </span>
     </label>
     <div>
-      <input type="number" [(ngModel)]="g.number">
+      <input type="number" [(ngModel)]="toD(r).amount">
     </div>
   </div>
   <div class="form-block__input-field">
     <label>
       Anmerkungen
     </label>
-    <textarea [(ngModel)]="g.notes"></textarea>
+    <textarea [(ngModel)]="toD(r).notes"></textarea>
   </div>
 </div>
 
 
-<div *ngIf="g.type === 'consumable'" class="form-block">
+<div *ngIf="r.type === 'consumable'" class="form-block">
   <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> Verbrauchsmaterial</div>
   <div class="form-block__select">
     <label>
       Kategorie
-      <span *ngIf="!g.category" class="form-alert">
+      <span *ngIf="!toC(r).category" class="form-alert">
         Bitte auswählen!
       </span>
     </label>
-    <select [(ngModel)]="g.category">
+    <select [(ngModel)]="toC(r).category">
       <option value="maske">Maske</option>
       <option value="schutzkleidung">Schutzkleidung</option>
       <option value="schutzbrille">Schutzbrille</option>
@@ -179,59 +188,59 @@
   <div class="form-block__input-field">
     <label>
       Exakte Materialbezeichnung
-      <span *ngIf="!g.deviceName" class="form-alert">
+      <span *ngIf="!toC(r).name" class="form-alert">
         Bitte ausfüllen!
       </span>
     </label>
-    <input type="text" [(ngModel)]="g.deviceName">
+    <input type="text" [(ngModel)]="toC(r).name">
   </div>
 
   <div class="form-block__input-field">
     <label>
       Hersteller
     </label>
-    <input type="text" [(ngModel)]="g.manufacturer">
+    <input type="text" [(ngModel)]="toC(r).manufacturer">
   </div>
 
   <div class="form-block__input-field">
     <label>
       Bestell- oder Seriennummer
     </label>
-    <input type="text" [(ngModel)]="g.ordernumber">
+    <input type="text" [(ngModel)]="toC(r).orderNumber">
   </div>
 
   <div class="form-block__input-field">
     <label>
       Postleitzahl des Standortes
-      <span *ngIf="!g.locationPostalCode" class="form-alert">
+      <span *ngIf="!toC(r).address.postalCode" class="form-alert">
         Bitte ausfüllen!
       </span>
     </label>
-    <input type="text" [(ngModel)]="g.locationPostalCode">
+    <input type="text" [(ngModel)]="toC(r).address.postalCode">
   </div>
 
   <div class="form-block__input-field">
     <label>
       Vorhandene Menge
-      <span *ngIf="!g.number" class="form-alert">
+      <span *ngIf="!toC(r).amount" class="form-alert">
         Bitte ausfüllen!
       </span>
     </label>
     <div>
-      <input type="number" [(ngModel)]="g.number">
+      <input type="number" [(ngModel)]="toC(r).amount">
       <div>
-        <select [(ngModel)]="g.unit">
+        <select (change)="unitSelected(r, $event)">
           <option value="">Einheit auswählen</option>
           <option value="item">Stück</option>
           <option value="pack">Packung</option>
           <option value="other">Sonstiges</option>
         </select>
-        <span *ngIf="!g.unit" class="form-alert">
+        <span *ngIf="!toC(r).unit" class="form-alert">
           Bitte auswählen!
         </span>
         <input
-          *ngIf="g.unit === 'other'"
-          [(ngModel)]="g.unitSelfDefined"
+          *ngIf="toC(r).unit !== '' && toC(r).unit !== 'item' && toC(r).unit !== 'pack'"
+          (change)="unitSelfDefined(r, $event)"
           type="text"
           placeholder="Bitte die Einheit spezifizieren."
           style="width: 300px; margin-left: 20px;"
@@ -243,6 +252,6 @@
     <label>
       Anmerkungen
     </label>
-    <textarea [(ngModel)]="g.notes"></textarea>
+    <textarea [(ngModel)]="toC(r).notes"></textarea>
   </div>
 </div>
