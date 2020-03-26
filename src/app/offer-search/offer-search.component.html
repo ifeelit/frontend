@@ -27,33 +27,13 @@
     <div class="form-block">
       <div class="form-block__label">Qualifikation</div>
       <div class="form-block__boxes">
-        <label>
-          TA
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.ta" />
-        </label>
-        <label>
-          Laborant
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.labAssistant"  />
-        </label>
-        <label>
-          Postdoc
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.postDoc" />
-        </label>
-        <label>
-          PhD-Student
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.phdStudent" />
-        </label>
-        <label>
-          MSc-Student
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.mscStudent" />
-        </label>
-        <label>
-          BSc-Student
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.bscStudent" />
-        </label>
-        <label>
-          Anderes
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.qualification.others" />
+        <label *ngFor="let qualification of getEnumValues(PersonnelQualification)">
+          {{ personnelQualificationToDE[qualification] }}
+          <input
+            type="checkbox"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="searchQuery.qualification[qualification]"
+          />
         </label>
       </div>
     </div>
@@ -61,49 +41,13 @@
     <div class="form-block">
       <div class="form-block__label">Bereich</div>
       <div class="form-block__boxes">
-        <label>
-          Chemie
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.chemistry" />
-        </label>
-        <label>
-          Biochemie
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.biochemistry" />
-        </label>
-        <label>
-          Genetik
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.genetics" />
-        </label>
-        <label>
-          Zellbiologie
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.cellbiology" />
-        </label>
-        <label>
-          Biologie
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.biology" />
-        </label>
-        <label>
-          Virologie
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.virology" />
-        </label>
-        <label>
-          Mikrobiologie
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.microbiology" />
-        </label>
-        <label>
-          Molekularbiologie
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.molecularbiology" />
-        </label>
-        <label>
-          Pharmakologie
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.pharmacology" />
-        </label>
-        <label>
-          Medizin
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.medicine" />
-        </label>
-        <label>
-          Sonstiges
-          <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchQuery.area.others" />
+        <label *ngFor="let area of getEnumValues(PersonnelArea)">
+          {{ personnelAreaToDE[area] }}
+          <input
+            type="checkbox"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="searchQuery.area[area]"
+          />
         </label>
       </div>
     </div>
@@ -130,13 +74,10 @@
         Typ
       </div>
       <div class="form-block__select">
-        <select name="offering" [(ngModel)]="searchQuery.category">
-          <option value="pcr-cycler">PCR Thermocycler</option>
-          <option value="rt-pcr-cycler">Real-Time PCR Thermocycler</option>
-          <option value="zentrifuge">Zentrifuge</option>
-          <option value="vortexer">Vortexer</option>
-          <option value="pipette">Pipette</option>
-          <option value="others">Sonstiges</option>
+        <select [(ngModel)]="searchQuery.category">
+          <option *ngFor="let category of getEnumValues(DeviceCategory)" [value]="category">
+            {{ deviceCategoryToDE[category] }}
+          </option>
         </select>
       </div>
     </div>
@@ -149,14 +90,9 @@
     </div>
     <div class="form-block__select">
       <select name="offering" [(ngModel)]="searchQuery.category">
-        <option value="maske">Maske</option>
-        <option value="schutzkleidung">Schutzkleidung</option>
-        <option value="handschuhe">Schutzbrille</option>
-        <option value="desinfektionsmittel">Desinfektionsmittel</option>
-        <option value="handschuhe">Handschuhe</option>
-        <option value="reaktionsgefaeße">Reaktionsgefäße</option>
-        <option value="readoutplates">Readoutplates</option>
-        <option value="others">Sonstiges</option>
+        <option *ngFor="let category of getEnumValues(ConsumableCategory)" [value]="category">
+          {{ consumableCategoryToDE[category] }}
+        </option>
       </select>
     </div>
     </div>

@@ -1,4 +1,11 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, Provider, SimpleChanges } from '@angular/core';
+import { Personnel } from '../_types/Personnel';
+import { Device } from '../_types/Device';
+import { Consumable } from '../_types/Consumable';
+import { deviceCategoryToDE } from '../_types/DeviceCategory';
+import { consumableCategoryToDE } from '../_types/ConsumableCategory';
+import { personnelQualificationToDE } from '../_types/PersonnelQualification';
+import { personnelAreaToDE } from '../_types/PersonnelArea';
 
 
 @Component({
@@ -8,8 +15,18 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 })
 export class OfferSearchResultListComponent implements OnInit, OnChanges {
 
+  deviceCategoryToDE = deviceCategoryToDE;
+  consumableCategoryToDE = consumableCategoryToDE;
+  personnelQualificationToDE = personnelQualificationToDE;
+  personnelAreaToDE = personnelAreaToDE;
+
+
   @Input() type: string;
-  @Input() searchResults: Array<any>;
+  @Input() searchResults: Array<{
+    provider?: Provider,
+    resource: Personnel | Device | Consumable,
+    distance: number,
+  }>;
 
   showDetails: Array<boolean>;
 
@@ -24,6 +41,7 @@ export class OfferSearchResultListComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.searchResults) {
+      console.log(this.searchResults);
       this.showDetails = [];
       for (const _ of this.searchResults) {
         this.showDetails.push(false);

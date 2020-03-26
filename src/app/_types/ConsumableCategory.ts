@@ -1,0 +1,22 @@
+export enum ConsumableCategory {
+  MASKE = 'MASKE',
+  SCHUTZKLEIDUNG = 'SCHUTZKLEIDUNG',
+  SCHUTZBRILLE = 'SCHUTZBRILLE',
+  HANDSCHUHE = 'HANDSCHUHE',
+  DESINFEKTIONSMITTEL = 'DESINFEKTIONSMITTEL',
+  REAKTIONSGEFAESSE = 'REAKTIONSGEFAESSE',
+  READOUTPLATES = 'READOUTPLATES',
+  SONSTIGES = 'SONSTIGES',
+}
+
+
+export const consumableCategoryToDE = {
+  MASKE: 'Maske',
+  SCHUTZKLEIDUNG: 'Schutzkleidung',
+  SCHUTZBRILLE: 'Schutzbrille',
+  HANDSCHUHE: 'Handschuhe',
+  DESINFEKTIONSMITTEL: 'Desinfektionsmittel',
+  REAKTIONSGEFAESSE: 'Reaktionsgefäße',
+  READOUTPLATES: 'Readoutplates',
+  SONSTIGES: 'Sonstiges',
+};

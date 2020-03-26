@@ -2,6 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Consumable } from '../_types/Consumable';
 import { Device } from '../_types/Device';
 import { Personnel } from '../_types/Personnel';
+import { DeviceCategory, deviceCategoryToDE } from '../_types/DeviceCategory';
+import { ConsumableCategory, consumableCategoryToDE } from '../_types/ConsumableCategory';
+import { PersonnelQualification, personnelQualificationToDE } from '../_types/PersonnelQualification';
+import { PersonnelArea, personnelAreaToDE } from '../_types/PersonnelArea';
 
 
 @Component({
@@ -10,6 +14,15 @@ import { Personnel } from '../_types/Personnel';
   styleUrls: ['./offer-form-resource-block.component.scss']
 })
 export class OfferFormResourceBlockComponent implements OnInit {
+
+  DeviceCategory = DeviceCategory;
+  deviceCategoryToDE = deviceCategoryToDE;
+  ConsumableCategory = ConsumableCategory;
+  consumableCategoryToDE = consumableCategoryToDE;
+  PersonnelQualification = PersonnelQualification;
+  personnelQualificationToDE = personnelQualificationToDE;
+  PersonnelArea = PersonnelArea;
+  personnelAreaToDE = personnelAreaToDE;
 
   @Input('resource') r: { type: string, resource: Consumable | Device | Personnel, checkedEhrenamt?: boolean };
   @Output() delete: EventEmitter<void> = new EventEmitter<void>();
@@ -20,6 +33,11 @@ export class OfferFormResourceBlockComponent implements OnInit {
 
 
   ngOnInit(): void {
+  }
+
+
+  getEnumValues(enumElement) {
+    return Object.values(enumElement);
   }
 
 

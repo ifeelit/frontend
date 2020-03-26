@@ -8,13 +8,9 @@
       </span>
     </label>
     <select [(ngModel)]="toP(r).qualification">
-      <option value="ta">TA</option>
-      <option value="labAssistant">Laborant</option>
-      <option value="postdoc">Postdoc</option>
-      <option value="phd">PhD-Student</option>
-      <option value="msc">MSc-Student</option>
-      <option value="bsc">BSc-Student</option>
-      <option value="other">Sonstiges (Bitte in den Anmerkungen näher spezifizieren)</option>
+      <option *ngFor="let qualification of getEnumValues(PersonnelQualification)" [value]="qualification">
+        {{ personnelQualificationToDE[qualification] }}
+      </option>
     </select>
   </div>
   <div class="form-block__input-field">
@@ -40,17 +36,9 @@
       </span>
     </label>
     <select [(ngModel)]="toP(r).area">
-      <option value="chemistry">Chemie</option>
-      <option value="biochemistry">Biochemie</option>
-      <option value="genetics">Genetik</option>
-      <option value="cellbiology">Zellbiologie</option>
-      <option value="biology">Biologie</option>
-      <option value="virology">Virologie</option>
-      <option value="microbiology">Mikrobiologie</option>
-      <option value="molecularbiology">Molekularbiologie</option>
-      <option value="pharmacology">Pharmakologie</option>
-      <option value="medicine">Medizin</option>
-      <option value="others">Sonstiges (Bitte in den Anmerkungen näher spezifizieren)</option>
+      <option *ngFor="let area of getEnumValues(PersonnelArea)" [value]="area">
+        {{ personnelAreaToDE[area] }}
+      </option>
     </select>
   </div>
   <div class="form-block__boxes">
@@ -101,12 +89,9 @@
       </span>
     </label>
     <select [(ngModel)]="toD(r).category">
-      <option value="pcr-cycler">PCR Thermocycler</option>
-      <option value="rt-pcr-cycler">Real-Time PCR Thermocycler</option>
-      <option value="zentrifuge">Zentrifuge</option>
-      <option value="vortexer">Vortexer</option>
-      <option value="pipette">Pipette</option>
-      <option value="others">Sonstiges</option>
+      <option *ngFor="let category of getEnumValues(DeviceCategory)" [value]="category">
+        {{ deviceCategoryToDE[category] }}
+      </option>
     </select>
   </div>
 
@@ -174,14 +159,9 @@
       </span>
     </label>
     <select [(ngModel)]="toC(r).category">
-      <option value="maske">Maske</option>
-      <option value="schutzkleidung">Schutzkleidung</option>
-      <option value="schutzbrille">Schutzbrille</option>
-      <option value="desinfektionsmittel">Desinfektionsmittel</option>
-      <option value="handschuhe">Handschuhe</option>
-      <option value="reaktionsgefaeße">Reaktionsgefäße</option>
-      <option value="readoutplates">Readoutplates</option>
-      <option value="sonstiges">Sonstiges</option>
+      <option *ngFor="let category of getEnumValues(ConsumableCategory)" [value]="category">
+        {{ consumableCategoryToDE[category] }}
+      </option>
     </select>
   </div>
 
@@ -231,15 +211,15 @@
       <div>
         <select (change)="unitSelected(r, $event)">
           <option value="">Einheit auswählen</option>
-          <option value="item">Stück</option>
-          <option value="pack">Packung</option>
+          <option value="Stück">Stück</option>
+          <option value="Packung">Packung</option>
           <option value="other">Sonstiges</option>
         </select>
         <span *ngIf="!toC(r).unit" class="form-alert">
           Bitte auswählen!
         </span>
         <input
-          *ngIf="toC(r).unit !== '' && toC(r).unit !== 'item' && toC(r).unit !== 'pack'"
+          *ngIf="toC(r).unit !== '' && toC(r).unit !== 'Stück' && toC(r).unit !== 'Packung'"
           (change)="unitSelfDefined(r, $event)"
           type="text"
           placeholder="Bitte die Einheit spezifizieren."
