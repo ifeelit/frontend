@@ -20,7 +20,7 @@
           Bitte kontaktieren Sie uns via Email mit Angabe dieses Links um ihr Angebot zu löschen!
         </div>
         <div class="form-block__input-field">
-          <input type="text" [value]="currentUrl" disabled/>
+          <div class="value-field">{{ currentUrl }}</div>
         </div>
       </div>
 
@@ -32,28 +32,28 @@
           <label>
             Institution
           </label>
-          <input type="text" [(ngModel)]="data.provider.institution" disabled>
+          <div class="value-field">{{ data.provider.institution }}</div>
         </div>
 
         <div class="form-block__input-field">
           <label>
             Verantwortliche Person
           </label>
-          <input type="text" [(ngModel)]="data.provider.name" disabled>
+          <div class="value-field">{{ data.provider.name }}</div>
         </div>
 
         <div class="form-block__input-field">
           <label>
             E-Mail Adresse
           </label>
-          <input type="text" [(ngModel)]="data.provider.mail" disabled>
+          <div class="value-field">{{ data.provider.mail }}</div>
         </div>
 
         <div class="form-block__input-field">
           <label>
             Telefonnummer
           </label>
-          <input type="text" [(ngModel)]="data.provider.phone" disabled>
+          <div class="value-field">{{ data.provider.phone }}</div>
         </div>
 
         <div class="form-block__input-field">
@@ -61,11 +61,11 @@
             Adresse
           </label>
           <br>
-          <input type="text" placeholder="Straße" [(ngModel)]="data.provider.address.street" disabled>
-          <input type="text" placeholder="Hausnummer" [(ngModel)]="data.provider.address.streetNumber" disabled>
-          <input type="text" placeholder="PLZ" [(ngModel)]="data.provider.address.postalCode" disabled>
-          <input type="text" placeholder="Stadt" [(ngModel)]="data.provider.address.city" disabled>
-          <input type="text" placeholder="Land" [(ngModel)]="data.provider.address.country" disabled>
+          <div class="value-field">{{ data.provider.address.street }}</div>
+          <div class="value-field">{{ data.provider.address.streetNumber }}</div>
+          <div class="value-field">{{ data.provider.address.postalCode }}</div>
+          <div class="value-field">{{ data.provider.address.city }}</div>
+          <div class="value-field">{{ data.provider.address.country }}</div>
         </div>
       </div>
 
@@ -75,45 +75,25 @@
             <label>
               Qualifikation
             </label>
-            <select [(ngModel)]="toP(r).qualification" disabled>
-              <option value="ta">TA</option>
-              <option value="labAssistant">Laborant</option>
-              <option value="postdoc">Postdoc</option>
-              <option value="phd">PhD-Student</option>
-              <option value="msc">MSc-Student</option>
-              <option value="bsc">BSc-Student</option>
-              <option value="other">Sonstiges (Bitte in den Anmerkungen näher spezifizieren)</option>
-            </select>
+            <div class="value-field">{{ toP(r).qualification }}</div>
           </div>
           <div class="form-block__input-field">
             <label>
               Institution
             </label>
-            <input type="text" [(ngModel)]="toP(r).institution" disabled>
+            <div class="value-field">{{ toP(r).institution }}</div>
           </div>
           <div class="form-block__input-field">
             <label>
               Forschungsgruppe
             </label>
-            <input type="text" [(ngModel)]="toP(r).researchGroup" disabled>
+            <div class="value-field">{{ toP(r).researchGroup }}</div>
           </div>
           <div class="form-block__select">
             <label>
               Bereich
             </label>
-            <select [(ngModel)]="toP(r).area" disabled>
-              <option value="chemistry">Chemie</option>
-              <option value="biochemistry">Biochemie</option>
-              <option value="genetics">Genetik</option>
-              <option value="cellbiology">Zellbiologie</option>
-              <option value="biology">Biologie</option>
-              <option value="virology">Virologie</option>
-              <option value="microbiology">Mikrobiologie</option>
-              <option value="molecularbiology">Molekularbiologie</option>
-              <option value="pharmacology">Pharmakologie</option>
-              <option value="medicine">Medizin</option>
-              <option value="others">Sonstiges (Bitte in den Anmerkungen näher spezifizieren)</option>
-            </select>
+            <div class="value-field">{{ toP(r).area }}</div>
           </div>
           <div class="form-block__boxes">
             <div>Haben Sie Erfahrung in der Durchführung von PCR und Real-Time PCR?</div>
@@ -130,7 +110,7 @@
             <label>
               Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme vorhanden)
             </label>
-            <textarea [(ngModel)]="toP(r).notes" disabled></textarea>
+            <div class="value-field">{{ toD(r).notes }}</div>
           </div>
           <div>
             <input type="checkbox" checked disabled>
@@ -143,42 +123,35 @@
             <label>
               Kategorie
             </label>
-            <select [(ngModel)]="toD(r).category" disabled>
-              <option value="pcr-cycler">PCR Thermocycler</option>
-              <option value="rt-pcr-cycler">Real-Time PCR Thermocycler</option>
-              <option value="zentrifuge">Zentrifuge</option>
-              <option value="vortexer">Vortexer</option>
-              <option value="pipette">Pipette</option>
-              <option value="others">Sonstiges</option>
-            </select>
+            <div class="value-field">{{ toD(r).category }}</div>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Exakte Materialbezeichnung
             </label>
-            <input type="text" [(ngModel)]="toD(r).name" disabled>
+            <div class="value-field">{{ toD(r).name }}</div>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Hersteller
             </label>
-            <input type="text" [(ngModel)]="toD(r).manufacturer" disabled>
+            <div class="value-field">{{ toD(r).manufacturer }}</div>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Bestell- oder Seriennummer
             </label>
-            <input type="text" [(ngModel)]="toD(r).orderNumber" disabled>
+            <div class="value-field">{{ toD(r).orderNumber }}</div>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Postleitzahl des Standortes
             </label>
-            <input type="text" [(ngModel)]="toD(r).address.postalCode" disabled>
+            <div class="value-field">{{ toD(r).address.postalCode }}</div>
           </div>
 
           <div class="form-block__input-field">
@@ -186,14 +159,14 @@
               Vorhandene Menge
             </label>
             <div>
-              <input type="number" [(ngModel)]="toD(r).amount" disabled>
+              <div class="value-field">{{ toD(r).amount }}</div>
             </div>
           </div>
           <div class="form-block__input-field">
             <label>
               Anmerkungen
             </label>
-            <textarea [(ngModel)]="toD(r).notes" disabled></textarea>
+            <div class="value-field">{{ toD(r).notes }}</div>
           </div>
         </div>
 
@@ -202,44 +175,35 @@
             <label>
               Kategorie
             </label>
-            <select [(ngModel)]="toC(r).category" disabled>
-              <option value="maske">Maske</option>
-              <option value="schutzkleidung">Schutzkleidung</option>
-              <option value="schutzbrille">Schutzbrille</option>
-              <option value="desinfektionsmittel">Desinfektionsmittel</option>
-              <option value="handschuhe">Handschuhe</option>
-              <option value="reaktionsgefaeße">Reaktionsgefäße</option>
-              <option value="readoutplates">Readoutplates</option>
-              <option value="sonstiges">Sonstiges</option>
-            </select>
+            <div class="value-field">{{ toC(r).category }}</div>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Exakte Materialbezeichnung
             </label>
-            <input type="text" [(ngModel)]="toC(r).name" disabled>
+            <div class="value-field">{{ toC(r).name }}</div>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Hersteller
             </label>
-            <input type="text" [(ngModel)]="toC(r).manufacturer" disabled>
+            <div class="value-field">{{ toC(r).manufacturer }}</div>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Bestell- oder Seriennummer
             </label>
-            <input type="text" [(ngModel)]="toC(r).orderNumber" disabled>
+            <div class="value-field">{{ toC(r).orderNumber }}</div>
           </div>
 
           <div class="form-block__input-field">
             <label>
               Postleitzahl des Standortes
             </label>
-            <input type="text" [(ngModel)]="toC(r).address.postalCode" disabled>
+            <div class="value-field">{{ toC(r).address.postalCode }}</div>
           </div>
 
           <div class="form-block__input-field">
@@ -247,22 +211,14 @@
               Vorhandene Menge
             </label>
             <div>
-              <input type="number" [(ngModel)]="toC(r).amount" disabled>
-              <div>
-                <input
-                  [(ngModel)]="toC(r).unit"
-                  type="text"
-                  style="width: 300px; margin-left: 20px;"
-                  disabled
-                />
-              </div>
+              <div class="value-field">{{ toC(r).amount }} {{ toC(r).unit }}</div>
             </div>
           </div>
           <div class="form-block__input-field">
             <label>
               Anmerkungen
             </label>
-            <textarea [(ngModel)]="toC(r).notes" disabled></textarea>
+            <div class="value-field">{{ toC(r).notes }}</div>
           </div>
         </div>
       </div>
