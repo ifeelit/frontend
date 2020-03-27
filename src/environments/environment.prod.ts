@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiHost: 'https://piratapi.chaoran-chen.de',
-  pageHost: 'https://pirat.chaoran-chen.de'
+  apiHost: 'https://api.pirat-tool.com',
+  pageHost: 'https://pirat-tool.com'
 };
 
