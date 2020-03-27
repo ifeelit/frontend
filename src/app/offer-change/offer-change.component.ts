@@ -6,6 +6,10 @@ import { Provider, providerFromApi } from '../_types/Provider';
 import { Consumable, consumableFromApi } from '../_types/Consumable';
 import { Device, deviceFromApi } from '../_types/Device';
 import { Personnel, personnelFromApi } from '../_types/Personnel';
+import { personnelQualificationToDE } from '../_types/PersonnelQualification';
+import { personnelAreaToDE } from '../_types/PersonnelArea';
+import { deviceCategoryToDE } from '../_types/DeviceCategory';
+import { consumableCategoryToDE } from '../_types/ConsumableCategory';
 
 
 @Component({
@@ -14,6 +18,11 @@ import { Personnel, personnelFromApi } from '../_types/Personnel';
   styleUrls: ['./offer-change.component.scss']
 })
 export class OfferChangeComponent implements OnInit {
+
+  deviceCategoryToDE = deviceCategoryToDE;
+  consumableCategoryToDE = consumableCategoryToDE;
+  personnelQualificationToDE = personnelQualificationToDE;
+  personnelAreaToDE = personnelAreaToDE;
 
   // Whether the offer was just created
   isNew: boolean;

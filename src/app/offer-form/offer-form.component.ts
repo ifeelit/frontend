@@ -34,9 +34,8 @@ export class OfferFormComponent implements OnInit {
     name: '',
     mail: '',
     phone: '',
+    isPublic: true,
   };
-
-  isPublic = true;
 
   checkedDatenschutz = false;
 
@@ -159,7 +158,10 @@ export class OfferFormComponent implements OnInit {
       consumables: [],
       devices: []
     };
-    data.provider.ispublic = this.isPublic;
+    // TODO Not sure why, but ispublic becomes a string...
+    if (data.provider.ispublic instanceof String || typeof data.provider.ispublic === 'string') {
+      data.provider.ispublic = data.provider.ispublic === 'true';
+    }
 
     this.resources.forEach((elem) => {
       if (elem.type === 'personnel') {

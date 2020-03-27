@@ -15,8 +15,6 @@ import { personnelAreaToDE } from '../_types/PersonnelArea';
 })
 export class OfferSearchResultListComponent implements OnInit, OnChanges {
 
-  deviceCategoryToDE = deviceCategoryToDE;
-  consumableCategoryToDE = consumableCategoryToDE;
   personnelQualificationToDE = personnelQualificationToDE;
   personnelAreaToDE = personnelAreaToDE;
 

@@ -75,13 +75,19 @@
             <label>
               Qualifikation
             </label>
-            <div class="value-field">{{ toP(r).qualification }}</div>
+            <div class="value-field">{{ personnelQualificationToDE[toP(r).qualification] }}</div>
           </div>
           <div class="form-block__input-field">
             <label>
               Institution
             </label>
             <div class="value-field">{{ toP(r).institution }}</div>
+          </div>
+          <div class="form-block__input-field">
+            <label>
+              Postleitzahl des Standortes
+            </label>
+            <div class="value-field">{{ toP(r).address.postalCode }}</div>
           </div>
           <div class="form-block__input-field">
             <label>
@@ -93,7 +99,7 @@
             <label>
               Bereich
             </label>
-            <div class="value-field">{{ toP(r).area }}</div>
+            <div class="value-field">{{ personnelAreaToDE[toP(r).area] }}</div>
           </div>
           <div class="form-block__boxes">
             <div>Haben Sie Erfahrung in der Durchführung von PCR und Real-Time PCR?</div>
@@ -123,7 +129,7 @@
             <label>
               Kategorie
             </label>
-            <div class="value-field">{{ toD(r).category }}</div>
+            <div class="value-field">{{ deviceCategoryToDE[toD(r).category] }}</div>
           </div>
 
           <div class="form-block__input-field">
@@ -175,7 +181,7 @@
             <label>
               Kategorie
             </label>
-            <div class="value-field">{{ toC(r).category }}</div>
+            <div class="value-field">{{ consumableCategoryToDE[toC(r).category] }}</div>
           </div>
 
           <div class="form-block__input-field">
