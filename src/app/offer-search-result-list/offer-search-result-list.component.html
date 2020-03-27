@@ -49,8 +49,9 @@
             *ngIf="r.provider"
             class="result-entry__details__info__content"
           >{{
-            r.provider.name + '\n' + r.provider.organisation + '\n' + formatAddress(r.provider.address) + '\n'
-            + r.provider.phone + '\n' + r.provider.mail
+            r.provider.name + '\n' + r.provider.institution + '\n' + formatAddress(r.provider.address)
+            + (r.provider.phone.length > 0 ? ('\n' + r.provider.phone) : '')
+            + '\n' + r.provider.mail
             }}</div>
           <div *ngIf="!r.provider">
             <app-offer-search-contact-form
@@ -106,8 +107,9 @@
             *ngIf="r.provider"
             class="result-entry__details__info__content"
           >{{
-            r.provider.name + '\n' + r.provider.organisation + '\n' + formatAddress(r.provider.address) + '\n'
-            + r.provider.phone + '\n' + r.provider.mail
+            r.provider.name + '\n' + r.provider.institution + '\n' + formatAddress(r.provider.address)
+            + (r.provider.phone.length > 0 ? ('\n' + r.provider.phone) : '')
+            + '\n' + r.provider.mail
             }}</div>
           <div *ngIf="!r.provider">
             <app-offer-search-contact-form
@@ -161,8 +163,9 @@
             *ngIf="r.provider"
             class="result-entry__details__info__content"
           >{{
-            r.provider.name + '\n' + r.provider.organisation + '\n' + formatAddress(r.provider.address) + '\n'
-            + r.provider.phone + '\n' + r.provider.mail
+            r.provider.name + '\n' + r.provider.institution + '\n' + formatAddress(r.provider.address)
+            + (r.provider.phone.length > 0 ? ('\n' + r.provider.phone) : '')
+            + '\n' + r.provider.mail
             }}</div>
           <div *ngIf="!r.provider">
             <app-offer-search-contact-form
