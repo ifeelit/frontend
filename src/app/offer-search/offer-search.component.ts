@@ -152,7 +152,7 @@ export class OfferSearchComponent implements OnInit {
       return res1.resource.kilometer - res2.resource.kilometer;
     });
     this.results = results.map((r) => {
-      const provider = r.provider ? providerFromApi(r.Provider) : null;
+      const provider = r.provider ? providerFromApi(r.provider) : null;
       const distance = r.resource.kilometer;
       let resource;
       if (this.searchType === 'personnel') {
