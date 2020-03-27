@@ -9,6 +9,7 @@ import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { OfferChangeComponent } from './offer-change/offer-change.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,9 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'datenschutz', component: DatenschutzComponent },
   { path: 'impressum', component: ImpressumComponent },
-  { path: 'change/:key', component: OfferChangeComponent }
+  { path: 'change/:key', component: OfferChangeComponent },
+  {path: '404', component: NotFoundComponent},
+  {path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({
