@@ -47,7 +47,10 @@
             + r.provider.phone + '\n' + r.provider.mail
             }}</div>
           <div *ngIf="!r.provider">
-            Die Kontaktdaten sind nicht öffentlich. Hier ersteht bald ein Kontaktformular, über das Sie den Anbieter erreichen können.
+            <app-offer-search-contact-form
+              resourceType="personnel"
+              [resourceId]="r.resource.id"
+            ></app-offer-search-contact-form>
           </div>
         </div>
 
@@ -101,7 +104,10 @@
             + r.provider.phone + '\n' + r.provider.mail
             }}</div>
           <div *ngIf="!r.provider">
-            Die Kontaktdaten sind nicht öffentlich. Hier ersteht bald ein Kontaktformular, über das Sie den Anbieter erreichen können.
+            <app-offer-search-contact-form
+              resourceType="device"
+              [resourceId]="r.resource.id"
+            ></app-offer-search-contact-form>
           </div>
         </div>
 
@@ -153,7 +159,10 @@
             + r.provider.phone + '\n' + r.provider.mail
             }}</div>
           <div *ngIf="!r.provider">
-            Die Kontaktdaten sind nicht öffentlich. Hier ersteht bald ein Kontaktformular, über das Sie den Anbieter erreichen können.
+            <app-offer-search-contact-form
+              resourceType="consumable"
+              [resourceId]="r.resource.id"
+            ></app-offer-search-contact-form>
           </div>
         </div>
 

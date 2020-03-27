@@ -16,6 +16,7 @@ import { OfferSearchResultListComponent } from './offer-search-result-list/offer
 import { OfferChangeComponent } from './offer-change/offer-change.component';
 import { OfferFormResourceBlockComponent } from './offer-form-resource-block/offer-form-resource-block.component';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { OfferSearchContactFormComponent } from './offer-search-contact-form/offer-search-contact-form.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { RecaptchaModule } from 'ng-recaptcha';
     AboutComponent,
     OfferSearchResultListComponent,
     OfferChangeComponent,
-    OfferFormResourceBlockComponent
+    OfferFormResourceBlockComponent,
+    OfferSearchContactFormComponent
   ],
   imports: [
     BrowserModule,

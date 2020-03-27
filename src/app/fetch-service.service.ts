@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
+import { ResourceContactMessage } from './_types/ResourceContactMessage';
 
 
 const url = environment.apiHost;
@@ -15,7 +16,6 @@ export class FetchServiceService {
 
 
   async requestCall(data, recaptchaResponse) {
-    // TODO change /call to correct route
     const request = new Request(url.concat('/telephone-callback'), {
       method: 'POST',
       body: JSON.stringify(data),
@@ -28,7 +28,7 @@ export class FetchServiceService {
     if (response.status === 200) {
       // handle correct response*
     } else {
-      // hancle error code
+      // handle error code
     }
   }
 
@@ -47,7 +47,7 @@ export class FetchServiceService {
       const key = await response.text();
       return key;
     } else {
-      // hancle error code
+      // handle error code
     }
 
   }
@@ -68,7 +68,7 @@ export class FetchServiceService {
       const reply = await response.json();
       return reply;
     } else {
-      // hancle error code
+      // handle error code
     }
   }
 
@@ -86,7 +86,7 @@ export class FetchServiceService {
     if (response.status === 200) {
       // Deletion was successful
     } else {
-      // hancle error code
+      // handle error code
     }
   }
 
@@ -128,4 +128,34 @@ export class FetchServiceService {
 
   }
 
+
+  async sendResourceContactMessage(
+    resourceType: string, resourceId: number, message: ResourceContactMessage, recaptcha: string
+  ) {
+    let resourceUrl;
+    switch (resourceType) {
+      case 'personnel':
+        resourceUrl = 'manpower';
+        break;
+      case 'device':
+        resourceUrl = 'devices';
+        break;
+      case 'consumable':
+        resourceUrl = 'consumables';
+        break;
+    }
+    const currentUrl = `${url}/resources/${resourceUrl}/${resourceId}/contact`;
+    const request = new Request(currentUrl, {
+      method: 'POST',
+      body: JSON.stringify(message),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        recaptcha
+      }),
+    });
+    const response = await fetch(request);
+    if (response.status !== 200) {
+      // handle error code
+    }
+  }
 }

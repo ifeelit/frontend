@@ -1,0 +1,43 @@
+<div class="form-block">
+  <div class="form-block__label">Kontaktieren Sie den Anbieter</div>
+  <div *ngIf="messageSent" class="notes">
+    Vielen Dank für das Absenden der Nachricht.
+  </div>
+  <ng-container *ngIf="!messageSent">
+    <div class="notes">
+      Die Kontaktdaten des Anbieters sind nicht öffentlich. Nutzen Sie dieses Kontaktformular um dem Anbieter eine
+      Nachricht zu hinterlassen.
+    </div>
+    <div class="form-block__input-field">
+      <label>Name*
+        <input type="text" [(ngModel)]="message.senderName"/>
+      </label>
+    </div>
+    <div class="form-block__input-field">
+      <label>Institution*
+        <input type="text" [(ngModel)]="message.senderInstitution"/>
+      </label>
+    </div>
+    <div class="form-block__input-field">
+      <label>Telefonnummer
+        <input type="text" [(ngModel)]="message.senderPhone"/>
+      </label>
+    </div>
+    <div class="form-block__input-field">
+      <label>Email Adresse*
+        <input type="text" [(ngModel)]="message.senderEmail"/>
+      </label>
+    </div>
+    <div class="form-block__input-field">
+      <label>Nachricht*
+        <textarea class="message-field" [(ngModel)]="message.message"></textarea>
+      </label>
+    </div>
+    <div class="re-captcha">
+      <re-captcha (resolved)="captchaResolved($event)" siteKey="6Lc7y-MUAAAAAGDeINlckhxOSo2eKZnys3XFj2qh"></re-captcha>
+    </div>
+    <div class="submit-button">
+      <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()">Angebot erstellen!</button>
+    </div>
+  </ng-container>
+</div>
