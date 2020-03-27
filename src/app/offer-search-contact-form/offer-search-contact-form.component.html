@@ -1,11 +1,11 @@
 <div class="form-block">
   <div class="form-block__label">Kontaktieren Sie den Anbieter</div>
   <div *ngIf="messageSent" class="notes">
-    Vielen Dank für das Absenden der Nachricht.
+    Vielen Dank für Ihre Nachricht. Sie wurde an den Anbieter übermittelt, er wird sich direkt mit Ihnen in Verbindung setzen.
   </div>
   <ng-container *ngIf="!messageSent">
     <div class="notes">
-      Die Kontaktdaten des Anbieters sind nicht öffentlich. Nutzen Sie dieses Kontaktformular um dem Anbieter eine
+      Die Kontaktdaten des Anbieters sind nicht öffentlich. Nutzen Sie dieses Kontaktformular, um dem Anbieter eine
       Nachricht zu hinterlassen.
     </div>
     <div class="form-block__input-field">
@@ -37,7 +37,7 @@
       <re-captcha (resolved)="captchaResolved($event)" siteKey="6Lc7y-MUAAAAAGDeINlckhxOSo2eKZnys3XFj2qh"></re-captcha>
     </div>
     <div class="submit-button">
-      <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()">Angebot erstellen!</button>
+      <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()">Nachricht absenden</button>
     </div>
   </ng-container>
 </div>

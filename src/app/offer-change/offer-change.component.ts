@@ -49,7 +49,7 @@ export class OfferChangeComponent implements OnInit {
       this.isNew = isNewParam !== null && isNewParam !== undefined;
 
       this.key = params.key;
-      this.currentUrl = environment.pageHost + '/offer/' + this.key;
+      this.currentUrl = environment.pageHost + '/change/' + this.key;
       const response = await this.fetchService.reviewOffer(this.key);
       this.data = {
         provider: providerFromApi(response.provider),
