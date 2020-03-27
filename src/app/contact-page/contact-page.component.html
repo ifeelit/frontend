@@ -72,6 +72,18 @@
               </label>
               <input type="text" [(ngModel)]="requestData.notes">
             </div>
+
+            <div>
+              <input [(ngModel)]="checkedDatenschutz" type="checkbox">
+              <label>
+                Hiermit versichere ich, die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>
+                gelesen zu haben und stimme dieser zu.
+                <span *ngIf="!checkedDatenschutz" class="form-alert">
+                  Pflichtangabe
+                </span>
+              </label>
+            </div>
+
             <div class="re-captcha">
               <re-captcha (resolved)="resolved($event)" siteKey="6Lc7y-MUAAAAAGDeINlckhxOSo2eKZnys3XFj2qh"></re-captcha>
             </div>

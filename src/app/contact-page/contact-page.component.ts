@@ -19,6 +19,8 @@ export class ContactPageComponent implements OnInit {
 
   recaptcha: string;
 
+  checkedDatenschutz: boolean;
+
   callBackSubmit = false;
 
 
@@ -38,7 +40,7 @@ export class ContactPageComponent implements OnInit {
 
 
   isValid() {
-    return this.requestData.name && this.requestData.phone && this.requestData.topic;
+    return this.requestData.name && this.requestData.phone && this.requestData.topic && this.checkedDatenschutz;
   }
 
 
