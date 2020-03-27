@@ -8,12 +8,14 @@ import { AboutComponent } from './about/about.component';
 import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { OfferChangeComponent } from './offer-change/offer-change.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'angebote/neu', component: OfferFormComponent },
   { path: 'suchanfrage', component: OfferSearchComponent },
+  { path: 'contact', component: ContactPageComponent },
   { path: 'faq', component: FaqPageComponent },
   { path: 'about', component: AboutComponent },
   { path: 'datenschutz', component: DatenschutzComponent },

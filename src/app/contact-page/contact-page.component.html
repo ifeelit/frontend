@@ -1,0 +1,88 @@
+<div class="page-head">
+  <div class="container">
+    <h2 class="page-title">Kontakt</h2>
+  </div>
+</div>
+
+<main class="main-content">
+  <div class="fullwidth-block">
+    <div class="container">
+      <div class="row">
+
+
+        <p>
+          Wenn Sie Fragen, Wünsche oder Anregungen haben, freuen wir uns, wenn Sie Kontakt mit uns aufnehmen.
+          Schreiben Sie uns eine Email an <b>pirat.hilfsmittel(at)gmail.com</b> oder benutzen Sie das
+          Kontaktformular, wir melden uns schnellstmöglich per E-Mail oder Telefon bei Ihnen!
+        </p>
+
+        <div class="form-block">
+          <div *ngIf="callBackSubmit" class="info-box">
+            Vielen Dank für Ihre Kontaktanfrage, wir werden uns gleich bei Ihnen melden.
+          </div>
+          <ng-container *ngIf="!callBackSubmit">
+            <div class="form-block__label">
+              Rückruf anfragen
+            </div>
+            <div class="form-block__input-field">
+              <label>
+                Name
+                <span *ngIf="!requestData.name" class="form-alert">
+                  Bitte ausfüllen!
+                </span>
+              </label>
+              <input type="text" [(ngModel)]="requestData.name">
+            </div>
+
+            <div class="form-block__input-field">
+              <label>
+                Telefonnummer
+                <span *ngIf="!requestData.phone" class="form-alert">
+                  Bitte ausfüllen!
+                </span>
+              </label>
+              <input type="text" [(ngModel)]="requestData.phone">
+            </div>
+
+            <div class="form-block__input-field">
+              <label>
+                E-Mail Adresse
+              </label>
+              <input type="email" [(ngModel)]="requestData.email">
+            </div>
+
+            <div class="form-block__input-field">
+              <label>
+                Thema
+                <span *ngIf="!requestData.topic" class="form-alert">
+                  Bitte ausfüllen!
+                </span>
+              </label>
+              <br>
+              <select [(ngModel)]="requestData.topic">
+                <option value="technicalQuestion">Technische Frage</option>
+                <option value="topicalQuestion">Fachliche Frage</option>
+                <option value="otherQuestion">Sonstiges</option>
+              </select>
+            </div>
+
+            <div class="form-block__input-field">
+              <label>
+                Anmerkung
+              </label>
+              <input type="text" [(ngModel)]="requestData.notes">
+            </div>
+            <div class="re-captcha">
+              <re-captcha (resolved)="resolved($event)" siteKey="6Lc7y-MUAAAAAGDeINlckhxOSo2eKZnys3XFj2qh"></re-captcha>
+            </div>
+            <div class="submit-button">
+              <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()">Amfrage abschicken!</button>
+            </div>
+          </ng-container>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</main>
