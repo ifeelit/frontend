@@ -26,9 +26,6 @@
     </div>
     <div class="form-block__input-field">
       <label>Telefonnummer
-        <span *ngIf="!message.senderPhone" class="form-alert">
-          Pflichtangabe
-        </span>
         <input type="text" [(ngModel)]="message.senderPhone"/>
       </label>
     </div>
