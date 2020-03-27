@@ -14,7 +14,7 @@
     <label>
       Institution
       <span *ngIf="!provider.institution" class="form-alert">
-        Bitte ausfüllen!
+        Pflichtangabe
       </span>
     </label>
     <input type="text" [(ngModel)]="provider.institution">
@@ -24,7 +24,7 @@
     <label>
       Verantwortliche Person
       <span *ngIf="!provider.name" class="form-alert">
-        Bitte ausfüllen!
+        Pflichtangabe
       </span>
     </label>
     <input type="text" [(ngModel)]="provider.name">
@@ -34,7 +34,7 @@
     <label>
       E-Mail Adresse
       <span *ngIf="!provider.mail" class="form-alert">
-        Bitte ausfüllen!
+        Pflichtangabe
       </span>
     </label>
     <input type="email" [(ngModel)]="provider.mail">
@@ -52,7 +52,7 @@
       Adresse
       <span *ngIf="!(provider.address.street && provider.address.streetNumber && provider.address.postalCode
         && provider.address.city && provider.address.country)" class="form-alert">
-        Bitte ausfüllen!
+        Pflichtangabe
       </span>
     </label>
     <br>
@@ -80,7 +80,7 @@
       Hiermit versichere ich, die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>
       gelesen zu haben und stimme dieser zu.
       <span *ngIf="!checkedDatenschutz" class="form-alert">
-        Bitte bestätigen!
+        Pflichtangabe
       </span>
     </label>
   </div>

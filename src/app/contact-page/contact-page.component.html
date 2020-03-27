@@ -28,7 +28,7 @@
               <label>
                 Name
                 <span *ngIf="!requestData.name" class="form-alert">
-                  Bitte ausfüllen!
+                  Pflichtangabe
                 </span>
               </label>
               <input type="text" [(ngModel)]="requestData.name">
@@ -38,7 +38,7 @@
               <label>
                 Telefonnummer
                 <span *ngIf="!requestData.phone" class="form-alert">
-                  Bitte ausfüllen!
+                  Pflichtangabe
                 </span>
               </label>
               <input type="text" [(ngModel)]="requestData.phone">
@@ -55,7 +55,7 @@
               <label>
                 Thema
                 <span *ngIf="!requestData.topic" class="form-alert">
-                  Bitte ausfüllen!
+                  Pflichtangabe
                 </span>
               </label>
               <br>

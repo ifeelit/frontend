@@ -9,27 +9,42 @@
       Nachricht zu hinterlassen.
     </div>
     <div class="form-block__input-field">
-      <label>Name*
+      <label>Name
+        <span *ngIf="!message.senderName" class="form-alert">
+          Pflichtangabe
+        </span>
         <input type="text" [(ngModel)]="message.senderName"/>
       </label>
     </div>
     <div class="form-block__input-field">
-      <label>Institution*
+      <label>Institution
+        <span *ngIf="!message.senderInstitution" class="form-alert">
+          Pflichtangabe
+        </span>
         <input type="text" [(ngModel)]="message.senderInstitution"/>
       </label>
     </div>
     <div class="form-block__input-field">
       <label>Telefonnummer
+        <span *ngIf="!message.senderPhone" class="form-alert">
+          Pflichtangabe
+        </span>
         <input type="text" [(ngModel)]="message.senderPhone"/>
       </label>
     </div>
     <div class="form-block__input-field">
-      <label>Email Adresse*
+      <label>Email Adresse
+        <span *ngIf="!message.senderEmail" class="form-alert">
+          Pflichtangabe
+        </span>
         <input type="text" [(ngModel)]="message.senderEmail"/>
       </label>
     </div>
     <div class="form-block__input-field">
-      <label>Nachricht*
+      <label>Nachricht
+        <span *ngIf="!message.message" class="form-alert">
+          Pflichtangabe
+        </span>
         <textarea class="message-field" [(ngModel)]="message.message"></textarea>
       </label>
     </div>
