@@ -103,9 +103,7 @@
   ></app-offer-form-resource-block>
 </div>
 
-<div class="re-captcha">
-  <re-captcha (resolved)="resolved($event)" siteKey="6Lc7y-MUAAAAAGDeINlckhxOSo2eKZnys3XFj2qh"></re-captcha>
-</div>
+<app-re-captcha-wrapper (resolved)="resolved($event)"></app-re-captcha-wrapper>
 
 <div class="submit-button">
   <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()">Angebot erstellen!</button>

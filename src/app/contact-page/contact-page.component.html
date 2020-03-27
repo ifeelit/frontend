@@ -12,7 +12,8 @@
 
         <p>
           Wenn Sie Fragen, Wünsche oder Anregungen haben, freuen wir uns, wenn Sie Kontakt mit uns aufnehmen.
-          Schreiben Sie uns eine Email an <a href="mailto:mail@pirat-tool.com">mail@pirat-tool.com</a> oder benutzen Sie das
+          Schreiben Sie uns eine Email an <a href="mailto:mail@pirat-tool.com">mail@pirat-tool.com</a> oder benutzen Sie
+          das
           Kontaktformular, wir melden uns schnellstmöglich per E-Mail oder Telefon bei Ihnen!
         </p>
 
@@ -84,11 +85,10 @@
               </label>
             </div>
 
-            <div class="re-captcha">
-              <re-captcha (resolved)="resolved($event)" siteKey="6Lc7y-MUAAAAAGDeINlckhxOSo2eKZnys3XFj2qh"></re-captcha>
-            </div>
+            <app-re-captcha-wrapper (resolved)="resolved($event)"></app-re-captcha-wrapper>
             <div class="submit-button">
-              <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()">Anfrage abschicken!</button>
+              <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()">Anfrage abschicken!
+              </button>
             </div>
           </ng-container>
         </div>

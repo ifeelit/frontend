@@ -19,6 +19,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { OfferSearchContactFormComponent } from './offer-search-contact-form/offer-search-contact-form.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ReCaptchaWrapperComponent } from './re-captcha-wrapper/re-captcha-wrapper.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     OfferFormResourceBlockComponent,
     OfferSearchContactFormComponent,
     ContactPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ReCaptchaWrapperComponent
   ],
   imports: [
     BrowserModule,

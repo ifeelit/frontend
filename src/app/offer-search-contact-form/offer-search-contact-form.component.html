@@ -45,9 +45,7 @@
         <textarea class="message-field" [(ngModel)]="message.message"></textarea>
       </label>
     </div>
-    <div class="re-captcha">
-      <re-captcha (resolved)="captchaResolved($event)" siteKey="6Lc7y-MUAAAAAGDeINlckhxOSo2eKZnys3XFj2qh"></re-captcha>
-    </div>
+    <app-re-captcha-wrapper (resolved)="captchaResolved($event)"></app-re-captcha-wrapper>
     <div class="submit-button">
       <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()">Nachricht absenden</button>
     </div>
