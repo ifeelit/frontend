@@ -10,6 +10,12 @@
       <div class="result-entry__name" (click)="toggleShowDetails(i)">
         {{ personnelQualificationToDE[r.resource.qualification] }}
       </div>
+      <div>
+        <div class="result-entry__info__label">Standort:</div>
+        <div class="result-entry__info__content">
+          {{ formatAddress(r.resource.address) }} ({{ r.distance }} km entfernt)
+        </div>
+      </div>
       <div class="result-entry__info">
         <div class="result-entry__info__label">Institution:</div>
         <div class="result-entry__info__content">{{ r.resource.institution }}</div>
