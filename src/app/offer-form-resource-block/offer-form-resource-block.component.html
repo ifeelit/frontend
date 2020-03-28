@@ -209,22 +209,15 @@
     <div>
       <input type="number" [(ngModel)]="toC(r).amount">
       <div>
-        <select (change)="unitSelected(r, $event)">
+        <select [(ngModel)]="toC(r).unit">
           <option value="">Einheit auswählen</option>
           <option value="Stück">Stück</option>
           <option value="Packung">Packung</option>
-          <option value="other">Sonstiges</option>
+          <option value="Sonstiges">Sonstiges (Bitte in den Anmerkungen spezifizieren)</option>
         </select>
         <span *ngIf="!toC(r).unit" class="form-alert">
           Pflichtangabe
         </span>
-        <input
-          *ngIf="toC(r).unit !== '' && toC(r).unit !== 'Stück' && toC(r).unit !== 'Packung'"
-          (change)="unitSelfDefined(r, $event)"
-          type="text"
-          placeholder="Bitte die Einheit spezifizieren."
-          style="width: 300px; margin-left: 20px;"
-        />
       </div>
     </div>
   </div>

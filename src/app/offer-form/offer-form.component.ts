@@ -1,10 +1,11 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FetchServiceService } from '../fetch-service.service';
 import { Router } from '@angular/router';
 import { Provider, providerToApi } from '../_types/Provider';
 import { Consumable } from '../_types/Consumable';
 import { Device, deviceToApi } from '../_types/Device';
 import { Personnel, personnelToApi } from '../_types/Personnel';
+import { ReCaptchaWrapperComponent } from '../re-captcha-wrapper/re-captcha-wrapper.component';
 
 
 @Component({
@@ -13,6 +14,8 @@ import { Personnel, personnelToApi } from '../_types/Personnel';
   styleUrls: ['./offer-form.component.scss']
 })
 export class OfferFormComponent implements OnInit {
+
+  @ViewChild(ReCaptchaWrapperComponent) reCaptchaComponent: ReCaptchaWrapperComponent;
 
 
   constructor(
@@ -42,6 +45,11 @@ export class OfferFormComponent implements OnInit {
   resources: Array<{ type: string, resource: Consumable | Device | Personnel, checkedEhrenamt?: boolean }> = [];
 
   recaptcha: string;
+
+  error: {
+    status: number,
+    message: any,
+  };
 
 
   ngOnInit(): void {
@@ -147,6 +155,14 @@ export class OfferFormComponent implements OnInit {
   }
 
 
+  isUnexpectedError(err) {
+    if (!err?.message) {
+      return false;
+    }
+    return typeof err.message === 'object';
+  }
+
+
   async sendRequest() {
     if (!this.isValid()) {
       return;
@@ -173,11 +189,13 @@ export class OfferFormComponent implements OnInit {
       }
     });
 
-    let key = await this.fetchService.sendOffer(data, this.recaptcha);
-    // Todo The server should stop returning weird stuff...
-    if (key[0] === '"' && key[key.length - 1] === '"') {
-      key = key.slice(1, key.length - 1);
+    const response = await this.fetchService.sendOffer(data, this.recaptcha);
+    this.reCaptchaComponent.reset();
+    if (!response.error) {
+      const { key } = response;
+      this.router.navigateByUrl('/change/' + key + '?new-created');
+    } else {
+     this.error = response.error;
     }
-    this.router.navigateByUrl('/change/' + key + '?new-created');
   }
 }

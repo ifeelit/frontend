@@ -105,6 +105,15 @@
 
 <app-re-captcha-wrapper (resolved)="resolved($event)"></app-re-captcha-wrapper>
 
+
+<div class="form-alert" *ngIf="error?.message === '1000:InvalidAddress'">
+  Bitte prüfen Sie die eingegebenen Adressen.
+</div>
+<div class="form-alert" *ngIf="isUnexpectedError(error)">
+  Bitte prüfen Sie Ihre Eingaben.
+</div>
+
+
 <div class="submit-button">
   <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()">Angebot erstellen!</button>
 </div>

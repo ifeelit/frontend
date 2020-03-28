@@ -107,6 +107,13 @@
     </div>
   </div>
 
+  <div class="form-alert" *ngIf="error?.message === '1000:InvalidAddress'">
+    Bitte prüfen Sie die eingegebenen Adressen.
+  </div>
+  <div class="form-alert" *ngIf="isUnexpectedError(error)">
+    Bitte prüfen Sie Ihre Eingaben.
+  </div>
+
   <div class="submit-button">
     <button (click)="onSubmit()" class="button" [disabled]="!isValid()">Suche starten</button>
   </div>

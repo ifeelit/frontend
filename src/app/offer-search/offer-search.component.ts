@@ -37,6 +37,11 @@ export class OfferSearchComponent implements OnInit {
     distance: number,
   }>;
 
+  error: {
+    status: number,
+    message: any
+  };
+
 
   constructor(
     private fetchService: FetchServiceService
@@ -102,6 +107,7 @@ export class OfferSearchComponent implements OnInit {
 
 
   async onSubmit() {
+    this.error = undefined;
     let data;
     let targetType;
 
@@ -147,22 +153,35 @@ export class OfferSearchComponent implements OnInit {
       };
     }
 
-    const results = await this.fetchService.getOffers(targetType, data);
-    results.sort((res1, res2) => {
-      return res1.resource.kilometer - res2.resource.kilometer;
-    });
-    this.results = results.map((r) => {
-      const provider = r.provider ? providerFromApi(r.provider) : null;
-      const distance = r.resource.kilometer;
-      let resource;
-      if (this.searchType === 'personnel') {
-        resource = personnelFromApi(r.resource);
-      } else if (this.searchType === 'device') {
-        resource = deviceFromApi(r.resource);
-      } else if (this.searchType === 'consumable') {
-        resource = consumableFromApi(r.resource);
-      }
-      return {provider, resource, distance};
-    });
+    const { results, error } = await this.fetchService.getOffers(targetType, data);
+    if (!error) {
+      results.sort((res1, res2) => {
+        return res1.resource.kilometer - res2.resource.kilometer;
+      });
+      this.results = results.map((r) => {
+        const provider = r.provider ? providerFromApi(r.provider) : null;
+        const distance = r.resource.kilometer;
+        let resource;
+        if (this.searchType === 'personnel') {
+          resource = personnelFromApi(r.resource);
+        } else if (this.searchType === 'device') {
+          resource = deviceFromApi(r.resource);
+        } else if (this.searchType === 'consumable') {
+          resource = consumableFromApi(r.resource);
+        }
+        return {provider, resource, distance};
+      });
+    } else {
+      this.error = error;
+    }
+
+  }
+
+
+  isUnexpectedError(err) {
+    if (!err?.message) {
+      return false;
+    }
+    return typeof err.message === 'object';
   }
 }

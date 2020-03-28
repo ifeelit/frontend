@@ -44,10 +44,15 @@ export class FetchServiceService {
     });
     const response = await fetch(request);
     if (response.status === 200) {
-      const key = await response.text();
-      return key;
+      const key = await response.json();
+      return { key };
     } else {
-      // handle error code
+      return {
+        error: {
+          status: response.status,
+          message: await response.json(),
+        },
+      };
     }
 
   }
@@ -120,10 +125,15 @@ export class FetchServiceService {
 
     const response = await fetch(request);
     if (response.status === 200) {
-      // Offers received
-      return await response.json();
+      const results = await response.json();
+      return { results };
     } else {
-      // hancle error code
+      return {
+        error: {
+          status: response.status,
+          message: await response.json(),
+        },
+      };
     }
 
   }

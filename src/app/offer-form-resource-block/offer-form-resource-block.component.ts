@@ -46,17 +46,6 @@ export class OfferFormResourceBlockComponent implements OnInit {
   }
 
 
-  unitSelected(r: {type: string; resource: Consumable | Device | Personnel; checkedEhrenamt?: boolean}, $event: Event) {
-    (r.resource as Consumable).unit = ($event.target as any).value;
-  }
-
-
-  unitSelfDefined(r: { type: string; resource: Consumable | Device | Personnel; checkedEhrenamt?: boolean },
-                  $event: Event) {
-    (r.resource as Consumable).unit = ($event.target as any).value;
-  }
-
-
   toP(r: { type: string; resource: Consumable | Device | Personnel; checkedEhrenamt?: boolean }): Personnel {
     return r.resource as Personnel;
   }
