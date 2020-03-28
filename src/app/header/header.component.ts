@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { environment } from "../../environments/environment";
+import { NavigationEnd, Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 
 @Component({
