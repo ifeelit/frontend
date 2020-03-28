@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { environment } from "../../environments/environment";
 
 
 @Component({
@@ -26,4 +27,8 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+
+  isProduction() {
+    return environment.environment === 'production';
+  }
 }

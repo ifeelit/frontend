@@ -30,10 +30,11 @@
 </header>
 
 
-<div class="container">
+<div class="container" *ngIf="!isProduction()">
 <div class="row">
   <div class="development-warning">
-    Diese Seite ist zurzeit in aktiver Entwicklung und noch nicht für den Einsatz geeignet.
+    Diese Seite ist intern und dient der Entwicklung. Die eigentliche Webseite befindet sich unter
+    <a href="https://pirat-tool.com">https://pirat-tool.com</a>.
   </div>
 </div>
 </div>
