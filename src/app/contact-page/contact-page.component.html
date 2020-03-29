@@ -8,27 +8,24 @@
   <div class="fullwidth-block">
     <div class="container">
       <div class="row">
-
-
-        <p>
+        <p i18n>
           Wenn Sie Fragen, Wünsche oder Anregungen haben, freuen wir uns, wenn Sie Kontakt mit uns aufnehmen.
           Schreiben Sie uns eine Email an <a href="mailto:mail@pirat-tool.com">mail@pirat-tool.com</a> oder benutzen Sie
-          das
-          Kontaktformular, wir melden uns schnellstmöglich per E-Mail oder Telefon bei Ihnen!
+          das Kontaktformular, wir melden uns schnellstmöglich per E-Mail oder Telefon bei Ihnen!
         </p>
 
         <div class="form-block">
-          <div *ngIf="callBackSubmit" class="info-box">
+          <div *ngIf="callBackSubmit" class="info-box" i18n>
             Vielen Dank für Ihre Kontaktanfrage, wir werden uns gleich bei Ihnen melden.
           </div>
           <ng-container *ngIf="!callBackSubmit">
-            <div class="form-block__label">
+            <div class="form-block__label" i18n>
               Rückruf anfragen
             </div>
             <div class="form-block__input-field">
               <label>
-                Name
-                <span *ngIf="!requestData.name" class="form-alert">
+                <span i18n="@@name">Name</span>
+                <span *ngIf="!requestData.name" class="form-alert" i18n="@@requiredField">
                   Pflichtangabe
                 </span>
               </label>
@@ -37,8 +34,8 @@
 
             <div class="form-block__input-field">
               <label>
-                Telefonnummer
-                <span *ngIf="!requestData.phone" class="form-alert">
+                <span i18n="@@phoneNumber">Telefonnummer</span>
+                <span *ngIf="!requestData.phone" class="form-alert" i18n="@@requiredField">
                   Pflichtangabe
                 </span>
               </label>
@@ -46,7 +43,7 @@
             </div>
 
             <div class="form-block__input-field">
-              <label>
+              <label i18n="@@emailAddress">
                 E-Mail Adresse
               </label>
               <input type="email" [(ngModel)]="requestData.email">
@@ -54,8 +51,8 @@
 
             <div class="form-block__input-field">
               <label>
-                Thema
-                <span *ngIf="!requestData.topic" class="form-alert">
+                <span i18n="@@topic">Thema</span>
+                <span *ngIf="!requestData.topic" class="form-alert" i18n="@@requiredField">
                   Pflichtangabe
                 </span>
               </label>
@@ -68,32 +65,31 @@
             </div>
 
             <div class="form-block__input-field">
-              <label>
-                Anmerkung
+              <label i18n="comments">
+                Anmerkungen
               </label>
               <input type="text" [(ngModel)]="requestData.notes">
             </div>
 
             <div>
               <input [(ngModel)]="checkedDatenschutz" type="checkbox">
-              <label>
+              <label i18n>
                 Hiermit versichere ich, die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>
                 gelesen zu haben und stimme dieser zu.
-                <span *ngIf="!checkedDatenschutz" class="form-alert">
+              </label>
+              <span *ngIf="!checkedDatenschutz" class="form-alert" i18n="@@requiredField">
                   Pflichtangabe
                 </span>
-              </label>
             </div>
 
             <app-re-captcha-wrapper (resolved)="resolved($event)"></app-re-captcha-wrapper>
             <div class="submit-button">
-              <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()">Anfrage abschicken!
+              <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()" i18n="@@sendRequest">
+                Anfrage abschicken
               </button>
             </div>
           </ng-container>
         </div>
-
-
       </div>
     </div>
   </div>
