@@ -1,6 +1,6 @@
 <div class="page-head" >
   <div class="container">
-    <h2 class="page-title">Suchanfrage stellen</h2>
+    <h2 class="page-title" i18n="@@searchResource">Suchanfrage stellen</h2>
   </div>
 </div>
 
@@ -11,14 +11,17 @@
   <button
     (click)="setType('personnel')"
     class="button {{ searchType === 'personnel' ? 'active' : '' }}"
+    i18n="@@searchPersonal"
   >Suche nach Personal</button>
   <button
     (click)="setType('device')"
     class="button {{ searchType === 'device' ? 'active' : '' }}"
+    i18n="@@searchDevice"
   >Suche nach Gerät</button>
   <button
     (click)="setType('consumable')"
     class="button {{ searchType === 'consumable' ? 'active' : '' }}"
+    i18n="@@searchConsumable"
   >Suche nach Verbrauchsmaterial</button>
 </div>
 
@@ -52,16 +55,16 @@
       </div>
     </div>
     <div class="form-block">
-      <div class="form-block__label">
+      <div class="form-block__label" i18n="@@_isExperienceWithPCRRequired">
         Wird Erfahrung in der Durchführung von PCR und Real-Time PCR vorausgesetzt?
       </div>
       <div class="form-block__boxes">
         <label>
-          Ja
+          <span i18n="@@yes">Ja</span>
           <input name="requiresExperienceWithPCR" type="radio" (click)="setRequiresExperienceWithPCR(true)" />
         </label>
         <label>
-          Nein
+          <span i18n="@@no">Nein</span>
           <input name="requiresExperienceWithPCR" type="radio" (click)="setRequiresExperienceWithPCR(false)" />
         </label>
       </div>
@@ -70,7 +73,7 @@
 
   <div *ngIf="searchType === 'device'">
     <div class="form-block">
-      <div class="form-block__label">
+      <div class="form-block__label" i18n="@@typ">
         Typ
       </div>
       <div class="form-block__select">
@@ -85,7 +88,7 @@
 
   <div *ngIf="searchType === 'consumable'">
     <div class="form-block">
-    <div class="form-block__label">
+    <div class="form-block__label" i18n="@@typ">
       Typ
     </div>
     <div class="form-block__select">
@@ -99,7 +102,7 @@
   </div>
 
   <div class="form-block">
-    <div class="form-block__label">
+    <div class="form-block__label" i18n="@@postalCodeOfLocation">
       Postleitzahl des Standortes
     </div>
     <div class="form-block__input-field">
@@ -107,15 +110,15 @@
     </div>
   </div>
 
-  <div class="form-alert" *ngIf="error?.message === '1000:InvalidAddress'">
+  <div class="form-alert" *ngIf="error?.message === '1000:InvalidAddress'" i18n="@@_pleaseCheckAddress">
     Bitte prüfen Sie die eingegebenen Adressen.
   </div>
-  <div class="form-alert" *ngIf="isUnexpectedError(error)">
+  <div class="form-alert" *ngIf="isUnexpectedError(error)" i18n="@@_pleaseCheckInput">
     Bitte prüfen Sie Ihre Eingaben.
   </div>
 
   <div class="submit-button">
-    <button (click)="onSubmit()" class="button" [disabled]="!isValid()">Suche starten</button>
+    <button (click)="onSubmit()" class="button" [disabled]="!isValid()" i18n="@@doSearch">Suchen</button>
   </div>
 </div>
 

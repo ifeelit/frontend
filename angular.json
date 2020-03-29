@@ -112,21 +112,28 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "en-GB": {
+              "aot": true,
+              "outputPath": "dist/pirate-en-GB",
+              "i18nFile": "src/i18n/messages.en-GB.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en-GB"
             }
           }
         },
         "lint": {
-            "builder": "@angular-devkit/build-angular:tslint",
-            "options": {
-              "tsConfig": [
-                "tsconfig.app.json",
-                "tsconfig.spec.json"
-              ],
-              "exclude": [
-                "**/node_modules/**"
-              ]
-            }
-          },
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
@@ -135,6 +142,9 @@
           "configurations": {
             "production": {
               "browserTarget": "pirate:build:production"
+            },
+            "en-GB": {
+              "browserTarget": "pirate:build:en-GB"
             }
           }
         },
@@ -143,6 +153,27 @@
           "options": {
             "browserTarget": "pirate:build"
           }
+        },
+        "xliffmerge": {
+          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
+          "options": {
+            "xliffmergeOptions": {
+              "i18nFormat": "xlf",
+              "srcDir": "src/i18n",
+              "genDir": "src/i18n",
+              "defaultLanguage": "de",
+              "languages": [
+                "de",
+                "en-GB"
+              ]
+            }
+          }
+        }
+      },
+      "i18n": {
+        "sourceLocale": "de",
+        "locales": {
+          "en-GB": "src/locale/messages.en-GB.xlf"
         }
       }
     }
