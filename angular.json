@@ -119,6 +119,13 @@
               "i18nFile": "src/i18n/messages.en-GB.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "en-GB"
+            },
+            "de": {
+              "aot": true,
+              "outputPath": "dist/pirate-de",
+              "i18nFile": "src/i18n/messages.de.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "de"
             }
           }
         },
@@ -145,6 +152,9 @@
             },
             "en-GB": {
               "browserTarget": "pirate:build:en-GB"
+            },
+            "de": {
+              "browserTarget": "pirate:build:de"
             }
           }
         },

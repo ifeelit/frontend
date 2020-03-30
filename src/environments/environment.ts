@@ -6,7 +6,10 @@ export const environment = {
   production: false,
   environment: 'development',
   apiHost: 'http://localhost:5000',
-  pageHost: 'http://localhost:4200'
+  pageHosts: {
+    de: 'http://localhost:4200',
+    en: 'http://localhost:4201'
+  }
 };
 
 /*

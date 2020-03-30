@@ -10,6 +10,7 @@ import { personnelQualificationToDE } from '../_types/PersonnelQualification';
 import { personnelAreaToDE } from '../_types/PersonnelArea';
 import { deviceCategoryToDE } from '../_types/DeviceCategory';
 import { consumableCategoryToDE } from '../_types/ConsumableCategory';
+import { LocaleService } from "../locale.service";
 
 
 @Component({
@@ -38,7 +39,8 @@ export class OfferChangeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private fetchService: FetchServiceService
+    private fetchService: FetchServiceService,
+    private localeService: LocaleService,
   ) {
   }
 
@@ -49,7 +51,7 @@ export class OfferChangeComponent implements OnInit {
       this.isNew = isNewParam !== null && isNewParam !== undefined;
 
       this.key = params.key;
-      this.currentUrl = environment.pageHost + '/change/' + this.key;
+      this.currentUrl = environment.pageHosts[this.localeService.locale] + '/change/' + this.key;
       const response = await this.fetchService.reviewOffer(this.key);
       this.data = {
         provider: providerFromApi(response.provider),

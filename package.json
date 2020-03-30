@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --configuration=de",
+    "start-en": "ng serve --configuration=en-GB --port 4201",
     "build": "ng build --prod --localize",
     "build-testproduction": "ng build --configuration=testproduction --localize",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "extract-i18n": "ng xi18n pirate --i18n-format xlf --output-path src/i18n --i18n-locale de && ng run pirate:xliffmerge",
-    "start-en": "ng serve --configuration=en-GB"
+    "extract-i18n": "ng xi18n pirate --i18n-format xlf --output-path src/i18n --i18n-locale de && ng run pirate:xliffmerge"
   },
   "private": true,
   "dependencies": {
