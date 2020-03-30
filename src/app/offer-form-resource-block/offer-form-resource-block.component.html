@@ -2,8 +2,8 @@
   <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> Helfer</div>
   <div class="form-block__select">
     <label>
-      Qualifikation
-      <span *ngIf="!toP(r).qualification" class="form-alert">
+      <span i18n="@@qualification">Qualifikation</span>
+      <span *ngIf="!toP(r).qualification" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
     </label>
@@ -15,7 +15,7 @@
   </div>
   <div class="form-block__input-field">
     <label>
-      Institution
+      <span i18n="@@institution">Institution</span>
       <span *ngIf="!toP(r).institution" class="form-alert">
         Pflichtangabe
       </span>
@@ -23,14 +23,14 @@
     <input type="text" [(ngModel)]="toP(r).institution">
   </div>
   <div class="form-block__input-field">
-    <label>
+    <label i18n="@@researchGroup">
       Forschungsgruppe
     </label>
     <input type="text" [(ngModel)]="toP(r).researchGroup">
   </div>
   <div class="form-block__select">
     <label>
-      Bereich
+      <span i18n="@@area">Bereich</span>
       <span *ngIf="!toP(r).area" class="form-alert">
         Pflichtangabe
       </span>
@@ -42,36 +42,39 @@
     </select>
   </div>
   <div class="form-block__boxes">
-    <div>Haben Sie Erfahrung in der Durchführung von PCR und Real-Time PCR?</div>
+    <div i18n="@@_questionExperienceWithPCR">Haben Sie Erfahrung in der Durchführung von PCR und Real-Time PCR?</div>
     <label>
-      Ja
+      <span i18n="@@yes">Ja</span>
       <input name="experienceWithPCR" type="radio" (click)="toP(r).experienceWithPCR = true;" />
     </label>
     <label>
-      Nein
+      <span i18n="@@no">Nein</span>
       <!-- The last "true" ist required because otherwise, the selection will be blocked.... -->
       <input name="experienceWithPCR" type="radio" checked (click)="toP(r).experienceWithPCR = false; true" />
     </label>
   </div>
   <div class="form-block__input-field">
     <label>
-      Postleitzahl des Standortes
-      <span *ngIf="!toP(r).address.postalCode" class="form-alert">
+      <span i18n="@@postalCodeOfLocation">Postleitzahl des Standortes</span>
+      <span *ngIf="!toP(r).address.postalCode" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
     </label>
     <input type="text" [(ngModel)]="toP(r).address.postalCode">
   </div>
   <div class="form-block__input-field">
-    <label>
+    <label i18n="@@comments_s1s">
       Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme vorhanden)
     </label>
     <textarea [(ngModel)]="toP(r).notes"></textarea>
   </div>
   <div>
     <input [(ngModel)]="r.checkedEhrenamt" type="checkbox">
-    <label> Hiermit wird bestätigt, dass der Helfer die Tätigkeit ehrenamtlich außerhalb der Arbeitszeiten ausführen wird.
-      <span *ngIf="!r.checkedEhrenamt" class="form-alert">
+    <label>
+      <span i18n="@@_declarationVoluntaryWork">
+         Hiermit wird bestätigt, dass der Helfer die Tätigkeit ehrenamtlich außerhalb der Arbeitszeiten ausführen wird.
+      </span>
+      <span *ngIf="!r.checkedEhrenamt" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
     </label>
@@ -83,8 +86,8 @@
   <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> Gerät</div>
   <div class="form-block__select">
     <label>
-      Kategorie
-      <span *ngIf="!toD(r).category" class="form-alert">
+      <span i18n="@@category">Kategorie</span>
+      <span *ngIf="!toD(r).category" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
     </label>
@@ -97,8 +100,8 @@
 
   <div class="form-block__input-field">
     <label>
-      Exakte Materialbezeichnung
-      <span *ngIf="!toD(r).name" class="form-alert">
+      <span i18n="@@exactName">Exakte Materialbezeichnung</span>
+      <span *ngIf="!toD(r).name" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
     </label>
@@ -106,14 +109,14 @@
   </div>
 
   <div class="form-block__input-field">
-    <label>
+    <label i18n="@@manufacturer">
       Hersteller
     </label>
     <input type="text" [(ngModel)]="toD(r).manufacturer">
   </div>
 
   <div class="form-block__input-field">
-    <label>
+    <label i18n="@@orderOrSerialNumber">
       Bestell- oder Seriennummer
     </label>
     <input type="text" [(ngModel)]="toD(r).orderNumber">
@@ -121,8 +124,8 @@
 
   <div class="form-block__input-field">
     <label>
-      Postleitzahl des Standortes
-      <span *ngIf="!toD(r).address.postalCode" class="form-alert">
+      <span i18n="@@postalCodeOfLocation">Postleitzahl des Standortes</span>
+      <span *ngIf="!toD(r).address.postalCode" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
     </label>
@@ -131,8 +134,8 @@
 
   <div class="form-block__input-field">
     <label>
-      Vorhandene Menge
-      <span *ngIf="!toD(r).amount" class="form-alert">
+      <span i18n="@@amount">Menge</span>
+      <span *ngIf="!toD(r).amount" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
     </label>
@@ -141,7 +144,7 @@
     </div>
   </div>
   <div class="form-block__input-field">
-    <label>
+    <label i18n="comments">
       Anmerkungen
     </label>
     <textarea [(ngModel)]="toD(r).notes"></textarea>
@@ -153,8 +156,8 @@
   <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> Verbrauchsmaterial</div>
   <div class="form-block__select">
     <label>
-      Kategorie
-      <span *ngIf="!toC(r).category" class="form-alert">
+      <span i18n="@@category">Kategorie</span>
+      <span *ngIf="!toC(r).category" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
     </label>
@@ -167,8 +170,8 @@
 
   <div class="form-block__input-field">
     <label>
-      Exakte Materialbezeichnung
-      <span *ngIf="!toC(r).name" class="form-alert">
+      <span i18n="@@exactName">Exakte Materialbezeichnung</span>
+      <span *ngIf="!toC(r).name" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
     </label>
@@ -176,14 +179,14 @@
   </div>
 
   <div class="form-block__input-field">
-    <label>
+    <label i18n="@@manufacturer">
       Hersteller
     </label>
     <input type="text" [(ngModel)]="toC(r).manufacturer">
   </div>
 
   <div class="form-block__input-field">
-    <label>
+    <label i18n="@@orderOrSerialNumber">
       Bestell- oder Seriennummer
     </label>
     <input type="text" [(ngModel)]="toC(r).orderNumber">
@@ -191,8 +194,8 @@
 
   <div class="form-block__input-field">
     <label>
-      Postleitzahl des Standortes
-      <span *ngIf="!toC(r).address.postalCode" class="form-alert">
+      <span i18n="@@postalCodeOfLocation">Postleitzahl des Standortes</span>
+      <span *ngIf="!toC(r).address.postalCode" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
     </label>
@@ -201,8 +204,8 @@
 
   <div class="form-block__input-field">
     <label>
-      Vorhandene Menge
-      <span *ngIf="!toC(r).amount" class="form-alert">
+      <span i18n="@@amount">Menge</span>
+      <span *ngIf="!toC(r).amount" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
     </label>
@@ -210,19 +213,19 @@
       <input type="number" [(ngModel)]="toC(r).amount">
       <div>
         <select [(ngModel)]="toC(r).unit">
-          <option value="">Einheit auswählen</option>
-          <option value="Stück">Stück</option>
-          <option value="Packung">Packung</option>
-          <option value="Sonstiges">Sonstiges (Bitte in den Anmerkungen spezifizieren)</option>
+          <option value="" i18n="@@selectUnit">Einheit auswählen</option>
+          <option value="Stück" i18n="@@piece">Stück</option>
+          <option value="Packung" i18n="@@pack">Packung</option>
+          <option value="Sonstiges" i18n="@@_othersMoreInComments">Sonstiges (Bitte in den Anmerkungen spezifizieren)</option>
         </select>
-        <span *ngIf="!toC(r).unit" class="form-alert">
+        <span *ngIf="!toC(r).unit" class="form-alert" i18n="@@requiredField">
           Pflichtangabe
         </span>
       </div>
     </div>
   </div>
   <div class="form-block__input-field">
-    <label>
+    <label i18n="@@comments">
       Anmerkungen
     </label>
     <textarea [(ngModel)]="toC(r).notes"></textarea>

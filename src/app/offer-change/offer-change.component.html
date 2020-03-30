@@ -8,13 +8,13 @@
   <div class="fullwidth-block">
     <div class="container">
 
-      <div *ngIf="isNew" class="info-box">
+      <div *ngIf="isNew" class="info-box" i18n>
         Das Angebot wurde erfasst. Auf dieser Seite können Sie Ihre Daten einsehen. Eine Bestätigung
         wurde Ihnen auch per Email zugeschickt.
       </div>
 
       <div class="current-url">
-        <div>
+        <div i18n>
           Mit diesem Link kommen Sie auf diese Seite, um Ihr Angebot einsehen zu können. Bitte bewahren Sie ihn auf.
           <br>
           Bitte kontaktieren Sie uns via Email mit Angabe dieses Links, um ihr Angebot zu löschen oder zu bearbeiten.
@@ -25,39 +25,39 @@
       </div>
 
       <div class="form-block">
-        <div class="form-block__label">
+        <div class="form-block__label" i18n="@@contactData">
           Kontaktdaten
         </div>
         <div class="form-block__input-field">
-          <label>
+          <label i18n="@@institution">
             Institution
           </label>
           <div class="value-field">{{ data.provider.institution }}</div>
         </div>
 
         <div class="form-block__input-field">
-          <label>
+          <label i18n="@@responsiblePerson">
             Verantwortliche Person
           </label>
           <div class="value-field">{{ data.provider.name }}</div>
         </div>
 
         <div class="form-block__input-field">
-          <label>
+          <label i18n="@@emailAddress">
             E-Mail Adresse
           </label>
           <div class="value-field">{{ data.provider.mail }}</div>
         </div>
 
         <div class="form-block__input-field">
-          <label>
+          <label i18n="@@phoneNumber">
             Telefonnummer
           </label>
           <div class="value-field">{{ data.provider.phone }}</div>
         </div>
 
         <div class="form-block__input-field">
-          <label>
+          <label i18n="@@address">
             Adresse
           </label>
           <br>
@@ -72,104 +72,106 @@
       <div *ngFor="let r of data.resources; let gIndex = index">
         <div *ngIf="r.type === 'personnel'" class="form-block">
           <div class="form-block__select">
-            <label>
+            <label i18n="@qualification">
               Qualifikation
             </label>
             <div class="value-field">{{ personnelQualificationToDE[toP(r).qualification] }}</div>
           </div>
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@institution">
               Institution
             </label>
             <div class="value-field">{{ toP(r).institution }}</div>
           </div>
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@postalCodeOfLocation">
               Postleitzahl des Standortes
             </label>
             <div class="value-field">{{ toP(r).address.postalCode }}</div>
           </div>
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@researchGroup">
               Forschungsgruppe
             </label>
             <div class="value-field">{{ toP(r).researchGroup }}</div>
           </div>
           <div class="form-block__select">
-            <label>
+            <label i18n="@@area">
               Bereich
             </label>
             <div class="value-field">{{ personnelAreaToDE[toP(r).area] }}</div>
           </div>
           <div class="form-block__boxes">
-            <div>Haben Sie Erfahrung in der Durchführung von PCR und Real-Time PCR?</div>
+            <div i18n="@@_questionExperienceWithPCR">Haben Sie Erfahrung in der Durchführung von PCR und Real-Time PCR?</div>
             <label>
-              Ja
+              <span i18n="@@yes">Ja</span>
               <input name="experienceWithPCR{{gIndex}}" type="radio" [checked]="toP(r).experienceWithPCR" disabled/>
             </label>
             <label>
-              Nein
+              <span i18n="@@no">Nein</span>
               <input name="experienceWithPCR{{gIndex}}" type="radio" [checked]="!toP(r).experienceWithPCR" disabled/>
             </label>
           </div>
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@comments_s1s">
               Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme vorhanden)
             </label>
             <div class="value-field">{{ toD(r).notes }}</div>
           </div>
           <div>
             <input type="checkbox" checked disabled>
-            <label> Hiermit wird bestätigt, dass der Helfer die Tätigkeit ehrenamtlich außerhalb der Arbeitszeiten ausführt.</label>
+            <label i18n="@@_declarationVoluntaryWork">
+              Hiermit wird bestätigt, dass der Helfer die Tätigkeit ehrenamtlich außerhalb der Arbeitszeiten ausführt.
+            </label>
           </div>
         </div>
 
         <div *ngIf="r.type === 'device'" class="form-block">
           <div class="form-block__select">
-            <label>
+            <label i18n="@@category">
               Kategorie
             </label>
             <div class="value-field">{{ deviceCategoryToDE[toD(r).category] }}</div>
           </div>
 
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@exactName">
               Exakte Materialbezeichnung
             </label>
             <div class="value-field">{{ toD(r).name }}</div>
           </div>
 
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@manufacturer">
               Hersteller
             </label>
             <div class="value-field">{{ toD(r).manufacturer }}</div>
           </div>
 
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@orderOrSerialNumber">
               Bestell- oder Seriennummer
             </label>
             <div class="value-field">{{ toD(r).orderNumber }}</div>
           </div>
 
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@postalCodeOfLocation">
               Postleitzahl des Standortes
             </label>
             <div class="value-field">{{ toD(r).address.postalCode }}</div>
           </div>
 
           <div class="form-block__input-field">
-            <label>
-              Vorhandene Menge
+            <label i18n="@@amount">
+              Menge
             </label>
             <div>
               <div class="value-field">{{ toD(r).amount }}</div>
             </div>
           </div>
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@comments">
               Anmerkungen
             </label>
             <div class="value-field">{{ toD(r).notes }}</div>
@@ -178,50 +180,50 @@
 
         <div *ngIf="r.type === 'consumable'" class="form-block">
           <div class="form-block__select">
-            <label>
+            <label i18n="@@category">
               Kategorie
             </label>
             <div class="value-field">{{ consumableCategoryToDE[toC(r).category] }}</div>
           </div>
 
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@exactName">
               Exakte Materialbezeichnung
             </label>
             <div class="value-field">{{ toC(r).name }}</div>
           </div>
 
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@manufacturer">
               Hersteller
             </label>
             <div class="value-field">{{ toC(r).manufacturer }}</div>
           </div>
 
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@orderOrSerialNumber">
               Bestell- oder Seriennummer
             </label>
             <div class="value-field">{{ toC(r).orderNumber }}</div>
           </div>
 
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@postalCodeOfLocation">
               Postleitzahl des Standortes
             </label>
             <div class="value-field">{{ toC(r).address.postalCode }}</div>
           </div>
 
           <div class="form-block__input-field">
-            <label>
-              Vorhandene Menge
+            <label i18n="@@amount">
+              Menge
             </label>
             <div>
               <div class="value-field">{{ toC(r).amount }} {{ toC(r).unit }}</div>
             </div>
           </div>
           <div class="form-block__input-field">
-            <label>
+            <label i18n="@@comments">
               Anmerkungen
             </label>
             <div class="value-field">{{ toC(r).notes }}</div>
