@@ -94,7 +94,7 @@
     <div class="form-block__select">
       <select name="offering" [(ngModel)]="searchQuery.category">
         <option *ngFor="let category of getEnumValues(ConsumableCategory)" [value]="category">
-          {{ consumableCategoryToDE[category] }}
+          {{ consumableCategoryTo[category] }}
         </option>
       </select>
     </div>

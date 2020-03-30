@@ -13,16 +13,34 @@ export enum PersonnelArea {
 }
 
 
-export const personnelAreaToDE = {
-  CHEMISTRY: 'Chemie',
-  BIOCHEMISTRY: 'Biochemie',
-  GENETICS: 'Genetik',
-  CELL_BIOLOGY: 'Zellbiologie',
-  BIOLOGY: 'Biologie',
-  VIROLOGY: 'Virologie',
-  MICRO_BIOLOGY: 'Mikrobiologie',
-  MOLECULAR_BIOLOGY: 'Molekularbiologie',
-  PHARMACOLOGY: 'Pharmakologie',
-  MEDICINE: 'Medizin',
-  OTHERS: 'Sonstiges',
-};
+export function personnelAreaTo(locale: string) {
+  if (locale === 'de') {
+    return {
+      CHEMISTRY: 'Chemie',
+      BIOCHEMISTRY: 'Biochemie',
+      GENETICS: 'Genetik',
+      CELL_BIOLOGY: 'Zellbiologie',
+      BIOLOGY: 'Biologie',
+      VIROLOGY: 'Virologie',
+      MICRO_BIOLOGY: 'Mikrobiologie',
+      MOLECULAR_BIOLOGY: 'Molekularbiologie',
+      PHARMACOLOGY: 'Pharmakologie',
+      MEDICINE: 'Medizin',
+      OTHERS: 'Sonstiges',
+    };
+  } else {
+    return {
+      CHEMISTRY: 'Chemistry',
+      BIOCHEMISTRY: 'Biochemistry',
+      GENETICS: 'Genetics',
+      CELL_BIOLOGY: 'Cell biology',
+      BIOLOGY: 'Biology',
+      VIROLOGY: 'Virology',
+      MICRO_BIOLOGY: 'Micro biology',
+      MOLECULAR_BIOLOGY: 'Molecular biology',
+      PHARMACOLOGY: 'Pharmacology',
+      MEDICINE: 'Medicine',
+      OTHERS: 'Others',
+    };
+  }
+}

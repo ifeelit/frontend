@@ -163,7 +163,7 @@
     </label>
     <select [(ngModel)]="toC(r).category">
       <option *ngFor="let category of getEnumValues(ConsumableCategory)" [value]="category">
-        {{ consumableCategoryToDE[category] }}
+        {{ consumableCategoryTo[category] }}
       </option>
     </select>
   </div>

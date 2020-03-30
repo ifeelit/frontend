@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LocaleService } from '../locale.service';
+
 
 @Component({
   selector: 'app-faq-page',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FaqPageComponent implements OnInit {
 
-  constructor() { }
+  locale: string;
+
+
+  constructor(
+    private localeService: LocaleService,
+  ) {
+    this.locale = localeService.locale;
+  }
+
 
   ngOnInit(): void {
   }

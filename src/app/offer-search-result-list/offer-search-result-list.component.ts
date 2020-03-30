@@ -2,10 +2,9 @@ import { Component, Input, OnChanges, OnInit, Provider, SimpleChanges } from '@a
 import { Personnel } from '../_types/Personnel';
 import { Device } from '../_types/Device';
 import { Consumable } from '../_types/Consumable';
-import { deviceCategoryToDE } from '../_types/DeviceCategory';
-import { consumableCategoryToDE } from '../_types/ConsumableCategory';
-import { personnelQualificationToDE } from '../_types/PersonnelQualification';
-import { personnelAreaToDE } from '../_types/PersonnelArea';
+import { personnelQualificationTo } from '../_types/PersonnelQualification';
+import { personnelAreaTo } from '../_types/PersonnelArea';
+import { LocaleService } from '../locale.service';
 
 
 @Component({
@@ -15,8 +14,8 @@ import { personnelAreaToDE } from '../_types/PersonnelArea';
 })
 export class OfferSearchResultListComponent implements OnInit, OnChanges {
 
-  personnelQualificationToDE = personnelQualificationToDE;
-  personnelAreaToDE = personnelAreaToDE;
+  personnelQualificationToDE = personnelQualificationTo(this.localeService.locale);
+  personnelAreaToDE = personnelAreaTo(this.localeService.locale);
 
 
   @Input() type: string;
@@ -29,7 +28,9 @@ export class OfferSearchResultListComponent implements OnInit, OnChanges {
   showDetails: Array<boolean>;
 
 
-  constructor() {
+  constructor(
+    private localeService: LocaleService,
+  ) {
   }
 
 

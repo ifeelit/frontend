@@ -22,7 +22,7 @@
 
   <div class="form-block__input-field">
     <label>
-      <span i18n="@@responsiblePerson">Verantwortliche Person</span>
+      <span i18n="@@name">Name</span>
       <span *ngIf="!provider.name" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
@@ -78,13 +78,13 @@
 
   <div>
     <input [(ngModel)]="checkedDatenschutz" type="checkbox">
-    <label>
+    <label i18n>
       Hiermit versichere ich, die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>
       gelesen zu haben und stimme dieser zu.
-      <span *ngIf="!checkedDatenschutz" class="form-alert" i18n="@@requiredField">
+    </label>
+    <span *ngIf="!checkedDatenschutz" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
-    </label>
   </div>
 </div>
 

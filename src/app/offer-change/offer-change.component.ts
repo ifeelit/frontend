@@ -6,11 +6,11 @@ import { Provider, providerFromApi } from '../_types/Provider';
 import { Consumable, consumableFromApi } from '../_types/Consumable';
 import { Device, deviceFromApi } from '../_types/Device';
 import { Personnel, personnelFromApi } from '../_types/Personnel';
-import { personnelQualificationToDE } from '../_types/PersonnelQualification';
-import { personnelAreaToDE } from '../_types/PersonnelArea';
-import { deviceCategoryToDE } from '../_types/DeviceCategory';
-import { consumableCategoryToDE } from '../_types/ConsumableCategory';
-import { LocaleService } from "../locale.service";
+import { personnelQualificationTo } from '../_types/PersonnelQualification';
+import { personnelAreaTo } from '../_types/PersonnelArea';
+import { deviceCategoryTo } from '../_types/DeviceCategory';
+import { consumableCategoryTo } from '../_types/ConsumableCategory';
+import { LocaleService } from '../locale.service';
 
 
 @Component({
@@ -20,10 +20,10 @@ import { LocaleService } from "../locale.service";
 })
 export class OfferChangeComponent implements OnInit {
 
-  deviceCategoryToDE = deviceCategoryToDE;
-  consumableCategoryToDE = consumableCategoryToDE;
-  personnelQualificationToDE = personnelQualificationToDE;
-  personnelAreaToDE = personnelAreaToDE;
+  deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
+  consumableCategoryTo = consumableCategoryTo(this.localeService.locale);
+  personnelQualificationToDE = personnelQualificationTo(this.localeService.locale);
+  personnelAreaToDE = personnelAreaTo(this.localeService.locale);
 
   // Whether the offer was just created
   isNew: boolean;

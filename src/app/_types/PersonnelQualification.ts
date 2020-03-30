@@ -9,12 +9,26 @@ export enum PersonnelQualification {
 }
 
 
-export const personnelQualificationToDE = {
-  TA: 'TA',
-  LAB_ASSISTANT: 'Laborassistent',
-  POSTDOC: 'Postdoc',
-  PHD_STUDENT: 'PhD-Student',
-  MSC_STUDENT: 'MSc Student',
-  BSC_STUDENT: 'BSc Student',
-  SONSTIGES: 'Sonstiges',
-};
+export function personnelQualificationTo(locale: string) {
+  if (locale === 'de') {
+    return {
+      TA: 'TA',
+      LAB_ASSISTANT: 'Laborassistent',
+      POSTDOC: 'Postdoc',
+      PHD_STUDENT: 'PhD-Student',
+      MSC_STUDENT: 'MSc Student',
+      BSC_STUDENT: 'BSc Student',
+      SONSTIGES: 'Sonstiges',
+    };
+  } else {
+    return {
+      TA: 'TA',
+      LAB_ASSISTANT: 'Lab assitant',
+      POSTDOC: 'Postdoc',
+      PHD_STUDENT: 'PhD-Student',
+      MSC_STUDENT: 'MSc Student',
+      BSC_STUDENT: 'BSc Student',
+      SONSTIGES: 'Others',
+    };
+  }
+}

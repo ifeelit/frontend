@@ -2,10 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Consumable } from '../_types/Consumable';
 import { Device } from '../_types/Device';
 import { Personnel } from '../_types/Personnel';
-import { DeviceCategory, deviceCategoryToDE } from '../_types/DeviceCategory';
-import { ConsumableCategory, consumableCategoryToDE } from '../_types/ConsumableCategory';
-import { PersonnelQualification, personnelQualificationToDE } from '../_types/PersonnelQualification';
-import { PersonnelArea, personnelAreaToDE } from '../_types/PersonnelArea';
+import { DeviceCategory, deviceCategoryTo } from '../_types/DeviceCategory';
+import { ConsumableCategory, consumableCategoryTo} from '../_types/ConsumableCategory';
+import { PersonnelQualification, personnelQualificationTo } from '../_types/PersonnelQualification';
+import { PersonnelArea, personnelAreaTo } from '../_types/PersonnelArea';
+import { LocaleService } from '../locale.service';
 
 
 @Component({
@@ -16,19 +17,21 @@ import { PersonnelArea, personnelAreaToDE } from '../_types/PersonnelArea';
 export class OfferFormResourceBlockComponent implements OnInit {
 
   DeviceCategory = DeviceCategory;
-  deviceCategoryToDE = deviceCategoryToDE;
+  deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
   ConsumableCategory = ConsumableCategory;
-  consumableCategoryToDE = consumableCategoryToDE;
+  consumableCategoryTo = consumableCategoryTo(this.localeService.locale);
   PersonnelQualification = PersonnelQualification;
-  personnelQualificationToDE = personnelQualificationToDE;
+  personnelQualificationToDE = personnelQualificationTo(this.localeService.locale);
   PersonnelArea = PersonnelArea;
-  personnelAreaToDE = personnelAreaToDE;
+  personnelAreaToDE = personnelAreaTo(this.localeService.locale);
 
   @Input('resource') r: { type: string, resource: Consumable | Device | Personnel, checkedEhrenamt?: boolean };
   @Output() delete: EventEmitter<void> = new EventEmitter<void>();
 
 
-  constructor() {
+  constructor(
+    private localeService: LocaleService,
+  ) {
   }
 
 
