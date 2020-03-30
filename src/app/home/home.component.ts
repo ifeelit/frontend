@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
       name: 'WirVsVirus Hackathon',
       link: 'https://wirvsvirushackathon.org'
     }
-  ]
+  ];
 
   constructor(
   ) { }
