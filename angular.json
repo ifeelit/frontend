@@ -173,7 +173,7 @@
       "i18n": {
         "sourceLocale": "de",
         "locales": {
-          "en-GB": "src/locale/messages.en-GB.xlf"
+          "en-GB": "src/i18n/messages.en-GB.xlf"
         }
       }
     }
