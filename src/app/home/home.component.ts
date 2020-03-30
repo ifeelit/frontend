@@ -8,6 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+
+  logos = [
+    {
+      image: 'tuk.png',
+      name: 'TU Kaiserslautern'
+    },
+    {
+      image: 'wirvsvirus.png',
+      name: 'WirVsVirus Hackathon',
+    }
+  ]
+
   constructor(
   ) { }
 
