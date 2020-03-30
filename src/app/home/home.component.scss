@@ -1,4 +1,37 @@
 .page-head .container button {
   margin-right: 20px;
   margin-bottom: 20px;
+  }
+
+.logo-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
+
+
+.logo {
+  margin-right: 30px;
+  margin-bottom: 40px;
+}
+
+
+.logo__image {
+  margin-bottom: 30px;
+  img {
+    width: 350px;
+    margin-right: 50px;
+  }
+}
+
+
+.logo__name {
+  font-weight: bold;
+  color: #69acc7;
+  margin-bottom: 20px;
+}
+
+
+
+
+
