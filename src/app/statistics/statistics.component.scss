@@ -1,0 +1,10 @@
+.statistics-box {
+  display: flex;
+  justify-content: center;
+}
+
+.statistics-col {
+  flex-grow: 0;
+  flex-wrap: nowrap;
+  padding: 0 2em 0 2em;
+}
