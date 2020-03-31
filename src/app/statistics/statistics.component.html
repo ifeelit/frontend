@@ -1,0 +1,42 @@
+<div class="statistics-box">
+    <div class="statistics-col">
+        <table>
+            <tr>
+                <th i18n="@@devices">Geräte</th>
+            </tr>
+            <tr *ngFor="let d of data.availableResources.devices">
+                <td>
+                    {{ deviceCategoryTo[d.category] }}
+                </td>
+                <td>
+                    {{ d.number }}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="statistics-col">
+        <table>
+            <tr>
+                <th i18n="@@consumables">Verbrauchsmaterial</th>
+            </tr>
+            <tr *ngFor="let c of data.availableResources.consumables">
+                <td>
+                    {{ consumableCategoryTo[c.category] }}
+                </td>
+                <td>
+                    {{ formatConsumableNumbers(c.numbers) }}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="statistics-col">
+        <table>
+            <tr>
+                <th i18n="@@persons">Personen</th>
+            </tr>
+            <tr>
+                <td i18n="@@helpers">Helfer</td><td>{{ data.availableResources.personnel }}</td>
+            </tr>
+        </table>
+    </div>
+</div>

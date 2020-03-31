@@ -21,6 +21,7 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReCaptchaWrapperComponent } from './re-captcha-wrapper/re-captcha-wrapper.component';
 import { DatenschutzComponent } from './datenschutz/datenschutz.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { DatenschutzComponent } from './datenschutz/datenschutz.component';
     OfferSearchContactFormComponent,
     ContactPageComponent,
     NotFoundComponent,
-    ReCaptchaWrapperComponent
+    ReCaptchaWrapperComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,

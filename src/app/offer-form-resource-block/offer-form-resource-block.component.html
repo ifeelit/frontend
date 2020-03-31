@@ -1,5 +1,5 @@
 <div *ngIf="r.type === 'personnel'" class="form-block">
-  <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> Helfer</div>
+  <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@helper">Helfer</ng-container></div>
   <div class="form-block__select">
     <label>
       <span i18n="@@qualification">Qualifikation</span>
@@ -16,7 +16,7 @@
   <div class="form-block__input-field">
     <label>
       <span i18n="@@institution">Institution</span>
-      <span *ngIf="!toP(r).institution" class="form-alert">
+      <span *ngIf="!toP(r).institution" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
     </label>
@@ -31,7 +31,7 @@
   <div class="form-block__select">
     <label>
       <span i18n="@@area">Bereich</span>
-      <span *ngIf="!toP(r).area" class="form-alert">
+      <span *ngIf="!toP(r).area" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
     </label>
@@ -83,7 +83,7 @@
 
 
 <div *ngIf="r.type === 'device'" class="form-block">
-  <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> Gerät</div>
+  <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@device">Gerät</ng-container></div>
   <div class="form-block__select">
     <label>
       <span i18n="@@category">Kategorie</span>
@@ -153,7 +153,7 @@
 
 
 <div *ngIf="r.type === 'consumable'" class="form-block">
-  <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> Verbrauchsmaterial</div>
+  <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@consumable">Verbrauchsmaterial</ng-container></div>
   <div class="form-block__select">
     <label>
       <span i18n="@@category">Kategorie</span>

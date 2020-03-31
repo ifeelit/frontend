@@ -22,6 +22,12 @@
           Testkapazitäten genutzt werden können. Alle wichtigen Informationen finden
           Sie auf der <a routerLink="/faq">FAQ Seite</a>.
          </p>
+        <p i18n>Aktuell haben wir folgende Geräte, Verbrauchsmaterialien und Zusagen von
+          Hilfspersonen (Stand {{ statistics.date }}):
+        </p>
+
+         <app-statistics [data]="statistics"></app-statistics>
+         <br><br>
          <p i18n> Dieses Projekt
           entstand in Zusammenarbeit mit</p>
       </div>
