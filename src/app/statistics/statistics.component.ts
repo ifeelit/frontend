@@ -1,15 +1,9 @@
-import { Component, OnInit, Provider } from '@angular/core';
-import { FetchServiceService } from '../fetch-service.service';
-import { Personnel, personnelFromApi } from '../_types/Personnel';
-import { Device, deviceFromApi } from '../_types/Device';
-import { Consumable, consumableFromApi } from '../_types/Consumable';
-import { providerFromApi } from '../_types/Provider';
+import { Component, Input, OnInit, Provider } from '@angular/core';
 import { Unit, unitTo } from '../_types/Unit';
 import { DeviceCategory, deviceCategoryTo } from '../_types/DeviceCategory';
 import { ConsumableCategory, consumableCategoryTo } from '../_types/ConsumableCategory';
-import { PersonnelQualification, personnelQualificationTo } from '../_types/PersonnelQualification';
-import { PersonnelArea, personnelAreaTo } from '../_types/PersonnelArea';
 import { LocaleService } from '../locale.service';
+import { Device } from '../_types/Device';
 
 @Component({
   selector: 'app-statistics',
@@ -19,22 +13,42 @@ import { LocaleService } from '../locale.service';
 export class StatisticsComponent implements OnInit {
 
   DeviceCategory = DeviceCategory;
-  deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
+  deviceCategoryTo = deviceCategoryTo(this.localeService.locale);
   ConsumableCategory = ConsumableCategory;
   consumableCategoryTo = consumableCategoryTo(this.localeService.locale);
   Unit = Unit;
   unitTo = unitTo(this.localeService.locale);
-  PersonnelQualification = PersonnelQualification;
-  personnelQualificationToDE = personnelQualificationTo(this.localeService.locale);
-  PersonnelArea = PersonnelArea;
-  personnelAreaToDE = personnelAreaTo(this.localeService.locale);
+
+  @Input() data: {
+    date: string,
+    availableResources: {
+      devices: Array<{ category: DeviceCategory, number: number }>,
+      consumables: Array<{
+        category: ConsumableCategory,
+        numbers: Array<{ unit: Unit, number: number }>
+      }>,
+      personnel: number,
+    },
+  };
+
 
   constructor(
       private localeService: LocaleService,
-      private fetchService: FetchServiceService,
   ) { }
+
 
   ngOnInit(): void {
   }
 
+
+  formatConsumableNumbers(numbers: Array<{ unit: Unit; number: number }>) {
+    if (numbers.length === 0) {
+      return '';
+    }
+    let s = numbers[0].number + ' ' + this.unitTo[numbers[0].unit];
+    for (let i = 1; i < numbers.length; i++) {
+      s += ', ' + numbers[i].number + ' ' + this.unitTo[numbers[i].unit];
+    }
+    return s;
+  }
 }

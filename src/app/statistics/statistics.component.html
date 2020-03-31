@@ -4,20 +4,13 @@
             <tr>
                 <th i18n="@@devices">Geräte</th>
             </tr>
-            <tr>
-                <td>{{ deviceCategoryToDE[DeviceCategory.PCR_THERMOCYCLER] }}</td><td>5</td>
-            </tr>
-            <tr>
-                <td>{{ deviceCategoryToDE[DeviceCategory.RT_PCR_THERMOCYCLER] }}</td><td>2</td>
-            </tr>
-            <tr>
-                <td>{{ deviceCategoryToDE[DeviceCategory.ZENTRIFUGE] }}</td><td>2</td>
-            </tr>
-            <tr>
-                <td>{{ deviceCategoryToDE[DeviceCategory.VORTEXER] }}</td><td>2</td>
-            </tr>
-            <tr>
-                <td>{{ deviceCategoryToDE[DeviceCategory.PIPETTE] }}</td><td>2</td>
+            <tr *ngFor="let d of data.availableResources.devices">
+                <td>
+                    {{ deviceCategoryTo[d.category] }}
+                </td>
+                <td>
+                    {{ d.number }}
+                </td>
             </tr>
         </table>
     </div>
@@ -26,14 +19,13 @@
             <tr>
                 <th i18n="@@consumables">Verbrauchsmaterial</th>
             </tr>
-            <tr>
-                <td>{{ consumableCategoryTo[ConsumableCategory.SCHUTZBRILLE] }}</td><td>5</td>
-            </tr>
-            <tr>
-                <td>{{ consumableCategoryTo[ConsumableCategory.HANDSCHUHE] }}</td><td>80 {{ unitTo[Unit.PACK] }}</td>
-            </tr>
-            <tr>
-                <td>{{ consumableCategoryTo[ConsumableCategory.REAKTIONSGEFAESSE] }}</td><td>10 {{ unitTo[Unit.PACK] }}, 20 {{ unitTo[Unit.PIECE] }}</td>
+            <tr *ngFor="let c of data.availableResources.consumables">
+                <td>
+                    {{ consumableCategoryTo[c.category] }}
+                </td>
+                <td>
+                    {{ formatConsumableNumbers(c.numbers) }}
+                </td>
             </tr>
         </table>
     </div>
@@ -43,7 +35,7 @@
                 <th i18n="@@persons">Personen</th>
             </tr>
             <tr>
-                <td i18n="@@helpers">Helfer</td><td>32</td>
+                <td i18n="@@helpers">Helfer</td><td>{{ data.availableResources.personnel }}</td>
             </tr>
         </table>
     </div>
