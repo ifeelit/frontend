@@ -11,6 +11,7 @@ import { personnelAreaTo } from '../_types/PersonnelArea';
 import { deviceCategoryTo } from '../_types/DeviceCategory';
 import { consumableCategoryTo } from '../_types/ConsumableCategory';
 import { LocaleService } from '../locale.service';
+import { unitTo } from '../_types/Unit';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class OfferChangeComponent implements OnInit {
   consumableCategoryTo = consumableCategoryTo(this.localeService.locale);
   personnelQualificationToDE = personnelQualificationTo(this.localeService.locale);
   personnelAreaToDE = personnelAreaTo(this.localeService.locale);
+  unitTo = unitTo(this.localeService.locale);
 
   // Whether the offer was just created
   isNew: boolean;

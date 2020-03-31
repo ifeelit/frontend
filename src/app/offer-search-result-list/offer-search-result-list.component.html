@@ -11,9 +11,10 @@
         {{ personnelQualificationToDE[r.resource.qualification] }}
       </div>
       <div>
-        <div class="result-entry__info__label">Standort:</div>
+        <div class="result-entry__info__label" i18n="@@location">Standort:</div>
         <div class="result-entry__info__content">
-          {{ formatAddress(r.resource.address) }} ({{ r.distance }} km entfernt)
+          {{ formatAddress(r.resource.address) }} ({{ r.distance }}
+          km <ng-container i18n="@@away">entfernt</ng-container>)
         </div>
       </div>
       <div class="result-entry__info">
