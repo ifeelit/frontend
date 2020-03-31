@@ -4,6 +4,7 @@ import { Personnel, personnelFromApi } from '../_types/Personnel';
 import { Device, deviceFromApi } from '../_types/Device';
 import { Consumable, consumableFromApi } from '../_types/Consumable';
 import { providerFromApi } from '../_types/Provider';
+import { Unit, unitTo } from '../_types/Unit';
 import { DeviceCategory, deviceCategoryTo } from '../_types/DeviceCategory';
 import { ConsumableCategory, consumableCategoryTo } from '../_types/ConsumableCategory';
 import { PersonnelQualification, personnelQualificationTo } from '../_types/PersonnelQualification';
@@ -21,6 +22,8 @@ export class StatisticsComponent implements OnInit {
   deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
   ConsumableCategory = ConsumableCategory;
   consumableCategoryTo = consumableCategoryTo(this.localeService.locale);
+  Unit = Unit;
+  unitTo = unitTo(this.localeService.locale);
   PersonnelQualification = PersonnelQualification;
   personnelQualificationToDE = personnelQualificationTo(this.localeService.locale);
   PersonnelArea = PersonnelArea;
