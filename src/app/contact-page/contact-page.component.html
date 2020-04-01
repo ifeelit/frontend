@@ -23,52 +23,43 @@
               Rückruf anfragen
             </div>
             <div class="form-block__input-field">
-              <label>
-                <span i18n="@@name">Name</span>
-                <span *ngIf="!requestData.name" class="form-alert" i18n="@@requiredField">
+              <input type="text" placeholder="name" i18n-placeholder="@@name" [(ngModel)]="requestData.name">
+              <span class="input-field-focus"></span>
+              <span *ngIf="!requestData.name" class="form-alert" i18n="@@requiredField">
                   Pflichtangabe
                 </span>
-              </label>
-              <input type="text" [(ngModel)]="requestData.name">
             </div>
 
             <div class="form-block__input-field">
-              <label>
-                <span i18n="@@phoneNumber">Telefonnummer</span>
-                <span *ngIf="!requestData.phone" class="form-alert" i18n="@@requiredField">
+              <input type="text" placeholder="Telefonnummer" i18n-placeholder="@@phoneNumber" [(ngModel)]="requestData.phone">
+              <span class="input-field-focus"></span>
+              <span *ngIf="!requestData.phone" class="form-alert" i18n="@@requiredField">
                   Pflichtangabe
                 </span>
-              </label>
-              <input type="text" [(ngModel)]="requestData.phone">
             </div>
 
             <div class="form-block__input-field">
-              <label i18n="@@emailAddress">
-                E-Mail Adresse
-              </label>
-              <input type="email" [(ngModel)]="requestData.email">
+              <input type="email" placeholder="E-Mail Adresse" i18n-placeholder="@@emailAddress" [(ngModel)]="requestData.email">
+              <span class="input-field-focus"></span>
             </div>
 
-            <div class="form-block__input-field">
+            <div class="form-block__select">
               <label>
                 <span i18n="@@topic">Thema</span>
-                <span *ngIf="!requestData.topic" class="form-alert" i18n="@@requiredField">
-                  Pflichtangabe
-                </span>
               </label>
-              <br>
               <select [(ngModel)]="requestData.topic">
                 <option value="technicalQuestion">Technische Frage</option>
                 <option value="topicalQuestion">Fachliche Frage</option>
                 <option value="otherQuestion">Sonstiges</option>
               </select>
+              <span *ngIf="!requestData.topic" class="form-alert" i18n="@@requiredField">
+                  Pflichtangabe
+                </span>
             </div>
 
             <div class="form-block__input-field">
-              <label i18n="comments">
-                Anmerkungen
-              </label>
-              <input type="text" [(ngModel)]="requestData.notes">
+              <input type="text" placeholder="Anmerkungen" i18n-placeholder="comments" [(ngModel)]="requestData.notes">
+              <span class="input-field-focus"></span>
             </div>
 
             <div>
@@ -83,7 +74,7 @@
             </div>
 
             <app-re-captcha-wrapper (resolved)="resolved($event)"></app-re-captcha-wrapper>
-            <div class="submit-button">
+            <div class="submit-button align-center align-center-text">
               <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()" i18n="@@sendRequest">
                 Anfrage abschicken
               </button>

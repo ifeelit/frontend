@@ -1,3 +1,13 @@
 .search-form-container {
-  margin-bottom: 50px;
+  max-width: 768px;
+  margin: 0 auto 50px;
+  padding: 50px 7.5%;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px 2px #ccc;
+
+  .form-block {
+    margin: 0;
+    box-shadow: none;
+    padding: 0 0 50px;
+  }
 }

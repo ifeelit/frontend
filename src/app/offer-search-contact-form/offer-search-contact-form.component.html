@@ -9,49 +9,42 @@
       Nachricht zu hinterlassen.
     </div>
     <div class="form-block__input-field">
-      <label>
-        <span i18n="@@name">Name</span>
-        <span *ngIf="!message.senderName" class="form-alert" i18n="@@requiredField">
-          Pflichtangabe
-        </span>
-        <input type="text" [(ngModel)]="message.senderName"/>
-      </label>
+      <input type="text" placeholder="name" i18n-placeholder="@@name" [(ngModel)]="message.senderName"/>
+      <span class="input-field-focus"></span>
+      <span *ngIf="!message.senderName" class="form-alert" i18n="@@requiredField">
+        Pflichtangabe
+      </span>
     </div>
     <div class="form-block__input-field">
-      <label>
-        <span i18n="@@institution">Institution</span>
-        <span *ngIf="!message.senderInstitution" class="form-alert" i18n="@@requiredField">
-          Pflichtangabe
-        </span>
-        <input type="text" [(ngModel)]="message.senderInstitution"/>
-      </label>
+      <input type="text" placeholder="Institution" i18n-placeholder="@@institution" [(ngModel)]="message.senderInstitution"/>
+      <span class="input-field-focus"></span>
+      <span *ngIf="!message.senderInstitution" class="form-alert" i18n="@@requiredField">
+        Pflichtangabe
+      </span>
     </div>
     <div class="form-block__input-field">
-      <label>
-        <span i18n="@@phoneNumber">Telefonnummer</span>
-        <input type="text" [(ngModel)]="message.senderPhone"/>
-      </label>
+      <input type="text" placeholder="Telefonnummer" i18n-placeholder="@@phoneNumber" [(ngModel)]="message.senderPhone"/>
+      <span class="input-field-focus"></span>
     </div>
     <div class="form-block__input-field">
-      <label>
-        <span i18n="@@emailAddress">Email Adresse</span>
-        <span *ngIf="!message.senderEmail" class="form-alert" i18n="@@requiredField">
-          Pflichtangabe
-        </span>
-        <input type="text" [(ngModel)]="message.senderEmail"/>
-      </label>
+      <input type="text" placeholder="E-Mail Adresse" i18n-placeholder="@@emailAddress" [(ngModel)]="message.senderEmail"/>
+      <span class="input-field-focus"></span>
+      <span *ngIf="!message.senderEmail" class="form-alert" i18n="@@requiredField">
+        Pflichtangabe
+      </span>
     </div>
     <div class="form-block__input-field">
       <label>
         <span i18n="@@message">Nachricht</span>
-        <span *ngIf="!message.message" class="form-alert" i18n="@@requiredField">
-          Pflichtangabe
-        </span>
-        <textarea class="message-field" [(ngModel)]="message.message"></textarea>
       </label>
+      <textarea class="message-field" [(ngModel)]="message.message"></textarea>
+      <span class="input-field-focus"></span>
+      <span *ngIf="!message.message" class="form-alert" i18n="@@requiredField">
+        Pflichtangabe
+      </span>
     </div>
     <app-re-captcha-wrapper (resolved)="captchaResolved($event)"></app-re-captcha-wrapper>
-    <div class="submit-button">
+    <div class="submit-button align-center align-center-text">
       <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()" i18n="@@sendMessage">
         Nachricht absenden
       </button>
