@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FetchServiceService } from '../fetch-service.service';
 import { Router } from '@angular/router';
 import { Provider, providerToApi } from '../_types/Provider';
-import { Consumable } from '../_types/Consumable';
+import { Consumable, consumableToApi } from '../_types/Consumable';
 import { Device, deviceToApi } from '../_types/Device';
 import { Personnel, personnelToApi } from '../_types/Personnel';
 import { ReCaptchaWrapperComponent } from '../re-captcha-wrapper/re-captcha-wrapper.component';
@@ -185,7 +185,7 @@ export class OfferFormComponent implements OnInit {
       } else if (elem.type === 'device') {
         data.devices.push(deviceToApi(elem.resource as Device));
       } else if (elem.type === 'consumable') {
-        data.consumables.push(elem.resource as Consumable);
+        data.consumables.push(consumableToApi(elem.resource as Consumable));
       }
     });
 
