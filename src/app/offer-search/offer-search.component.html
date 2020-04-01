@@ -7,7 +7,7 @@
 <main class="main-content"><div class="fullwidth-block"><div class="container">
 
 
-<div class="button-bar">
+<div class="button-bar align-center align-center-text">
   <button
     (click)="setType('personnel')"
     class="button {{ searchType === 'personnel' ? 'active' : '' }}"
@@ -102,11 +102,9 @@
   </div>
 
   <div class="form-block">
-    <div class="form-block__label" i18n="@@postalCodeOfLocation">
-      Postleitzahl des Standortes
-    </div>
     <div class="form-block__input-field">
-      <input type="text" [(ngModel)]="postalCode" />
+      <input type="text" placeholder="Postleitzahl des Standortes" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="postalCode" />
+      <span class="input-field-focus"></span>
     </div>
   </div>
 
@@ -117,7 +115,7 @@
     Bitte prüfen Sie Ihre Eingaben.
   </div>
 
-  <div class="submit-button">
+  <div class="submit-button align-center align-center-text">
     <button (click)="onSubmit()" class="button" [disabled]="!isValid()" i18n="@@doSearch">Suchen</button>
   </div>
 </div>

@@ -3,43 +3,39 @@
   <div class="form-block__select">
     <label>
       <span i18n="@@qualification">Qualifikation</span>
-      <span *ngIf="!toP(r).qualification" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
-      </span>
     </label>
     <select [(ngModel)]="toP(r).qualification">
       <option *ngFor="let qualification of getEnumValues(PersonnelQualification)" [value]="qualification">
         {{ personnelQualificationToDE[qualification] }}
       </option>
     </select>
-  </div>
-  <div class="form-block__input-field">
-    <label>
-      <span i18n="@@institution">Institution</span>
-      <span *ngIf="!toP(r).institution" class="form-alert" i18n="@@requiredField">
+    <span *ngIf="!toP(r).qualification" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
-    </label>
-    <input type="text" [(ngModel)]="toP(r).institution">
   </div>
   <div class="form-block__input-field">
-    <label i18n="@@researchGroup">
-      Forschungsgruppe
-    </label>
-    <input type="text" [(ngModel)]="toP(r).researchGroup">
+    <input type="text" placeholder="Institution" i18n-placeholder="@@institution" [(ngModel)]="toP(r).institution">
+    <span class="input-field-focus"></span>
+    <span *ngIf="!toP(r).institution" class="form-alert" i18n="@@requiredField">
+        Pflichtangabe
+      </span>
+  </div>
+  <div class="form-block__input-field">
+    <input type="text" placeholder="Forschungsgruppe" i18n-placeholder="@@researchGroup"  [(ngModel)]="toP(r).researchGroup">
+    <span class="input-field-focus"></span>
   </div>
   <div class="form-block__select">
     <label>
       <span i18n="@@area">Bereich</span>
-      <span *ngIf="!toP(r).area" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
-      </span>
     </label>
     <select [(ngModel)]="toP(r).area">
       <option *ngFor="let area of getEnumValues(PersonnelArea)" [value]="area">
         {{ personnelAreaToDE[area] }}
       </option>
     </select>
+    <span *ngIf="!toP(r).area" class="form-alert" i18n="@@requiredField">
+        Pflichtangabe
+      </span>
   </div>
   <div class="form-block__boxes">
     <div i18n="@@_questionExperienceWithPCR">Haben Sie Erfahrung in der Durchführung von PCR und Real-Time PCR?</div>
@@ -54,19 +50,18 @@
     </label>
   </div>
   <div class="form-block__input-field">
-    <label>
-      <span i18n="@@postalCodeOfLocation">Postleitzahl des Standortes</span>
-      <span *ngIf="!toP(r).address.postalCode" class="form-alert" i18n="@@requiredField">
+    <input type="text" placeholder="Postleitzahl des Standorte" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="toP(r).address.postalCode">
+    <span class="input-field-focus"></span>
+    <span *ngIf="!toP(r).address.postalCode" class="form-alert" i18n="@@requiredField">
         Pflichtangabe
       </span>
-    </label>
-    <input type="text" [(ngModel)]="toP(r).address.postalCode">
   </div>
   <div class="form-block__input-field">
     <label i18n="@@comments_s1s">
       Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme vorhanden)
     </label>
     <textarea [(ngModel)]="toP(r).notes"></textarea>
+    <span class="input-field-focus"></span>
   </div>
   <div>
     <input [(ngModel)]="r.checkedEhrenamt" type="checkbox">
@@ -87,67 +82,56 @@
   <div class="form-block__select">
     <label>
       <span i18n="@@category">Kategorie</span>
-      <span *ngIf="!toD(r).category" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
-      </span>
     </label>
     <select [(ngModel)]="toD(r).category">
       <option *ngFor="let category of getEnumValues(DeviceCategory)" [value]="category">
         {{ deviceCategoryToDE[category] }}
       </option>
     </select>
+    <span *ngIf="!toD(r).category" class="form-alert" i18n="@@requiredField">
+      Pflichtangabe
+    </span>
   </div>
 
   <div class="form-block__input-field">
-    <label>
-      <span i18n="@@exactName">Exakte Materialbezeichnung</span>
-      <span *ngIf="!toD(r).name" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
-      </span>
-    </label>
-    <input type="text" [(ngModel)]="toD(r).name">
+    <input type="text" placeholder="Exakte Materialbezeichnung" i18n-placeholder="@@exactName" [(ngModel)]="toD(r).name">
+    <span class="input-field-focus"></span>
+    <span *ngIf="!toD(r).name" class="form-alert" i18n="@@requiredField">
+      Pflichtangabe
+    </span>
   </div>
 
   <div class="form-block__input-field">
-    <label i18n="@@manufacturer">
-      Hersteller
-    </label>
-    <input type="text" [(ngModel)]="toD(r).manufacturer">
+    <input type="text" placeholder="Hersteller" i18n-placeholder="@@manufacturer" [(ngModel)]="toD(r).manufacturer">
+    <span class="input-field-focus"></span>
   </div>
 
   <div class="form-block__input-field">
-    <label i18n="@@orderOrSerialNumber">
-      Bestell- oder Seriennummer
-    </label>
-    <input type="text" [(ngModel)]="toD(r).orderNumber">
+    <input type="text" placeholder="Bestell- oder Seriennummer" i18n-placeholder="@@orderOrSerialNumber" [(ngModel)]="toD(r).orderNumber">
+    <span class="input-field-focus"></span>
   </div>
 
   <div class="form-block__input-field">
-    <label>
-      <span i18n="@@postalCodeOfLocation">Postleitzahl des Standortes</span>
-      <span *ngIf="!toD(r).address.postalCode" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
-      </span>
-    </label>
-    <input type="text" [(ngModel)]="toD(r).address.postalCode">
+    <input type="text" placeholder="Postleitzahl das Standortes" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="toD(r).address.postalCode">
+    <span class="input-field-focus"></span>
+    <span *ngIf="!toD(r).address.postalCode" class="form-alert" i18n="@@requiredField">
+      Pflichtangabe
+    </span>
   </div>
 
   <div class="form-block__input-field">
-    <label>
-      <span i18n="@@amount">Menge</span>
-      <span *ngIf="!toD(r).amount" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
-      </span>
-    </label>
-    <div>
-      <input type="number" [(ngModel)]="toD(r).amount">
-    </div>
+    <input type="number" placeholder="Menge" i18n-placeholder="@@amount" [(ngModel)]="toD(r).amount">
+    <span class="input-field-focus"></span>
+    <span *ngIf="!toD(r).amount" class="form-alert" i18n="@@requiredField">
+      Pflichtangabe
+    </span>
   </div>
   <div class="form-block__input-field">
     <label i18n="comments">
       Anmerkungen
     </label>
     <textarea [(ngModel)]="toD(r).notes"></textarea>
+    <span class="input-field-focus"></span>
   </div>
 </div>
 
@@ -157,77 +141,66 @@
   <div class="form-block__select">
     <label>
       <span i18n="@@category">Kategorie</span>
-      <span *ngIf="!toC(r).category" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
-      </span>
     </label>
     <select [(ngModel)]="toC(r).category">
       <option *ngFor="let category of getEnumValues(ConsumableCategory)" [value]="category">
         {{ consumableCategoryTo[category] }}
       </option>
     </select>
+    <span *ngIf="!toC(r).category" class="form-alert" i18n="@@requiredField">
+      Pflichtangabe
+    </span>
   </div>
 
   <div class="form-block__input-field">
-    <label>
-      <span i18n="@@exactName">Exakte Materialbezeichnung</span>
-      <span *ngIf="!toC(r).name" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
-      </span>
-    </label>
-    <input type="text" [(ngModel)]="toC(r).name">
+    <input type="text" placeholder="Exakte Materialbezeichnung" i18n-placeholder="@@exactName" [(ngModel)]="toC(r).name">
+    <span class="input-field-focus"></span>
+    <span *ngIf="!toC(r).name" class="form-alert" i18n="@@requiredField">
+      Pflichtangabe
+    </span>
   </div>
 
   <div class="form-block__input-field">
-    <label i18n="@@manufacturer">
-      Hersteller
-    </label>
-    <input type="text" [(ngModel)]="toC(r).manufacturer">
+    <input type="text" placeholder="Hersteller" i18n-placeholder="@@manufacturer" [(ngModel)]="toC(r).manufacturer">
+    <span class="input-field-focus"></span>
   </div>
 
   <div class="form-block__input-field">
-    <label i18n="@@orderOrSerialNumber">
-      Bestell- oder Seriennummer
-    </label>
-    <input type="text" [(ngModel)]="toC(r).orderNumber">
+    <input type="text" placeholder="Bestell- oder Seriennummer" i18n-placeholder="@@orderOrSerialNumber" [(ngModel)]="toC(r).orderNumber">
+    <span class="input-field-focus"></span>
   </div>
 
   <div class="form-block__input-field">
-    <label>
-      <span i18n="@@postalCodeOfLocation">Postleitzahl des Standortes</span>
-      <span *ngIf="!toC(r).address.postalCode" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
-      </span>
-    </label>
-    <input type="text" [(ngModel)]="toC(r).address.postalCode">
+    <input type="text" placeholder="Postleitzahl des Standortes" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="toC(r).address.postalCode">
+    <span class="input-field-focus"></span>
+    <span *ngIf="!toC(r).address.postalCode" class="form-alert" i18n="@@requiredField">
+      Pflichtangabe
+    </span>
   </div>
 
   <div class="form-block__input-field">
-    <label>
-      <span i18n="@@amount">Menge</span>
-      <span *ngIf="!toC(r).amount" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
-      </span>
-    </label>
-    <div>
-      <input type="number" [(ngModel)]="toC(r).amount">
-      <div>
-        <select [(ngModel)]="toC(r).unit">
-          <option value="" i18n="@@selectUnit">Einheit auswählen</option>
-          <option value="Stück" i18n="@@piece">Stück</option>
-          <option value="Packung" i18n="@@pack">Packung</option>
-          <option value="Sonstiges" i18n="@@_othersMoreInComments">Sonstiges (Bitte in den Anmerkungen spezifizieren)</option>
-        </select>
-        <span *ngIf="!toC(r).unit" class="form-alert" i18n="@@requiredField">
+    <input type="number" placeholder="Menge" i18n-placeholder="@@amount" [(ngModel)]="toC(r).amount">
+    <span class="input-field-focus"></span>
+    <span *ngIf="!toC(r).amount" class="form-alert" i18n="@@requiredField">
+      Pflichtangabe
+    </span>
+  </div>
+  <div class="form-block__select">
+    <select [(ngModel)]="toC(r).unit">
+      <option value="" i18n="@@selectUnit">Einheit auswählen</option>
+      <option value="Stück" i18n="@@piece">Stück</option>
+      <option value="Packung" i18n="@@pack">Packung</option>
+      <option value="Sonstiges" i18n="@@_othersMoreInComments">Sonstiges (Bitte in den Anmerkungen spezifizieren)</option>
+    </select>
+    <span *ngIf="!toC(r).unit" class="form-alert" i18n="@@requiredField">
           Pflichtangabe
         </span>
-      </div>
-    </div>
   </div>
   <div class="form-block__input-field">
     <label i18n="@@comments">
       Anmerkungen
     </label>
     <textarea [(ngModel)]="toC(r).notes"></textarea>
+    <span class="input-field-focus"></span>
   </div>
 </div>
