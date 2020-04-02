@@ -38,7 +38,9 @@
         <div class="logo-list">
           <div class="logo" *ngFor="let l of logos">
             <div class="logo__image">
-              <a href=""></a><img src="/assets/images/sponsors/{{ l.image }}" alt="Logo von {{ l.name }}"/>
+              <a [href]="l.link" target="_blank">
+                <img src="/assets/images/sponsors/{{ l.image }}" alt="Logo von {{ l.name }}"/>
+              </a>
             </div>
           </div>
         </div>
