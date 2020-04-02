@@ -19,6 +19,8 @@ export class RegionSubscriptionFormComponent implements OnInit {
     postalCode: undefined
   };
 
+  checkedDatenschutz = false;
+
   recaptcha: string;
 
   submitted = false;
@@ -40,7 +42,8 @@ export class RegionSubscriptionFormComponent implements OnInit {
 
 
   isValid(): boolean {
-    return !!(this.data.name && this.data.institution && this.data.email && this.data.postalCode);
+    return !!(this.data.name && this.data.institution && this.data.email && this.data.postalCode
+      && this.checkedDatenschutz);
   }
 
 

@@ -40,6 +40,16 @@
         Pflichtangabe
       </span>
       </div>
+      <div>
+        <input [(ngModel)]="checkedDatenschutz" type="checkbox">
+        <label i18n>
+          Hiermit versichere ich, die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>
+          gelesen zu haben und stimme dieser zu.
+        </label>
+        <span *ngIf="!checkedDatenschutz" class="form-alert" i18n="@@requiredField">
+          Pflichtangabe
+        </span>
+      </div>
 
       <app-re-captcha-wrapper (resolved)="resolved($event)"></app-re-captcha-wrapper>
 
