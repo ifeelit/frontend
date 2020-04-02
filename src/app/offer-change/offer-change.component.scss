@@ -15,4 +15,8 @@
 .value-field {
   padding: 5px;
   border: 1px solid #8e9ca5;
+
+  &--multi-line {
+    white-space: pre-line;
+  }
 }

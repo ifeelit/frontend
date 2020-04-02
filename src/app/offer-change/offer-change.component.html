@@ -116,7 +116,7 @@
             <label i18n="@@comments_s1s">
               Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme vorhanden)
             </label>
-            <div class="value-field">{{ toD(r).notes }}</div>
+            <div class="value-field value-field--multi-line">{{ toD(r).notes }}</div>
           </div>
           <div>
             <input type="checkbox" checked disabled>
@@ -174,7 +174,7 @@
             <label i18n="@@comments">
               Anmerkungen
             </label>
-            <div class="value-field">{{ toD(r).notes }}</div>
+            <div class="value-field value-field--multi-line">{{ toD(r).notes }}</div>
           </div>
         </div>
 
@@ -226,7 +226,7 @@
             <label i18n="@@comments">
               Anmerkungen
             </label>
-            <div class="value-field">{{ toC(r).notes }}</div>
+            <div class="value-field value-field--multi-line">{{ toC(r).notes }}</div>
           </div>
         </div>
       </div>
