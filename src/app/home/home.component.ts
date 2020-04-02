@@ -28,21 +28,25 @@ export class HomeComponent implements OnInit {
 
 
   statistics = {
-    date: '31.03.2020, 18:00',
+    date: '02.04.2020, 19:30',
     availableResources: {
       devices: [
-        { category: DeviceCategory.PCR_THERMOCYCLER, number: 5 },
+        { category: DeviceCategory.VORTEXER, number: 3 },
+        { category: DeviceCategory.PCR_THERMOCYCLER, number: 9 },
         { category: DeviceCategory.RT_PCR_THERMOCYCLER, number: 1 },
         { category: DeviceCategory.ZENTRIFUGE, number: 3 },
-        { category: DeviceCategory.SONSTIGES, number: 18 },
         { category: DeviceCategory.PIPETTE, number: 99 },
+        { category: DeviceCategory.SONSTIGES, number: 18 },
       ],
       consumables: [
+        { category: ConsumableCategory.READOUTPLATES, numbers: [{ unit: Unit.PACK, number: 4 }] },
         { category: ConsumableCategory.SCHUTZBRILLE, numbers: [{ unit: Unit.PACK, number: 5 }] },
-        { category: ConsumableCategory.HANDSCHUHE, numbers: [{ unit: Unit.PACK, number: 80 }] },
+        { category: ConsumableCategory.HANDSCHUHE, numbers: [{ unit: Unit.PACK, number: 128 }] },
+        { category: ConsumableCategory.MASKE, numbers: [{ unit: Unit.PIECE, number: 6 }] },
         { category: ConsumableCategory.REAKTIONSGEFAESSE, numbers: [ { unit: Unit.PACK, number: 10 }, { unit: Unit.PIECE, number: 20 }] },
+        { category: ConsumableCategory.SONSTIGES, numbers: [{ unit: Unit.OTHERS, number: 1 }] },
       ],
-      personnel: 33,
+      personnel: 40,
     }
   };
 
