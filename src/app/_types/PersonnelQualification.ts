@@ -23,9 +23,9 @@ export function personnelQualificationTo(locale: string) {
   } else {
     return {
       TA: 'TA',
-      LAB_ASSISTANT: 'Lab assitant',
+      LAB_ASSISTANT: 'Lab assistant',
       POSTDOC: 'Postdoc',
-      PHD_STUDENT: 'PhD-Student',
+      PHD_STUDENT: 'PhD Student',
       MSC_STUDENT: 'MSc Student',
       BSC_STUDENT: 'BSc Student',
       SONSTIGES: 'Others',

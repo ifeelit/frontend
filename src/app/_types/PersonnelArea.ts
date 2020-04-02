@@ -36,7 +36,7 @@ export function personnelAreaTo(locale: string) {
       CELL_BIOLOGY: 'Cell biology',
       BIOLOGY: 'Biology',
       VIROLOGY: 'Virology',
-      MICRO_BIOLOGY: 'Micro biology',
+      MICRO_BIOLOGY: 'Microbiology',
       MOLECULAR_BIOLOGY: 'Molecular biology',
       PHARMACOLOGY: 'Pharmacology',
       MEDICINE: 'Medicine',
