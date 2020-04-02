@@ -35,6 +35,10 @@
 	padding: 50px 7.5%;
 	border-radius: 5px;
 	box-shadow: 2px 2px 6px 2px #ccc;
+
+	&--full-width {
+		max-width: initial;
+	}
 }
 
 

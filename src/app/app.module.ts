@@ -22,6 +22,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ReCaptchaWrapperComponent } from './re-captcha-wrapper/re-captcha-wrapper.component';
 import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { RegionSubscriptionFormComponent } from './region-subscription-form/region-subscription-form.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { StatisticsComponent } from './statistics/statistics.component';
     ContactPageComponent,
     NotFoundComponent,
     ReCaptchaWrapperComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    RegionSubscriptionFormComponent
   ],
   imports: [
     BrowserModule,

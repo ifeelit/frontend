@@ -168,4 +168,29 @@ export class FetchServiceService {
       // handle error code
     }
   }
+
+
+  async subscribeRegion(data, recaptcha: string) {
+    const currentUrl = `${url}/subscription`;
+    const request = new Request(currentUrl, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        recaptcha
+      }),
+    });
+
+    const response = await fetch(request);
+    if (response.status === 200) {
+      return { };
+    } else {
+      return {
+        error: {
+          status: response.status,
+          message: await response.json(),
+        },
+      };
+    }
+  }
 }
