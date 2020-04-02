@@ -6,6 +6,7 @@ export enum ConsumableCategory {
   DESINFEKTIONSMITTEL = 'DESINFEKTIONSMITTEL',
   REAKTIONSGEFAESSE = 'REAKTIONSGEFAESSE',
   READOUTPLATES = 'READOUTPLATES',
+  PIPETTENSPITZEN = 'PIPETTENSPITZEN',
   SONSTIGES = 'SONSTIGES',
 }
 
@@ -20,6 +21,7 @@ export function consumableCategoryTo(locale: string) {
       DESINFEKTIONSMITTEL: 'Desinfektionsmittel',
       REAKTIONSGEFAESSE: 'Reaktionsgefäße',
       READOUTPLATES: 'Readoutplates',
+      PIPETTENSPITZEN: 'Pipettenspitzen',
       SONSTIGES: 'Sonstiges',
     };
   } else {
@@ -31,6 +33,7 @@ export function consumableCategoryTo(locale: string) {
       DESINFEKTIONSMITTEL: 'Disinfectant',
       REAKTIONSGEFAESSE: 'Reaction tubes',
       READOUTPLATES: 'Readoutplates',
+      PIPETTENSPITZEN: 'Pipette tips',
       SONSTIGES: 'Others',
     };
   }
