@@ -39,12 +39,20 @@
 		.site-description{
 			@include em(12)
 		}
+
+		@media only screen and (max-width: 991px) {
+			display: none;
+		}
 	}
 }
 
 .main-navigation{
 	@include clearfix;
 	float: right;
+
+	@media screen and (max-width: 991px){
+		float: none;
+	}
 
 	.menu-toggle{
 		display: inline-block;
@@ -59,7 +67,7 @@
 
 		&:hover,&:active{color: $accent-color;}
 
-		@media screen and (max-width: 990px){ display: block }
+		@media screen and (max-width: 991px){ display: block }
 	}
 
 	.menu{

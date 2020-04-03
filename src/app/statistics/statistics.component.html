@@ -1,42 +1,37 @@
 <div class="statistics-box">
     <div class="statistics-col">
-        <table>
-            <tr>
-                <th i18n="@@devices">Geräte</th>
-            </tr>
-            <tr *ngFor="let d of data.availableResources.devices">
-                <td>
-                    {{ deviceCategoryTo[d.category] }}
-                </td>
-                <td>
-                    {{ d.number }}
-                </td>
-            </tr>
-        </table>
+        <div class="statistics-col-head align-center-text">
+            <span i18n="@@devices">Geräte</span>
+        </div>
+        <div class="statistics-col-body">
+            <ul>
+                <li *ngFor="let d of data.availableResources.devices">
+                    <span class="statistics-col-amount">{{ d.number }}</span>
+                    <span class="statistics-col-category">{{ deviceCategoryTo[d.category] }}</span>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="statistics-col">
-        <table>
-            <tr>
-                <th i18n="@@consumables">Verbrauchsmaterial</th>
-            </tr>
-            <tr *ngFor="let c of data.availableResources.consumables">
-                <td>
-                    {{ consumableCategoryTo[c.category] }}
-                </td>
-                <td>
-                    {{ formatConsumableNumbers(c.numbers) }}
-                </td>
-            </tr>
-        </table>
+        <div class="statistics-col-head align-center-text">
+            <span i18n="@@consumables">Verbrauchsmaterial</span>
+        </div>
+        <div class="statistics-col-body">
+            <ul>
+                <li *ngFor="let c of data.availableResources.consumables">
+                    <span class="statistics-col-category-2">{{ consumableCategoryTo[c.category] }}</span>
+                    <span class="statistics-col-amount-2">{{ formatConsumableNumbers(c.numbers) }}</span>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="statistics-col">
-        <table>
-            <tr>
-                <th i18n="@@persons">Personen</th>
-            </tr>
-            <tr>
-                <td i18n="@@helpers">Helfer</td><td>{{ data.availableResources.personnel }}</td>
-            </tr>
-        </table>
+        <div class="statistics-col-head align-center-text">
+            <span i18n="@@persons">Personen</span>
+        </div>
+        <div class="statistics-col-body">
+            <span class="statistics-col-amount-helper">{{ data.availableResources.personnel }}</span>
+            <span class="statistics-col-category-helper" i18n="@@helpers">Helfer</span>
+        </div>
     </div>
 </div>
