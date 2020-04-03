@@ -38,11 +38,11 @@ export class HomeComponent implements OnInit {
 
 
   statistics = {
-    date: '02.04.2020, 19:30',
+    date: '03.04.2020, 18:30',
     availableResources: {
       devices: [
         { category: DeviceCategory.VORTEXER, number: 3 },
-        { category: DeviceCategory.PCR_THERMOCYCLER, number: 9 },
+        { category: DeviceCategory.PCR_THERMOCYCLER, number: 1 },
         { category: DeviceCategory.RT_PCR_THERMOCYCLER, number: 1 },
         { category: DeviceCategory.ZENTRIFUGE, number: 3 },
         { category: DeviceCategory.PIPETTE, number: 99 },
@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
         { category: ConsumableCategory.REAKTIONSGEFAESSE, numbers: [ { unit: Unit.PACK, number: 10 }, { unit: Unit.PIECE, number: 20 }] },
         { category: ConsumableCategory.SONSTIGES, numbers: [{ unit: Unit.OTHERS, number: 1 }] },
       ],
-      personnel: 40,
+      personnel: 45,
     }
   };
 
