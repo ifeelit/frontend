@@ -37,7 +37,7 @@ export class OfferFormComponent implements OnInit {
     name: '',
     mail: '',
     phone: '',
-    isPublic: true,
+    isPublic: false,
   };
 
   checkedDatenschutz = false;
