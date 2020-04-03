@@ -15,6 +15,16 @@ export class HomeComponent implements OnInit {
 
   logos = [
     {
+      image: 'gdch.jpg',
+      name: 'GDCh',
+      link: 'https://www.gdch.de/',
+    },
+    {
+      image: 'gdch-jcf.jpg',
+      name: 'GDCh JCF',
+      link: 'https://www.jungchemikerforum.de/',
+    },
+    {
       image: 'tuk.png',
       name: 'TU Kaiserslautern',
       link: 'https://www.uni-kl.de'
