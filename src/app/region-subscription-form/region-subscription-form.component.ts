@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FetchServiceService } from '../fetch-service.service';
-import { ReCaptchaWrapperComponent } from "../re-captcha-wrapper/re-captcha-wrapper.component";
+import { ReCaptchaWrapperComponent } from '../re-captcha-wrapper/re-captcha-wrapper.component';
 
 
 @Component({
