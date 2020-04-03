@@ -13,6 +13,10 @@
 .logo {
   margin-right: 30px;
   margin-bottom: 40px;
+
+  @media only screen and (max-width: 991px) {
+    margin-right: 0;
+  }
 }
 
 
@@ -21,6 +25,10 @@
   img {
     width: 350px;
     margin-right: 50px;
+    @media only screen and (max-width: 640px) {
+      width: 225px;
+      margin: 0 10px;
+    }
   }
 }
 
