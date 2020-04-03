@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     availableResources: {
       devices: [
         { category: DeviceCategory.VORTEXER, number: 3 },
-        { category: DeviceCategory.PCR_THERMOCYCLER, number: 1 },
+        { category: DeviceCategory.PCR_THERMOCYCLER, number: 11 },
         { category: DeviceCategory.RT_PCR_THERMOCYCLER, number: 1 },
         { category: DeviceCategory.ZENTRIFUGE, number: 3 },
         { category: DeviceCategory.PIPETTE, number: 99 },

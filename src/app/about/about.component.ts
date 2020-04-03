@@ -9,7 +9,7 @@ import { LocaleService } from '../locale.service';
 })
 export class AboutComponent implements OnInit {
 
-  profiles = [
+  orga = [
     {
       image: 'julia.jpg',
       name: 'Julia Klüpfel',
@@ -25,22 +25,6 @@ export class AboutComponent implements OnInit {
           'expertise and unused material like gloves, disinfectants or lab devices. So, the WirvsVirus hackathon ' +
           'came just in time to follow words with deeds!',
       }[this.localeService.locale]
-    },
-    {
-      image: 'eli.jpg',
-      name: 'Elisabeth von der Esch',
-      short: {
-        de: 'Doktorandin (Chemie) aus München',
-        en: 'PhD student (chemistry) from Munich',
-      }[this.localeService.locale],
-      long: {
-        de: 'Zusammen mit einer befreundeten TA, die gerade für die Messung von Corona-Proben geschult wird, hatte ' +
-          'ich schon überlegt, ob und wie Uni-Ressourcen dem Labor bei der Ausweitung ihrer Corona-Testkapazitäten ' +
-          'helfen könnten.  Daher wollte ich gerne zum WirvsVirus-Hackathon beitragen.',
-        en: 'Together with a friend of mine, who is currently undergoing special training to conduct corona tests, ' +
-          'we were brainstorming if and how universities could provide help to official corona-testing laboratories. ' +
-          'The WirVsVirus-Hackathon was a good opportunity to work on solutions.',
-      }[this.localeService.locale],
     },
     {
       image: 'annette.jpg',
@@ -85,7 +69,10 @@ export class AboutComponent implements OnInit {
         en: '... Our flights got cancelled and the project died. Nonetheless, we stayed optimistic and were eager to ' +
           'contribute with our expertise and creativity to the hackathon. ...',
       }[this.localeService.locale]
-    },
+    }
+  ];
+
+  profiles = [
     {
       image: 'max.jpg',
       name: 'Maximilian Wiesholler',
@@ -98,6 +85,22 @@ export class AboutComponent implements OnInit {
           ' Idee durchzucoden.',
         en: '... There is nothing better than two sleepless nights of coding with an overdose of coffee in the ' +
           'blood, if you have a great idea for a good cause.',
+      }[this.localeService.locale],
+    },
+    {
+      image: 'eli.jpg',
+      name: 'Elisabeth von der Esch',
+      short: {
+        de: 'Doktorandin (Chemie) aus München',
+        en: 'PhD student (chemistry) from Munich',
+      }[this.localeService.locale],
+      long: {
+        de: 'Zusammen mit einer befreundeten TA, die gerade für die Messung von Corona-Proben geschult wird, hatte ' +
+          'ich schon überlegt, ob und wie Uni-Ressourcen dem Labor bei der Ausweitung ihrer Corona-Testkapazitäten ' +
+          'helfen könnten.  Daher wollte ich gerne zum WirvsVirus-Hackathon beitragen.',
+        en: 'Together with a friend of mine, who is currently undergoing special training to conduct corona tests, ' +
+          'we were brainstorming if and how universities could provide help to official corona-testing laboratories. ' +
+          'The WirVsVirus-Hackathon was a good opportunity to work on solutions.',
       }[this.localeService.locale],
     },
     {

@@ -50,6 +50,21 @@
 
       <div class="row">
         <h2 class="section-title" i18n="@@about_whoIsBehindPIRAT">Wer steht hinter PIRAT?</h2>
+        
+        <h2 class="align-center align-center-text" i18n>Orga</h2>
+        
+        <div class="profile-list">
+          <div class="profile" *ngFor="let p of orga">
+            <div class="profile__image">
+              <img src="/assets/images/profile_photos/{{ p.image }}" alt="Profilfoto von {{ p.name }}"/>
+            </div>
+            <div class="profile__name">{{ p.name }}</div>
+            <div class="profile__short">{{ p.short }}</div>
+            <div class="profile__long">{{ p.long }}</div>
+          </div>
+        </div>
+
+        <h3>Team</h3>
         <div class="profile-list">
           <div class="profile" *ngFor="let p of profiles">
             <div class="profile__image">
@@ -60,6 +75,7 @@
             <div class="profile__long">{{ p.long }}</div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
