@@ -112,8 +112,10 @@ export class AboutComponent implements OnInit {
         en: 'LMU Munich / University of Edinburgh - Student (Medicine / Bioinformatics)',
       }[this.localeService.locale],
       long: {
-        de: 'Niklas studiert Medizin und Bioinformatik - kein Wunder also, dass er sofort bei unserem Projekt dabei war und uns mit seiner Expertise aus beiden Bereichen unterstützt!',
-        en: 'Niklas studies medicine und bioinformatics - no wonder that he jumped onto our project right away, contributing his expertise from both fields.',
+        de: 'Niklas studiert Medizin und Bioinformatik - kein Wunder also, dass er sofort' +
+        'bei unserem Projekt dabei war und uns mit seiner Expertise aus beiden Bereichen unterstützt!',
+        en: 'Niklas studies medicine und bioinformatics - no wonder that he jumped onto our project right' +
+        'away, contributing his expertise from both fields.',
       }[this.localeService.locale],
     },
   ];
@@ -158,8 +160,13 @@ export class AboutComponent implements OnInit {
         en: 'ETH Zurich - Student (Data Science)',
       }[this.localeService.locale],
       long: {
-        de: 'In normalen Zeiten entwickle ich generative Machine Learning Modelle und bin in der Entrepreneur-Community aktiv. Ich halte es für essentiell, dass in globalen Krisen alle anpacken und mithelfen. Für PIRAT sehe ich grosses Hilfs-Potential und treibe deshalb die Verbreitung in der Schweiz voran.',
-        en: 'I usually work on generative machine learning models and engage in the entrepreneurial community. I believe that in such a global crises, every single person should actively participate and do the best to help. PIRAT is a valuable initiative with a big potential, and my aim is to push it to Switzerland.',
+        de: 'In normalen Zeiten entwickle ich generative Machine Learning Modelle' +
+        'und bin in der Entrepreneur-Community aktiv. Ich halte es für essentiell, ' +
+        'dass in globalen Krisen alle anpacken und mithelfen. Für PIRAT sehe ich grosses ' +
+        'Hilfs-Potential und treibe deshalb die Verbreitung in der Schweiz voran.',
+        en: 'I usually work on generative machine learning models and engage in the entrepreneurial community.' +
+        ' I believe that in such a global crises, every single person should actively participate and do the best' +
+        ' to help. PIRAT is a valuable initiative with a big potential, and my aim is to push it to Switzerland.',
       }[this.localeService.locale],
     },
   ];
