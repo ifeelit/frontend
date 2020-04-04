@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --configuration=de",
     "start-en": "ng serve --configuration=en-GB --port 4201",
+    "start-it": "ng serve --configuration=it --port 4202",
     "build": "ng build --prod --localize",
     "build-testproduction": "ng build --configuration=testproduction --localize",
     "test": "ng test",

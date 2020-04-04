@@ -120,6 +120,13 @@
               "i18nFormat": "xlf",
               "i18nLocale": "en-GB"
             },
+            "it": {
+              "aot": true,
+              "outputPath": "dist/pirate-it-GB",
+              "i18nFile": "src/i18n/messages.it.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "it"
+            },
             "de": {
               "aot": true,
               "outputPath": "dist/pirate-de",
@@ -153,6 +160,9 @@
             "en-GB": {
               "browserTarget": "pirate:build:en-GB"
             },
+            "it": {
+              "browserTarget": "pirate:build:it"
+            },
             "de": {
               "browserTarget": "pirate:build:de"
             }
@@ -174,7 +184,8 @@
               "defaultLanguage": "de",
               "languages": [
                 "de",
-                "en-GB"
+                "en-GB",
+                "it"
               ]
             }
           }
@@ -183,7 +194,8 @@
       "i18n": {
         "sourceLocale": "de",
         "locales": {
-          "en-GB": "src/i18n/messages.en-GB.xlf"
+          "en-GB": "src/i18n/messages.en-GB.xlf",
+          "it": "src/i18n/messages.it.xlf"
         }
       }
     }
