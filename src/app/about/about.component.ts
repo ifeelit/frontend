@@ -13,8 +13,8 @@ export class AboutComponent implements OnInit {
       image: 'julia.jpg',
       name: 'Julia Klüpfel',
       short: {
-        de: 'TU München - Doktorandin (Chemie), Orga',
-        en: 'TU München - PhD Student (Chemistry), Orga',
+        de: 'TU München - Doktorandin (Chemie)',
+        en: 'TU Munich - PhD Student (Chemistry)',
       }[this.localeService.locale],
       long: {
         de: 'Wir haben schon vor einiger Zeit in meiner Arbeitsgruppe diskutiert, wie wir mit unserer Expertise und ' +
@@ -30,7 +30,7 @@ export class AboutComponent implements OnInit {
       name: 'Elisabeth von der Esch',
       short: {
         de: 'TU München - Doktorandin (Chemie)',
-        en: 'TU München - PhD Student (Chemistry)',
+        en: 'TU Munich - PhD Student (Chemistry)',
       }[this.localeService.locale],
       long: {
         de: 'Zusammen mit einer befreundeten TA, die gerade für die Messung von Corona-Proben geschult wird, hatte ' +
@@ -60,7 +60,7 @@ export class AboutComponent implements OnInit {
       name: 'Markus Schneider',
       short: {
         de: 'Universität Osnabrück - Postdoc (Biochemie)',
-        en: 'Universität Osnabrück - Postdoc (Biochemestry)',
+        en: 'University of Osnabrück - Postdoc (Biochemestry)',
       }[this.localeService.locale],
       long: {
         de: 'Ich bin absolut kein Hacker. Aber als Wissenschaftler weiß ich, welche Geräte und Materialien' +
@@ -76,10 +76,10 @@ export class AboutComponent implements OnInit {
   pr = [
     {
       image: 'lukas.jpg',
-      name: 'Lukas Vordemann (Orga)',
+      name: 'Lukas Vordemann',
       short: {
-        de: 'TU München - Student (Informatik), Orga',
-        en: 'TU Munich - Student (Computer Science), Orga',
+        de: 'TU München - Student (Informatik)',
+        en: 'TU Munich - Student (Computer Science)',
       }[this.localeService.locale],
       long: {
         de: 'Eigentlich wollten Max, Chaoran und ich Kleinbauern in Kenia helfen ihre Marktmacht auszubauen um so' +
@@ -90,10 +90,10 @@ export class AboutComponent implements OnInit {
     },
     {
       image: 'annette.jpg',
-      name: 'Annette Bieniusa (Orga)',
+      name: 'Annette Bieniusa',
       short: {
-        de: 'TU Kaiserslautern - akademische Rätin (Informatik), Orga',
-        en: 'TU Kaiserslautern - Academic counsel (computer science), Orga',
+        de: 'TU Kaiserslautern - akademische Rätin (Informatik)',
+        en: 'TU Kaiserslautern - Academic counsel (computer science)',
       }[this.localeService.locale],
       long: {
         de: 'Ich finde Hackathons faszinierend - WirVsVirus bringt außerdem noch Aktualität und Impact. Die Idee von' +
@@ -123,8 +123,8 @@ export class AboutComponent implements OnInit {
       image: 'chaoran.jpg',
       name: 'Chaoran Chen',
       short: {
-        de: 'TU München - Student (Informatik), Orga',
-        en: 'TU Munich - Student (Computer Science), Orga',
+        de: 'TU München - Student (Informatik)',
+        en: 'TU Munich - Student (Computer Science)',
       }[this.localeService.locale],
       long: {
         de: '... Nachdem das Coronavirus jedoch unsere gebuchte Reise verhinderte, kam der Hackathon uns sehr' +
@@ -154,7 +154,7 @@ export class AboutComponent implements OnInit {
       image: 'marcel.jpg',
       name: 'Marcel Bühler',
       short: {
-        de: 'ETH Zurich - Student (Data Science)',
+        de: 'ETH Zürich - Student (Data Science)',
         en: 'ETH Zurich - Student (Data Science)',
       }[this.localeService.locale],
       long: {
