@@ -19,7 +19,11 @@
             <a
               [href]="locale !== 'en' ? environment.pageHosts['en'] + url : '#'"
               class="{{ locale === 'en' ? 'active' : '' }}"
-            >en</a>
+            >en</a> /
+            <a
+              [href]="locale !== 'it' ? environment.pageHosts['it'] + url : '#'"
+              class="{{ locale === 'it' ? 'active' : '' }}"
+            >it</a>
           </li>
           <li class="home menu-item {{ url === '/' ? 'current-menu-item' : '' }}">
             <a routerLink="/"><img src="/assets/images/home-icon.png" alt="Home"></a>

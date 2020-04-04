@@ -15,7 +15,7 @@ export class LocaleService {
     if (l === 'en-GB') {
       this.locale = 'en';
     } else {
-      this.locale = 'de';
+      this.locale = l;
     }
   }
 }

@@ -8,7 +8,8 @@ export const environment = {
   apiHost: 'http://localhost:5000',
   pageHosts: {
     de: 'http://localhost:4200',
-    en: 'http://localhost:4201'
+    en: 'http://localhost:4201',
+    it: 'http://localhost:4202'
   }
 };
 
