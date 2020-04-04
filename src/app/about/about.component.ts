@@ -9,13 +9,12 @@ import { LocaleService } from '../locale.service';
 })
 export class AboutComponent implements OnInit {
 
-  orga = [
-    {
+  expert = [{
       image: 'julia.jpg',
       name: 'Julia Klüpfel',
       short: {
-        de: 'Doktorandin (Chemie) aus München',
-        en: 'PhD student (chemistry) from Munich',
+        de: 'TU München - Doktorandin (Chemie), Orga',
+        en: 'TU München - PhD Student (Chemistry), Orga',
       }[this.localeService.locale],
       long: {
         de: 'Wir haben schon vor einiger Zeit in meiner Arbeitsgruppe diskutiert, wie wir mit unserer Expertise und ' +
@@ -27,72 +26,11 @@ export class AboutComponent implements OnInit {
       }[this.localeService.locale]
     },
     {
-      image: 'annette.jpg',
-      name: 'Annette Bieniusa',
-      short: {
-        de: 'Akademische Rätin (Informatik) aus Kaiserslautern',
-        en: 'Academic counsel (computer science) from Kaiserslautern',
-      }[this.localeService.locale],
-      long: {
-        de: 'Ich finde Hackathons faszinierend - WirVsVirus bringt außerdem noch Aktualität und Impact. Die Idee von' +
-          ' PIRAT fand ich super: Wir bringen Forschung und Praxis auf neue Art zusammen um Ressourcen im Kampf gegen' +
-          ' Corona zu schaffen!',
-        en: 'Hackathons are fascinating - Furthermore, WirVsVirus addresses an important topic, aiming for urgent ' +
-          'solutions. With PIRAT we bring  research and industry together, in order to fight against corona with ' +
-          'joint forces.',
-      }[this.localeService.locale],
-    },
-    {
-      image: 'lukas.jpg',
-      name: 'Lukas Vordemann',
-      short: {
-        de: 'Student (Informatik) aus München',
-        en: 'Student (computer science) from Munich',
-      }[this.localeService.locale],
-      long: {
-        de: 'Eigentlich wollten Max, Chaoran und ich Kleinbauern in Kenia helfen ihre Marktmacht auszubauen um so' +
-          ' bessere Erträge erzielen zu können.  ...',
-        en: 'Max, Chaoran and I just had started a project in Kenya to help small farmers by improving logistic ' +
-          'chains when the corona crisis hit Europe. ...',
-      }[this.localeService.locale],
-    },
-    {
-      image: 'chaoran.jpg',
-      name: 'Chaoran Chen',
-      short: {
-        de: 'Student (Informatik) aus Garching b. München',
-        en: 'Student (computer science) from Munich',
-      }[this.localeService.locale],
-      long: {
-        de: '... Nachdem das Coronavirus jedoch unsere gebuchte Reise verhinderte, kam der Hackathon uns sehr' +
-          ' gelegen, um die freigewordene Zeit sinnvoll und kreativ zu nutzen. ...',
-        en: '... Our flights got cancelled and the project died. Nonetheless, we stayed optimistic and were eager to ' +
-          'contribute with our expertise and creativity to the hackathon. ...',
-      }[this.localeService.locale]
-    }
-  ];
-
-  profiles = [
-    {
-      image: 'max.jpg',
-      name: 'Maximilian Wiesholler',
-      short: {
-        de: 'Student (Informatik) aus München',
-        en: 'Student (computer science) from Munich',
-      }[this.localeService.locale],
-      long: {
-        de: '... Was kann man da besseres tun, als mit einer Kaffee Überdosis das Wochenende für eine tolle' +
-          ' Idee durchzucoden.',
-        en: '... There is nothing better than two sleepless nights of coding with an overdose of coffee in the ' +
-          'blood, if you have a great idea for a good cause.',
-      }[this.localeService.locale],
-    },
-    {
       image: 'eli.jpg',
       name: 'Elisabeth von der Esch',
       short: {
-        de: 'Doktorandin (Chemie) aus München',
-        en: 'PhD student (chemistry) from Munich',
+        de: 'TU München - Doktorandin (Chemie)',
+        en: 'TU München - PhD Student (Chemistry)',
       }[this.localeService.locale],
       long: {
         de: 'Zusammen mit einer befreundeten TA, die gerade für die Messung von Corona-Proben geschult wird, hatte ' +
@@ -104,27 +42,11 @@ export class AboutComponent implements OnInit {
       }[this.localeService.locale],
     },
     {
-      image: 'markus.jpg',
-      name: 'Markus Schneider',
-      short: {
-        de: 'Postdoc',
-        en: 'Postdoc',
-      }[this.localeService.locale],
-      long: {
-        de: 'Ich bin absolut kein Hacker. Aber als Wissenschaftler weiß ich, welche Geräte und Materialien' +
-          ' im Labor gebraucht werden und was nötig ist, um einen Test durchzuführen und auszuwerten. Ich versuche' +
-          ' daher PIRAT auf diesem Weg mit meinem Know-how zu unterstützen.',
-        en: 'I am definitly not a hacker! However, as a scientist and researcher i know about all the devices and ' +
-          'materials that are needed in a laboratory. Furthermore, i am familiar with test procedures and therefore ' +
-          'provide the PIRAT team with all the necessary background.',
-      }[this.localeService.locale],
-    },
-    {
       image: 'klemens.jpg',
       name: 'Klemens Thaler',
       short: {
-        de: 'Prüfingenieur bei TÜV SÜD Product Service, aktive Medizinprodukte',
-        en: 'Test engineer at TÜV SÜD Product Service, active medical products',
+        de: 'TÜV SÜD Product Service - Prüfingenieur für aktive Medizinprodukte',
+        en: 'TÜV SÜD Product Service - Test engineer for active medical products',
       }[this.localeService.locale],
       long: {
         de: 'In dieser außergewöhnlichen Situation ist jede Hilfe notwendig. Ich möchte eine helfende Hand anbieten,' +
@@ -134,11 +56,121 @@ export class AboutComponent implements OnInit {
       }[this.localeService.locale],
     },
     {
+      image: 'markus.jpg',
+      name: 'Markus Schneider',
+      short: {
+        de: 'Universität Osnabrück - Postdoc (Biochemie)',
+        en: 'Universität Osnabrück - Postdoc (Biochemestry)',
+      }[this.localeService.locale],
+      long: {
+        de: 'Ich bin absolut kein Hacker. Aber als Wissenschaftler weiß ich, welche Geräte und Materialien' +
+          ' im Labor gebraucht werden und was nötig ist, um einen Test durchzuführen und auszuwerten. Ich versuche' +
+          ' daher PIRAT auf diesem Weg mit meinem Know-how zu unterstützen.',
+        en: 'I am definitly not a hacker! However, as a scientist and researcher i know about all the devices and ' +
+          'materials that are needed in a laboratory. Furthermore, i am familiar with test procedures and therefore ' +
+          'provide the PIRAT team with all the necessary background.',
+      }[this.localeService.locale],
+    }
+  ];
+
+  pr = [
+    {
+      image: 'lukas.jpg',
+      name: 'Lukas Vordemann (Orga)',
+      short: {
+        de: 'TU München - Student (Informatik), Orga',
+        en: 'TU Munich - Student (Computer Science), Orga',
+      }[this.localeService.locale],
+      long: {
+        de: 'Eigentlich wollten Max, Chaoran und ich Kleinbauern in Kenia helfen ihre Marktmacht auszubauen um so' +
+          ' bessere Erträge erzielen zu können.  ...',
+        en: 'Max, Chaoran and I just had started a project in Kenya to help small farmers by improving logistic ' +
+          'chains when the corona crisis hit Europe. ...',
+      }[this.localeService.locale],
+    },
+    {
+      image: 'annette.jpg',
+      name: 'Annette Bieniusa (Orga)',
+      short: {
+        de: 'TU Kaiserslautern - akademische Rätin (Informatik), Orga',
+        en: 'TU Kaiserslautern - Academic counsel (computer science), Orga',
+      }[this.localeService.locale],
+      long: {
+        de: 'Ich finde Hackathons faszinierend - WirVsVirus bringt außerdem noch Aktualität und Impact. Die Idee von' +
+          ' PIRAT fand ich super: Wir bringen Forschung und Praxis auf neue Art zusammen um Ressourcen im Kampf gegen' +
+          ' Corona zu schaffen!',
+        en: 'Hackathons are fascinating - Furthermore, WirVsVirus addresses an important topic, aiming for urgent ' +
+          'solutions. With PIRAT we bring  research and industry together, in order to fight against corona with ' +
+          'joint forces.',
+      }[this.localeService.locale],
+    },
+    {
+      image: 'niklas.jpg',
+      name: 'Niklas Lang',
+      short: {
+        de: 'LMU München / University of Edinburgh - Student (Medizin / Bioinformatik)',
+        en: 'LMU Munich / University of Edinburgh - Student (Medicine / Bioinformatics)',
+      }[this.localeService.locale],
+      long: {
+        de: 'Niklas studiert Medizin und Bioinformatik - kein Wunder also, dass er sofort bei unserem Projekt dabei war und uns mit seiner Expertise aus beiden Bereichen unterstützt!',
+        en: 'Niklas studies medicine und bioinformatics - no wonder that he jumped onto our project right away, contributing his expertise from both fields.',
+      }[this.localeService.locale],
+    },
+  ];
+
+  developer = [
+      {
+      image: 'chaoran.jpg',
+      name: 'Chaoran Chen',
+      short: {
+        de: 'TU München - Student (Informatik), Orga',
+        en: 'TU Munich - Student (Computer Science), Orga',
+      }[this.localeService.locale],
+      long: {
+        de: '... Nachdem das Coronavirus jedoch unsere gebuchte Reise verhinderte, kam der Hackathon uns sehr' +
+          ' gelegen, um die freigewordene Zeit sinnvoll und kreativ zu nutzen. ...',
+        en: '... Our flights got cancelled and the project died. Nonetheless, we stayed optimistic and were eager to ' +
+          'contribute with our expertise and creativity to the hackathon. ...',
+      }[this.localeService.locale]
+    },
+    {
+      image: 'max.jpg',
+      name: 'Maximilian Wiesholler',
+      short: {
+        de: 'TU München - Student (Informatik)',
+        en: 'TU Munich - Student (Computer Science)',
+      }[this.localeService.locale],
+      long: {
+        de: '... Was kann man da besseres tun, als mit einer Kaffee Überdosis das Wochenende für eine tolle' +
+          ' Idee durchzucoden.',
+        en: '... There is nothing better than two sleepless nights of coding with an overdose of coffee in the ' +
+          'blood, if you have a great idea for a good cause.',
+      }[this.localeService.locale],
+    },
+  ];
+
+  international = [
+    {
+      image: 'marcel.jpg',
+      name: 'Marcel Bühler',
+      short: {
+        de: 'ETH Zurich - Student (Data Science)',
+        en: 'ETH Zurich - Student (Data Science)',
+      }[this.localeService.locale],
+      long: {
+        de: 'In normalen Zeiten entwickle ich generative Machine Learning Modelle und bin in der Entrepreneur-Community aktiv. Ich halte es für essentiell, dass in globalen Krisen alle anpacken und mithelfen. Für PIRAT sehe ich grosses Hilfs-Potential und treibe deshalb die Verbreitung in der Schweiz voran.',
+        en: 'I usually work on generative machine learning models and engage in the entrepreneurial community. I believe that in such a global crises, every single person should actively participate and do the best to help. PIRAT is a valuable initiative with a big potential, and my aim is to push it to Switzerland.',
+      }[this.localeService.locale],
+    },
+  ];
+
+  consultant = [
+    {
       image: 'flo.jpg',
       name: 'Florian Pawlik',
       short: {
-        de: 'Software Consultant aus München',
-        en: 'Software consultant from Munich',
+        de: 'IT Consultant aus München',
+        en: 'IT consultant from Munich',
       }[this.localeService.locale],
       long: {
         de: 'Ich bin hier während des Hackatons in das Team mit reingerutscht als Ratgeber, Fehlerfinder und' +
