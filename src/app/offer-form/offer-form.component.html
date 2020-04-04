@@ -11,7 +11,7 @@
     Kontaktdaten
   </div>
   <div class="form-block__input-field">
-    <input type="text" i18n="@@institution" placeholder="Institution" [(ngModel)]="provider.institution" required>
+    <input type="text" i18n-placeholder="@@institution" placeholder="Institution" [(ngModel)]="provider.institution" required>
     <span class="input-field-focus"></span>
     <span *ngIf="!provider.institution" class="form-alert" i18n="@@requiredField">
       Pflichtangabe
