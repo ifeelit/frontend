@@ -83,15 +83,15 @@ export class AboutComponent implements OnInit {
       }[this.localeService.locale],
       long: {
         de: 'Man kann entweder auf der faulen Haut sitzen und die Krise ausharren oder' + 
-          'sich in irgendeiner Form engagieren und nützlich machen. Hier sind der Kreativität' + 
-          'keine Grenzen gesetzt, was wir auch beim WirVsVirus Hackathon gesehen haben. Die' +  
-          'Arbeit an dem PIRAT Projekt ist für mich nicht nur eine sinnvolle Aufgabe sondern' +  
-          'auch eine einzigartige Erfahrung die ich nicht missen möchte.',
+        'sich in irgendeiner Form engagieren und nützlich machen. Hier sind der Kreativität' + 
+        'keine Grenzen gesetzt, was wir auch beim WirVsVirus Hackathon gesehen haben. Die' +  
+        'Arbeit an dem PIRAT Projekt ist für mich nicht nur eine sinnvolle Aufgabe sondern' +  
+        'auch eine einzigartige Erfahrung die ich nicht missen möchte.',
         en: 'Everybody has the choice to either do nothing and wait until this crisis will ' + 
-          'be over or try to do his part in fighting the virus. There are many ways to contribute ' + 
-          'with your skills to this situation and creativity has no limits, what we have also seen' + 
-          'during the WirVsVirus Hackathon. Working on the PIRAT project has not only been a ' + 
-          'meaningful work to me, but also an unforgettable experience i will never forget.',
+        'be over or try to do his part in fighting the virus. There are many ways to contribute ' + 
+        'with your skills to this situation and creativity has no limits, what we have also seen' + 
+        'during the WirVsVirus Hackathon. Working on the PIRAT project has not only been a ' + 
+        'meaningful work to me, but also an unforgettable experience i will never forget.',
       }[this.localeService.locale],
     },
     {
